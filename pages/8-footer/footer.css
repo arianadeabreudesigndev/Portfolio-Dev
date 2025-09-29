@@ -74,7 +74,7 @@
     margin: 1em 0px 2em 0px;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
     #footer {
         align-items: center;
         text-align: center;
