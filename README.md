@@ -103,7 +103,7 @@ Busco uma oportunidade como **Desenvolvedora Full Stack** onde possa contribuir 
 
 ## 🌐 Links
 
-- **🔗 Live Demo**: https://animated-sorbet-e79135.netlify.app
+- **🔗 Live Demo**: https://portfolioariandeabreudesigndev.netlify.app
 - **📂 Repositório**: [https://github.com/arianadeabreudesigndev/Portfolio-Dev](https://github.com/arianadeabreudesigndev/Portfolio-Dev)
 
 > *"Desenvolvido com dedicação para demonstrar minha paixão por tecnologia e design. Sempre evoluindo, sempre aprendendo."*
@@ -118,3 +118,4 @@ Busco uma oportunidade como **Desenvolvedora Full Stack** onde possa contribuir 
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/arianadeabreudesigndev)
 
 </div>
+
