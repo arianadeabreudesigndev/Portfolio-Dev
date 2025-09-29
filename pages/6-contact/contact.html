@@ -1,0 +1,55 @@
+<section class="containerContact">
+  
+  <div class="socialIcons">
+    <a class="socialIcon" href="https://www.youtube.com/@ArianaDeAbreuDev"><img src="/src/img/icons/youtube-icon.svg" alt="YouTube" data-i18n-attr="alt:youtube-alt"></a>
+    <a class="socialIcon" href="https://www.instagram.com/arianadeabreudesigner"><img src="/src/img/icons/instagram-icon.svg" alt="Instagram" data-i18n-attr="alt:instagram-alt"></a>
+    <a class="socialIcon" href="http://tinyurl.com/5522996127823"><img src="/src/img/icons/whatsapp-icon.svg" alt="WhatsApp" data-i18n-attr="alt:whatsapp-alt"></a>
+    <a class="socialIcon" href="https://www.linkedin.com/in/arianadeabreudesigner-developer"><img src="/src/img/icons/linkedin-icon.svg" alt="LinkedIn" data-i18n-attr="alt:linkedin-alt"></a>
+  </div>
+
+  <div class="contactMe" >
+    <div>
+      <img class="contactPhoto" src="/src/img/images/me.webp" alt="Tailane Lopes" data-i18n-attr="alt:contact-photo-alt">
+      <p data-i18n="contact-intro">Vamos conversar sobre tecnologia, design e inovação? Estou sempre aberta a novos projetos e conexões!<p>
+    </div>
+    <div>
+      <h3 data-i18n="contact-email">email</h3>
+      <p>arianadeabreudesigndev@gmail.com</p>
+      <h3 data-i18n="contact-phone">telefone</h3>
+      <p>+55 22 996127823</p>
+    </div>
+  </div>
+
+  <div class="contactForm">
+    <h2 data-i18n="contact-title">contato</h2>
+    <form id="contact-form" action="/submit_form" method="post">
+      <div class="contactBox">
+        <label for="name"></label>
+        <input type="text" id="name" name="name" placeholder="nome" required data-i18n-ph="contact-form-name">
+      </div>
+
+      <div class="contactBox">
+        <label for="email"></label>
+        <input type="email" id="email" name="email" placeholder="email" required data-i18n-ph="contact-form-email">
+      </div>
+
+      <div class="contactBox">
+        <label for="subject"></label>
+        <input type="text" id="subject" name="subject" placeholder="assunto" required data-i18n-ph="contact-form-subject">
+      </div>
+
+      <div class="contactBox">
+        <label for="message"></label>
+        <input type="text" id="message" name="message" placeholder="mensagem" required data-i18n-ph="contact-form-message">
+      </div>
+
+      <div class="btnContent">
+        <button class="btnSend" type="submit">
+          <span data-i18n="contact-form-button">enviar</span>
+          <img src="/images/simple-arrow-right.svg" alt="" id="anchor-footer">
+        </button>
+      </div>
+    </form>
+  </div>
+
+</section>

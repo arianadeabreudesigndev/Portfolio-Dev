@@ -1,0 +1,319 @@
+.aboutMeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 7em 0 10em 0;
+  padding: 0 1.5em;
+}
+
+.aboutMeImgs {
+  display: block;
+  text-align: center;
+  margin: 2em 0 0 0;
+}
+
+.aboutMeImgs img {
+  display: none;
+  border-radius: 100%;
+  height: var(--img-size);
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.aboutMeImgs img.is-visible {
+  display: block;
+}
+
+#anchor-about-me-section{
+  scroll-margin-top: 10em;
+}
+
+.aboutMeText {
+  margin-top: 3em;
+  text-align: start;
+  width: 100%;
+}
+
+.aboutMeText h2 {
+  font-size: var(--pattern-h2);
+  text-transform: uppercase;
+  padding-bottom: 0.5em;
+  border-bottom: 0.15em solid var(--white);
+  width: fit-content;
+  margin-bottom: 1em;
+}
+
+.aboutMeText p {
+  font-size: var(--pattern-p);
+  color: var(--white);
+  opacity: 0.8;
+  padding: 1em 0 1.5em 0;
+  text-transform: initial;
+  line-height: 1.5;
+}
+
+.mobileMenuToggle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  width: 9em;
+}
+
+.mobileMenuToggle button {
+  display: block;
+  padding: 0.5em 0;
+  background-color: transparent;
+  color: var(--white);
+  border: none;
+  border-bottom: 0.15em solid var(--white);
+  cursor: pointer;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  text-align: start;
+  width: 100%;
+}
+
+.mobileMenuToggle img {
+  width: 1.5em;
+  padding-bottom: 0.2em;
+  padding-left: 0.5em;
+  transition: transform 0.3s ease;
+  transform: rotate(0deg);
+}
+
+.mobileMenuToggle.active img {
+  transform: rotate(180deg);
+}
+
+.socialMediaLinks ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  margin-top: 2em;
+}
+
+.socialMediaLinks img {
+  height: var(--icons-size);
+}
+
+.socialMediaLinks img:hover {
+  filter: invert(50%) sepia(100%) saturate(800%) hue-rotate(325deg) brightness(95%) contrast(85%);
+}
+
+.menuAboutMe {
+  width: 100%;
+  margin-left: 0;
+  display: block;
+}
+
+.menuAboutMe nav {
+  position: relative;
+}
+
+.menuList {
+  display: none;
+  flex-direction: column;
+  text-align: center;
+  margin: 0;
+  background-color: var(--grey);
+  min-width: 8em;
+  border-radius: 0.3em;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 8px 16px var(--black);
+}
+
+.menuList.active {
+  display: flex;
+}
+
+.menuAboutMe li {
+  width: 100%;
+  padding: 1vw 0;
+}
+
+.menuAboutMe a {
+  font-size: 1em;
+  display: block;
+  padding: 0.5em 0;
+  color: var(--white);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.menuAboutMe a:hover {
+  color: var(--cian);
+}
+
+.menuOption{
+  cursor: pointer;
+}
+
+.menuOption.selected {
+  color: var(--cian);
+  text-decoration: underline;
+  text-underline-position: under;
+}
+
+.scrollHint {
+  display: none;
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .aboutMeContainer {
+    margin: 5em 0 18em 0;
+    padding: 0 5em;
+  }
+
+  .mobileMenuToggle {
+    display: none;
+  }
+
+  .menuAboutMe nav {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  .menuList {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    background-color: transparent;
+    padding: 0.5em 0;
+    width: 100%;
+    max-width: 90vw;
+    margin: 0 auto;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    position: static;
+    box-shadow: none;
+  }
+
+  .menuList::-webkit-scrollbar {
+    display: none;
+  }
+
+  .menuAboutMe li {
+    flex: 0 0 auto;
+    padding: 0;
+  }
+
+  .scrollHint {
+    display: block;
+    position: absolute;
+    right: 0.5rem;
+    top: 25%;
+    pointer-events: none;
+    opacity: 0.85;
+    transform: rotate(90deg);
+  }
+
+  .scrollHint img {
+    height: 1.2em;
+    animation: hintMove 1.4s infinite ease-in-out;
+  }
+
+  @keyframes hintMove {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(5px); }
+  }
+
+  .aboutMeText {
+    text-align: center;
+    margin-top: 5em;
+  }
+
+  .aboutMeText h2 {
+    font-size: var(--pattern-h2);
+    justify-self: center;
+  }
+
+  .aboutMeText p {
+    font-size: var(--pattern-p);
+  }
+}
+
+@media (min-width: 1200px) {
+  .aboutMeContainer {
+    display: grid;
+    grid-template-columns: 2em 0.8fr 0.8fr;
+    grid-template-rows: auto;
+    grid-template-areas: "menuAboutMe aboutMeImgs aboutMeText";
+    column-gap: 3em;
+    margin-bottom: 25em;
+    padding: 0 3em;
+  }
+
+  .mobileMenuToggle {
+    display: none;
+  }
+
+  .aboutMeImgs {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    place-self: center;
+  }
+
+  .aboutMeImgs img.is-visible {
+    display: block;
+    height: 28em;
+    max-width: 28em;
+    padding-left: 3em;
+  }
+
+  .aboutMeText {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+    text-align: left;
+    width: 30em;
+    margin: 5em 3em 0 0;
+    height: 40em;
+  }
+
+  .socialMediaLinks ul {
+    justify-content: flex-start;
+    width: 15em;
+    gap: 1.5em;
+  }
+
+  .menuAboutMe {
+    display: flex;
+    align-items: center;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    margin-left: -17.5em;
+  }
+
+  .menuList {
+    display: flex;
+    flex-direction: row;
+    transform: rotate(-90deg);
+    background-color: transparent;
+    position: static;
+    box-shadow: none;
+    padding: 0;
+    width: auto;
+  }
+
+  .menuAboutMe li {
+    padding: 1vw;
+    width: auto;
+  }
+
+  .menuAboutMe a {
+    font-size: 1.3em;
+    padding: 0;
+  }
+
+  .scrollHint {
+    display: none;
+  }
+}

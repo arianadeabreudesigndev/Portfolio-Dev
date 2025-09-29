@@ -1,0 +1,268 @@
+.containerContact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1em 0;
+}
+
+.socialIcons {
+    order: 4;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1em;
+    margin: 1em 0;
+    transition: filter 0.2s ease;
+}
+
+.socialIcon:hover img {
+    filter: invert(50%) sepia(100%) saturate(800%) hue-rotate(325deg) brightness(95%) contrast(85%);
+}
+
+.socialIcon img {
+    height: var(--icons-size);
+    padding: 0.3em;
+}
+
+.contactPhoto {
+    height: 10em;
+    border-radius: 100%;
+    margin: 0 auto 1em auto;
+    display: block;
+}
+
+.contactMe {
+    order: 1;
+    width: 100%;
+    max-width: 20em;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-self: center;
+    margin: 7em auto 2em auto;
+}
+
+.contactMe h3 {
+    padding: 1em 0;
+    text-transform: uppercase;
+    margin-top: 1em;
+    font-size: var(--pattern-h3);
+}
+
+.contactMe img {
+    margin-bottom: 1em;
+}
+
+.contactMe p {
+    text-transform: initial;
+    font-size: var(--pattern-p);
+}
+
+.contactForm {
+    order: 4;
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-self: center;
+    align-items: center;
+    padding: 1em;
+    width: 100%;
+    max-width: none;
+    min-width: unset;
+    margin: 5em 0; 
+}
+
+.contactForm h2 {
+    align-self: center;
+    font-size: var(--pattern-h2);
+    text-transform: uppercase;
+    margin-bottom: 1em;
+    border-bottom: 2px solid var(--white);
+    padding-bottom: 0.5em;
+}
+
+.contactForm form {
+    width: 80%;
+}
+
+.contactForm input::placeholder {
+    font-size: 1.2em;
+}
+
+.contactForm input {
+    font-family: 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    height: 5em;
+    width: 100%;
+    margin: 1.1em 0;
+    border: 0;
+    border-bottom: 2px solid var(--white);
+    background-color: var(--grey--light);
+    color: var(--white);
+}
+
+.btnSend {
+    color: var(--white);
+    font-size: 1em;
+    text-transform: uppercase;
+    border-radius: 8px;
+    border: 0;
+    background-color: #4B4B4B;
+    display: flex;
+    place-items: center;
+    padding: 0.8em 1.5em;
+    cursor: pointer;
+    font-weight: bold;
+    height: 45px;
+    margin-top: 1.5em;
+}
+
+.btnSend:hover{
+    background-color: var(--cian);
+}
+
+.btnSend img {
+    height: 20px;
+}
+
+.btnContent {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    .containerContact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 5em 4em;
+    }
+    .contactMe {
+        order: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .contactPhoto {
+        height: 15em;
+        margin-bottom: 2em;
+    }
+
+
+    .contactMe p {
+        margin: 0.5em 0;
+    }
+
+    .contactMe h3 {
+        order: 5;
+        margin: 1em 0 0 0;
+    }
+
+    .socialIcons {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 1em;
+        margin: 2em 0;
+    }
+
+    .contactForm {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 70vw;
+        padding: 1em;
+        align-items: center;
+    }
+
+    .contactForm h2 {
+        margin-bottom: 1em;
+        align-self: center;
+    }
+
+    .btnContent {
+        display: flex;
+        justify-content: center;
+        margin-top: 5em;
+    }
+
+    .btnSend {
+        margin-top: 0;
+    }
+}
+
+@media (min-width: 1200px) {
+
+    #anchor-footer{
+        scroll-margin-top: 45em;
+    }
+
+    .containerContact {
+        display: grid;
+        grid-template-columns: 1fr 1fr; 
+        gap: 4em;
+        align-items: start;
+        margin: 4em 4em 0 2em;
+        position: relative;
+        grid-auto-rows: auto; 
+    }
+
+    .containerContact::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 3px;
+        height: 40em;
+        background-color: var(--white);
+        opacity: 0.3;
+    }
+
+    .contactMe {
+        grid-column: 1;
+        grid-row: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+
+
+    .contactPhoto{
+        margin-top: -5em;
+    }
+
+    .socialIcons {
+        grid-column: 1;
+        grid-row: 2;
+        justify-content: center;
+        margin-top: -3em;
+    }
+
+    .contactForm {
+        grid-column: 2;
+        grid-row: 1 / span 2; 
+        max-width: none;
+        margin: 0;
+        padding: 0 1em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .contactForm h2 {
+        align-self: center;
+        margin-bottom: 2em;
+    }
+
+    .btnContent {
+        justify-content: center;
+    }
+}

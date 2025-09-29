@@ -1,0 +1,265 @@
+.skillContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.skillsScroll {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8em;
+  justify-items: center;
+  width: max-content;
+  margin: 0 auto;
+  max-height: 70vh;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+.skillsScroll a {
+  width: auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.skillsScroll img {
+  height: var(--icons-size);
+  padding: 0.5em;
+}
+
+.skillTextDescrip {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  line-height: 1.2;
+}
+
+.skill-side-panel {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 80%;
+  height: 100%;
+  background-color: var(--grey-light);
+  box-shadow: -4px 0 15px rgba(0,0,0,0.5);
+  transition: right 0.3s ease-in-out;
+  z-index: 3000;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5em;
+}
+
+.skill-side-panel.active { 
+  right: 0; 
+}
+
+.skill-side-panel h3 { 
+  margin-top: 0; 
+  color: var(--cian);
+  font-weight: bold; 
+}
+
+.skill-side-panel p { 
+  margin-top: 1em; 
+  color: var(--white);
+}
+
+.skill-side-panel .close-panel {
+  align-self: flex-end;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: var(--cian);
+  font-weight: bold;
+}
+
+.horizontalLineDescrip { display: none; }
+
+.skillsTitle {
+  font-size: 1.5em;
+  text-transform: uppercase;
+  margin: 1.5em auto;
+  justify-content: center;
+  order: -1;
+}
+
+.verticalLineTitle {
+  height: 0.5em;
+  position: static;
+  width: 3.2em;
+}
+
+.skillIcon {
+  background-color: var(--grey-light);
+  padding: 0.8em;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.skillIcon:hover { 
+  transform: scale(0.9); 
+}
+
+.skillIcon img:hover {
+  filter: invert(10%) sepia(50%) saturate(9000%) hue-rotate(290deg) brightness(100%) contrast(90%);
+}
+
+#anchor-skills{
+  scroll-margin-top: 10em;
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .skillContainer {
+    display: grid;
+    grid-template-columns: 1fr 0.2fr;
+    gap: 2em;
+    align-items: center;
+    justify-self: center;
+    width: max-content;
+  }
+
+  
+  .skillsScroll {
+    grid-column: 1;
+    grid-row: 1;
+    gap: 1em;
+    justify-items: center;
+    align-items: center;
+    padding: 0;
+    overflow: auto;
+  }
+
+  .skillsScroll a {
+    height: 6em;
+    width: 6em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .skillsScroll img {
+    height: 5em;
+    padding: 0.5em;
+  }
+
+  .skillsTitle {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 2.2em;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    margin-top: -5em;
+  }
+
+  .skillsTitle h2 {
+     margin: 0;
+    }
+
+  .verticalLineTitle {
+    border-left: 2px solid var(--white);
+    border-bottom: none;
+    height: 4em;
+    margin-top: 16.5em;
+    margin-right: -3.3em;
+    position: absolute;
+  }
+
+  .skill-side-panel {
+    right: -100%;
+    width: 70%;
+    padding: 2em;
+  }
+
+  .skill-side-panel .close-panel {
+     font-size: 1.8em;
+    }
+
+    .skill-side-panel h3 {
+    font-size: 1.8em;
+  }
+  
+  .skill-side-panel p {
+    font-size: var(--pattern-p);
+    line-height: 1.5em;
+  }
+}
+
+@media (min-width: 1200px) {
+  .skillContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.1fr;
+    grid-template-areas: "skills desc title";
+    gap: 2em;
+    margin: 4em 5em 15em 5em;
+  }
+
+  .skillContainer > * { 
+    justify-self: center; 
+  }
+
+  .skillsScroll {
+    grid-area: skills;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5em;
+    overflow-y: auto;
+  }
+
+  .skillsScroll a { 
+    width: 7em; 
+    height: 7em;
+  }
+  
+  .skillsScroll img { 
+    height: 5em; 
+    padding: 0.5em; 
+  }
+
+  .skillTextDescrip {
+    grid-area: desc;
+    font-size: var(--pattern-p);
+    max-width: 25em;
+    margin: 0 auto;
+    text-align: center;
+    border-top: 2px solid var(--white);
+    border-bottom: 2px solid var(--white);
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+    min-height: 27em;
+  }
+
+  .skillsTitle {
+    grid-area: title;
+    font-size: 2.2em;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -6.5em;
+  }
+
+  .verticalLineTitle {
+    border-left: 2px solid var(--white);
+    height: 5em;
+    margin-left: -0.5em;
+    margin-top: 18em;
+  }
+  
+  .skillTextDescrip.default-text {
+    opacity: 1;
+  }
+  
+  .skillTextDescrip:not(.default-text) {
+    opacity: 1;
+  }
+}

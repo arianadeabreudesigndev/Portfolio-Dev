@@ -1,0 +1,25 @@
+#sidebar-menu{
+    background-color: var(--grey-light);
+    width: 5em;
+    height: 27em;
+    position: fixed;
+    right: 10vh;
+    top: 35vh;
+    border-radius: 3em;
+}
+
+#sidebar-menu ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#sidebar-menu ul li{
+    margin-top: 0.5em;
+    padding: 0.8em;
+}
+
+#sidebar-menu img:hover{
+    filter: invert(10%) sepia(50%) saturate(9000%) hue-rotate(290deg) brightness(100%) contrast(90%);
+
+}

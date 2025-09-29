@@ -1,0 +1,49 @@
+<div id="anchor-about-me-section" class="aboutMeContainer">
+
+  <div class="menuAboutMe">
+    <nav>
+      <div class="mobileMenuToggle" id="mobileMenuToggle">
+        <button type="button" aria-expanded="false" aria-controls="menuList" data-i18n="about-menu-title">sobre mim</button>
+        <img src="src/img/icons/simple-arrow-down.svg" alt="Abrir/Fechar menu" data-i18n-attr="alt:menu-aria">
+      </div>
+
+      <ul id="menuList" class="menuList scrollable">
+        <li><a id="tailaneOption" class="menuOption selected" onclick="changeDescription('tailane')" data-i18n="about-option-tailane">Tailane</a></li>
+        <li><a id="certificationsOption" class="menuOption" onclick="changeDescription('certifications')" data-i18n="about-option-certifications">Certificações</a></li>
+        <li><a id="experienceOption" class="menuOption" onclick="changeDescription('experience')" data-i18n="about-option-experience">Experiência</a></li>
+        <li><a id="hobbiesOption" class="menuOption" onclick="changeDescription('hobbies')" data-i18n="about-option-hobbies">Hobbies</a></li>
+        <li><a id="blogOption" class="menuOption" onclick="changeDescription('blog')" data-i18n="about-option-blog">Blog</a></li>
+      </ul>
+
+      <span class="scrollHint" aria-hidden="true">
+        <img src="src/img/icons/simple-arrow-down.svg" alt="" data-i18n-attr="alt:scroll-hint">
+      </span>
+    </nav>
+  </div>
+
+  <div class="aboutMeImgs">
+    <img data-option="tailane" class="is-visible" src="/src/img/images/me.webp" alt="Tailane" data-i18n-attr="alt:about-img-alt-tailane" />
+    <img data-option="certifications" src="/src/img/images/graduation.webp" alt="Certificações" data-i18n-attr="alt:about-img-alt-certifications" />
+    <img data-option="experience" src="/src/img/images/experience.png" alt="Experiência" data-i18n-attr="alt:about-img-alt-experience" />
+    <img data-option="hobbies" src="/src/img/images/hobbie.png" alt="Hobbies" data-i18n-attr="alt:about-img-alt-hobbies" />
+    <img data-option="blog" src="/src/img/images/blog.png" alt="Blog" data-i18n-attr="alt:about-img-alt-blog" />
+  </div>
+
+  <div class="aboutMeText">
+    <h2 data-i18n="about-title">Sobre mim</h2>
+    <p id="description" data-i18n="about-description-tailane"></p>
+      
+    
+    <div class="socialMediaLinks">
+      <ul>
+        <li><a href="https://www.youtube.com/@ArianaDeAbreuDev"><img src="src/img/icons/youtube-icon.svg" alt="YouTube" data-i18n-attr="alt:youtube-alt"></a></li>
+        <li><a href="https://www.linkedin.com/in/arianadeabreudesigner-developer"><img src="src/img/icons/linkedin-icon.svg" alt="LinkedIn" data-i18n-attr="alt:linkedin-alt"></a></li>
+        <li><a href="https://www.instagram.com/arianadeabreudesigner"><img src="src/img/icons/instagram-icon.svg" alt="Instagram" data-i18n-attr="alt:instagram-alt"></a></li>
+        <li><a href="http://tinyurl.com/5522996127823"><img id="whatsapp-icon" src="src/img/icons/whatsapp-icon.svg" alt="WhatsApp" data-i18n-attr="alt:whatsapp-alt"></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<link rel="stylesheet" href="about.css">
+<script src="about.js"></script>

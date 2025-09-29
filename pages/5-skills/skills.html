@@ -1,0 +1,64 @@
+<!-- Textos no techIconHandler.js -->
+<div id="anchor-skills" class="skillContainer">
+  <div id="skillText" class="skillTextDescrip default-text" data-i18n="skills-default-text">Passe o mouse ou clique em uma das habilidades para ver mais detalhes sobre minha jornada com essa tecnologia.</div>
+
+  <div class="skillsScroll" id="skills-scroll">
+    <a class="skillIcon" onclick="handleSkillClick('Figma', event)" data-i18n-attr="alt:skill-figma">
+      <img src="/src/img/icons/figma-icon.svg" alt="Figma">
+    </a>
+    <a class="skillIcon" onclick="handleSkillClick('GitHub', event)" data-i18n-attr="alt:skill-github">
+      <img src="/src/img/icons/github-icon.svg" alt="GitHub">
+    </a>
+    <a class="skillIcon" onclick="handleSkillClick('HTML', event)" data-i18n-attr="alt:skill-html">
+      <img src="/src/img/icons/html-icon.svg" alt="HTML">
+    </a>
+    <a class="skillIcon" onclick="handleSkillClick('CSS', event)" data-i18n-attr="alt:skill-css">
+      <img src="/src/img/icons/css-icon.svg" alt="CSS">
+    </a>
+    <a class="skillIcon" onclick="handleSkillClick('Java', event)" data-i18n-attr="alt:skill-java">
+      <img src="/src/img/icons/java-icon.svg" alt="Java">
+    </a>
+    <a class="skillIcon" onclick="handleSkillClick('SQL', event)" data-i18n-attr="alt:skill-sql">
+      <img src="/src/img/icons/sql-icon.svg" alt="SQL">
+    </a>
+    <a class="skillIcon" onclick="handleSkillClick('PHP', event)" data-i18n-attr="alt:skill-php">
+      <img src="/src/img/icons/php-icon.svg" alt="PHP">
+    </a>
+    <a class="skillIcon" onclick="handleSkillClick('JavaScript', event)" data-i18n-attr="alt:skill-javascript">
+      <img src="/src/img/icons/js-icon.svg" alt="JavaScript">
+    </a>
+    <a class="skillIcon" onclick="handleSkillClick('React', event)" data-i18n-attr="alt:skill-react">
+      <img src="/src/img/icons/react-icon.svg" alt="React">
+    </a>
+    <a class="skillIcon" onclick="handleSkillClick('Python', event)" data-i18n-attr="alt:skill-python">
+      <img src="/src/img/icons/python-icon.svg" alt="Python">
+    </a>
+    <a class="skillIcon" onclick="handleSkillClick('Django', event)" data-i18n-attr="alt:skill-django">
+      <img src="/src/img/icons/django-icon.svg" alt="Django">
+    </a>
+
+    <a class="skillIcon" onclick="handleSkillClick('Node', event)" data-i18n-attr="alt:skill-node">
+      <img src="/src/img/icons/node-js.svg" alt="Node.js">
+    </a>
+    <a class="skillIcon" onclick="handleSkillClick('Illustrator', event)" data-i18n-attr="alt:skill-illustrator">
+      <img src="/src/img/icons/illustrator.svg" alt="Illustrator">
+    </a>
+    <a class="skillIcon" onclick="handleSkillClick('Typescript', event)" data-i18n-attr="alt:skill-typescript">
+      <img src="/src/img/icons/typescript.svg" alt="Typescript">
+    </a>
+  </div>
+
+  <div class="skillsTitle">
+    <h2 data-i18n="skills-title">expertise</h2>
+    <div class="verticalLineTitle"></div>
+  </div>
+</div>
+
+<div id="skillSidePanel" class="skill-side-panel">
+  <span class="close-panel" onclick="closeSkillPanel()" data-i18n="close-panel">&times;</span>
+  <h3 id="panelSkillName"></h3>
+  <p id="panelSkillDescription"></p>
+</div>
+
+<link rel="stylesheet" href="skills.css">
+<script src="skills.js"></script>

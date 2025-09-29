@@ -1,0 +1,260 @@
+.headerContainer {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 5em;
+    grid-template-areas: 'logoArea mobileMenu';
+    align-items: end;
+}
+
+.menu {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    background: var(--grey);
+    border-radius: 4px;
+    box-shadow: 0 8px 16px var(--black);
+    min-width: 200px;
+    z-index: 100;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    transform: translateY(-10px);
+}
+
+.menu.active {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.menu ul {
+    list-style: none;
+    padding: 8px 0;
+    margin: 0;
+}
+
+.menu li a {
+    display: block;
+    padding: 10px 16px;
+    text-decoration: none;
+    color: var(--white);
+    font-size: 0.9em;
+    transition: background-color 0.2s ease;
+    text-transform: capitalize;
+}
+
+.menu li a:hover {
+    background-color: var(--cian);
+    color: var(--white);
+    border-radius: 2px;
+}
+
+.logoArea {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.logo {
+    grid-area: logoArea;
+    height: 3em;
+    padding-left: 1em;
+}
+
+.mobileMenu {
+    grid-area: mobileMenu;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.navMenu,
+.languageMenu {
+    display: none;
+}
+
+.languageMenu {
+    position: relative;
+}
+
+.languageMenu:hover .languageOptions {
+    display: block;
+}
+
+.languageOptions {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--grey);
+    min-width: 140px;
+    box-shadow: 0 8px 16px var(--black);
+    z-index: 1000;
+    border-radius: 4px;
+    padding: 8px 0;
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+.languageOptions.active {
+    display: block;
+}
+
+.languageOptions a {
+    color: var(--white);
+    padding: 10px 16px;
+    display: block;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: background-color 0.2s ease;
+    font-size: 0.9em;
+}
+
+.languageOptions a:hover {
+    background-color: var(--cian);
+    color: var(--white);
+}
+
+.buttonMenu > button {
+    font-size: 1.2em;
+    padding-bottom: 0.75em;
+}
+
+.buttonMenu img {
+    height: 1.5em;
+    margin-bottom: -0.27em;
+}
+
+.langButton {
+    background-color: transparent;
+    border: none;
+    color: var(--white);
+    cursor: pointer;
+    font-size: 1.5em;
+    transition: color 0.2s ease;
+}
+
+.langButton:focus {
+    outline: 2px solid var(--cian);
+    outline-offset: 2px;
+}
+
+.hamburger {
+    display: flex;
+    justify-content: end;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+}
+
+.hamburger-box {
+    width: 3em;
+    height: 3em;
+    display: inline-block;
+    position: relative;
+}
+
+.hamburger-inner {
+    display: block;
+    top: 50%;
+    margin-top: -2px;
+    width: 30px;
+    height: 3px;
+    background-color: var(--white);
+    position: absolute;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.hamburger-inner::before,
+.hamburger-inner::after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: var(--white);
+    position: absolute;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger-inner::before {
+    top: -10px;
+}
+
+.hamburger-inner::after {
+    bottom: -10px;
+}
+
+.hamburger.active .hamburger-inner {
+    transform: rotate(45deg);
+}
+
+.hamburger.active .hamburger-inner::before {
+    transform: rotate(-90deg) translate(-8px, 0);
+    opacity: 0;
+}
+
+.hamburger.active .hamburger-inner::after {
+    transform: rotate(-90deg);
+    bottom: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (min-width: 1200px) {
+    .headerContainer {
+        grid-template-columns: 1fr 4fr 1fr;
+        grid-template-areas: 'logoArea navMenu languageMenu';
+        padding: 0;
+    }
+
+    .mobileMenu {
+        display: none;
+    }
+
+    .navMenu {
+        grid-area: navMenu;
+        display: block;
+        padding-bottom: 1em;
+        position: relative;
+        z-index: 10;
+    }
+
+    .navOption a {
+        margin: 0 2vw;
+        font-size: var(--pattern-a);
+        text-transform: uppercase;
+        color: var(--white);
+    }
+
+    .navOption a:link {
+        text-decoration: none;
+        border-bottom: 2px solid transparent;
+    }
+
+    .navOption a:visited {
+        color: var(--white);
+    }
+
+    .navOption a:hover {
+        color: var(--cian);
+        border-bottom-color: var(--cian);
+    }
+
+    .languageMenu {
+        grid-area: languageMenu;
+        display: flex;
+        justify-content: end;
+        align-items: end;
+        position: relative;
+        z-index: 5;
+    }
+}

@@ -1,0 +1,60 @@
+:root {
+    --grey-light: #4B4B4B;
+    --grey: #282828;
+    --white: #ffffff;
+    --cian: #B57472;
+    --black: #000000;
+
+    --pattern-h1: 2em;
+    --pattern-h2: 1.5em;
+    --pattern-h3: 10.2s;
+    --pattern-p: 1em;
+    --pattern-a: 1em;
+
+    --icons-size: 2.5em;
+    --img-size: 15em;
+}
+
+body {
+    background-color: var(--grey);
+    color: var(--white);
+    font-family: 'Roboto', sans-serif;
+    display: grid;
+    grid-template-columns: 5% auto 5%;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+        '. header .'
+        '. main .'
+        '. footer .'
+    ;
+    max-width: 1920px; 
+    margin: 0 auto;             
+    user-select: none; */ 
+}
+
+header {
+    grid-template-columns: 5% auto 5%;
+    grid-template-rows: auto auto auto;
+    grid-area: header;
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+
+main {
+    grid-area: main;
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+
+footer {
+    grid-area: footer;
+    grid-column: 2/3;
+    grid-row: 3/4;
+}
+
+.centralize { /*Remover isso aqui depois*/
+    display: flex;
+    flex-direction: row;
+    place-content: center;
+}
