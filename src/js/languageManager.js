@@ -176,8 +176,10 @@ class LanguageManager {
         try {
             if (this.currentLanguage === 'pt-BR') {
                 this.restoreDefaultTexts();
+                this.restoreDownloadLinks();
             } else {
                 this.applyTranslations();
+                this.updateDownloadLinks();
             }
             this.updateLanguageButton();
             this.refreshDynamicContent();
@@ -258,11 +260,15 @@ class LanguageManager {
     updateDownloadLinks() {
         if (this.currentLanguage === 'en') {
             try {
-                const cvLink = document.querySelector('a[href*="cv-simples-pt-br.pdf"]');
-                if (cvLink) {
-                    cvLink.href = '/src/docs/cv-simples-en.pdf';
-                    cvLink.download = 'Tailane-Aparecida-de-Abreu-Lopes-resume.pdf';
-                }
+                // Procura por links que tenham cv-pt.pdf no href
+                const cvLinks = document.querySelectorAll('a[href*="cv-pt.pdf"]');
+                cvLinks.forEach(cvLink => {
+                    cvLink.href = '/src/docs/cv-en.pdf';
+                    const downloadName = this.getTranslation('cv');
+                    if (downloadName) {
+                        cvLink.download = downloadName;
+                    }
+                });
             } catch (error) {
                 console.warn('Erro ao atualizar links de download:', error);
             }
@@ -271,11 +277,15 @@ class LanguageManager {
 
     restoreDownloadLinks() {
         try {
-            const cvLink = document.querySelector('a[href*="cv-simples-en.pdf"]');
-            if (cvLink) {
-                cvLink.href = '/src/docs/cv-simples-pt-br.pdf';
-                cvLink.download = 'Tailane-Aparecida-de-Abreu-Lopes-cv.pdf';
-            }
+            // Procura por links que tenham cv-en.pdf no href
+            const cvLinks = document.querySelectorAll('a[href*="cv-en.pdf"]');
+            cvLinks.forEach(cvLink => {
+                cvLink.href = '/src/docs/cv-pt.pdf';
+                const downloadName = this.getTranslation('cv');
+                if (downloadName) {
+                    cvLink.download = downloadName;
+                }
+            });
         } catch (error) {
             console.warn('Erro ao restaurar links de download:', error);
         }
