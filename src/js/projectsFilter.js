@@ -6,231 +6,232 @@ class FilterManager {
             status: [],
             date: []
         };
-        
+
         this.init();
     }
-    
+
     init() {
         this.bindEvents();
         console.log("Filtro inicializado com sucesso");
     }
-    
+
     bindEvents() {
-        const filterToggle = document.querySelector('.filter-toggle');
-        const filterDropdown = document.querySelector('.filter-dropdown');
-        
+        const filterToggle = document.querySelector(".filter-toggle");
+        const filterDropdown = document.querySelector(".filter-dropdown");
+        const applyBtn = document.querySelector(".apply-filters");
+        const clearBtn = document.querySelector(".clear-filters");
+
+        // --- Dropdown de Filtro ---
         if (filterToggle && filterDropdown) {
+            // Clona o botão para evitar conflitos de listener duplicado
             const newToggle = filterToggle.cloneNode(true);
             filterToggle.parentNode.replaceChild(newToggle, filterToggle);
-            
-            document.querySelector('.filter-toggle').addEventListener('click', (e) => {
+
+            newToggle.addEventListener("click", (e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 console.log("Botão de filtro clicado");
-                filterDropdown.classList.toggle('show');
+                filterDropdown.classList.toggle("show");
             });
-            
-            document.addEventListener('click', (e) => {
-                const isClickInsideFilter = e.target.closest('.filter-icon-container');
-                if (!isClickInsideFilter && filterDropdown.classList.contains('show')) {
-                    filterDropdown.classList.remove('show');
+
+            document.addEventListener("click", (e) => {
+                const clickedInside = e.target.closest(".filter-icon-container");
+                if (!clickedInside && filterDropdown.classList.contains("show")) {
+                    filterDropdown.classList.remove("show");
                 }
             });
-            
-            filterDropdown.addEventListener('click', (e) => {
-                e.stopPropagation();
-            });
+
+            filterDropdown.addEventListener("click", (e) => e.stopPropagation());
         }
-        
-        const applyBtn = document.querySelector('.apply-filters');
-        const clearBtn = document.querySelector('.clear-filters');
-        
-        if (applyBtn) {
-            applyBtn.addEventListener('click', () => this.applyFilters());
-        }
-        
-        if (clearBtn) {
-            clearBtn.addEventListener('click', () => this.clearFilters());
-        }
+
+        // --- Botões principais ---
+        applyBtn?.addEventListener("click", () => this.applyFilters());
+        clearBtn?.addEventListener("click", () => this.clearFilters());
     }
-    
+
+    // --- Ações principais ---
     applyFilters() {
         console.log("Aplicando filtros");
         this.updateActiveFilters();
         this.filterProjects();
         this.updateActiveFiltersView();
-        document.querySelector('.filter-dropdown')?.classList.remove('show');
+        document.querySelector(".filter-dropdown")?.classList.remove("show");
     }
-    
+
     clearFilters() {
         console.log("Limpando filtros");
-        document.querySelectorAll('.filter-options input[type="checkbox"]').forEach(cb => {
-            cb.checked = false;
-        });
-        
+
+        document
+            .querySelectorAll(".filter-options input[type='checkbox']")
+            .forEach(cb => (cb.checked = false));
+
         this.activeFilters = { tech: [], category: [], status: [], date: [] };
-        
-        document.querySelectorAll('.projectItem').forEach(item => {
-            item.classList.remove('hide');
-        });
-        
-        const activeFiltersContainer = document.querySelector('.active-filters');
-        if (activeFiltersContainer) {
-            activeFiltersContainer.innerHTML = '';
-        }
+
+        document.querySelectorAll(".projectItem").forEach(item =>
+            item.classList.remove("hide")
+        );
+
+        const activeContainer = document.querySelector(".active-filters");
+        if (activeContainer) activeContainer.innerHTML = "";
     }
-    
+
+    // --- Atualiza o estado interno dos filtros ---
     updateActiveFilters() {
-        this.activeFilters = { tech: [], category: [], status: [], date: [] };
-        
-        document.querySelectorAll('.filter-options input[type="checkbox"]:checked').forEach(checkbox => {
-            const type = checkbox.name;
-            const value = checkbox.value;
-            if (this.activeFilters[type]) {
-                this.activeFilters[type].push(value);
-            }
-        });
-        
+        const filters = { tech: [], category: [], status: [], date: [] };
+
+        document
+            .querySelectorAll(".filter-options input[type='checkbox']:checked")
+            .forEach(({ name, value }) => {
+                if (filters[name]) filters[name].push(value);
+            });
+
+        this.activeFilters = filters;
         console.log("Filtros ativos:", this.activeFilters);
     }
-    
+
+    // --- Filtra os projetos visíveis ---
     filterProjects() {
-        const items = document.querySelectorAll('.projectItem');
+        const items = document.querySelectorAll(".projectItem");
         console.log(`Filtrando ${items.length} projetos`);
-        
+
         items.forEach(item => {
             const show = this.shouldShowItem(item);
-            item.classList.toggle('hide', !show);
+            item.classList.toggle("hide", !show);
         });
     }
-    
+
     shouldShowItem(item) {
-        const hasActiveFilters = Object.values(this.activeFilters).some(arr => arr.length > 0);
-        if (!hasActiveFilters) return true;
-        
-        const checks = [
-            this.checkTech(item),
-            this.checkCategory(item),
-            this.checkStatus(item),
+        const hasActive = Object.values(this.activeFilters).some(arr => arr.length);
+        if (!hasActive) return true;
+
+        return (
+            this.checkTech(item) &&
+            this.checkCategory(item) &&
+            this.checkStatus(item) &&
             this.checkDate(item)
-        ];
-        
-        return checks.every(check => check !== false);
+        );
     }
-    
+
+    // --- Verificações individuais ---
     checkTech(item) {
-        if (this.activeFilters.tech.length === 0) return true;
-        const itemTechs = item.dataset.tech.split(' ');
-        return this.activeFilters.tech.some(tech => itemTechs.includes(tech));
+        const { tech } = this.activeFilters;
+        if (!tech.length) return true;
+
+        const itemTechs = item.dataset.tech?.split(" ") || [];
+        return tech.some(t => itemTechs.includes(t));
     }
-    
+
     checkCategory(item) {
-        if (this.activeFilters.category.length === 0) return true;
-        return this.activeFilters.category.includes(item.dataset.category);
+        const { category } = this.activeFilters;
+        if (!category.length) return true;
+        return category.includes(item.dataset.category);
     }
-    
+
     checkStatus(item) {
-        if (this.activeFilters.status.length === 0) return true;
-        return this.activeFilters.status.includes(item.dataset.status);
+        const { status } = this.activeFilters;
+        if (!status.length) return true;
+        return status.includes(item.dataset.status);
     }
-    
+
     checkDate(item) {
-        if (this.activeFilters.date.length === 0) return true;
-        
-        const itemDate = parseInt(item.dataset.date);
-        let shouldShow = true;
-        
-        if (this.activeFilters.date.includes('recent')) {
-            shouldShow = shouldShow && itemDate >= 202305;
-        }
-        if (this.activeFilters.date.includes('oldest')) {
-            shouldShow = shouldShow && itemDate < 202305;
-        }
-        
-        return shouldShow;
+        const { date } = this.activeFilters;
+        if (!date.length) return true;
+
+        const itemDate = parseInt(item.dataset.date, 10);
+        let visible = true;
+
+        if (date.includes("recent")) visible &&= itemDate >= 202305;
+        if (date.includes("oldest")) visible &&= itemDate < 202305;
+
+        return visible;
     }
-    
+
+    // --- Atualiza visual dos filtros ativos ---
     updateActiveFiltersView() {
-        const container = document.querySelector('.active-filters');
+        const container = document.querySelector(".active-filters");
         if (!container) return;
-        
-        container.innerHTML = '';
-        
+
+        container.innerHTML = "";
+
         Object.entries(this.activeFilters).forEach(([type, values]) => {
             values.forEach(value => {
                 if (!value) return;
-                
-                const filterEl = document.createElement('div');
-                filterEl.className = 'active-filter';
-                filterEl.innerHTML = `
+
+                const el = document.createElement("div");
+                el.className = "active-filter";
+                el.innerHTML = `
                     ${this.getFilterLabel(type, value)}
                     <button data-type="${type}" data-value="${value}">×</button>
                 `;
-                
-                filterEl.querySelector('button').addEventListener('click', (e) => {
-                    this.removeFilter(type, value);
-                });
-                
-                container.appendChild(filterEl);
+
+                el.querySelector("button").addEventListener("click", () =>
+                    this.removeFilter(type, value)
+                );
+
+                container.appendChild(el);
             });
         });
     }
-    
+
+    // --- Remove um filtro ativo ---
     removeFilter(type, value) {
         console.log(`Removendo filtro: ${type} = ${value}`);
-        
+
         this.activeFilters[type] = this.activeFilters[type].filter(v => v !== value);
-        
-        const checkbox = document.querySelector(`.filter-options input[name="${type}"][value="${value}"]`);
+
+        const checkbox = document.querySelector(
+            `.filter-options input[name='${type}'][value='${value}']`
+        );
         if (checkbox) checkbox.checked = false;
-        
+
         this.filterProjects();
         this.updateActiveFiltersView();
     }
-    
+
+    // --- Labels amigáveis ---
     getFilterLabel(type, value) {
         const labels = {
             tech: {
-                react: 'React',
-                html: 'HTML', 
-                css: 'CSS',
-                typescript: 'TypeScript',
-                javascript: 'JavaScript'
+                react: "React",
+                html: "HTML",
+                css: "CSS",
+                typescript: "TypeScript",
+                javascript: "JavaScript"
             },
             category: {
-                fullstack: 'Fullstack',
-                frontend: 'Front-end',
-                backend: 'Back-end'
+                fullstack: "Fullstack",
+                frontend: "Front-end",
+                backend: "Back-end"
             },
             status: {
-                completed: 'Finalizado',
-                progress: 'Em andamento'
+                completed: "Finalizado",
+                progress: "Em andamento"
             },
             date: {
-                recent: 'Mais recentes',  // Implementar depois
-                oldest: 'Mais antigos'
+                recent: "Mais recentes",
+                oldest: "Mais antigos"
             }
         };
-        
+
         const typeLabels = {
-            tech: 'Tec',
-            category: 'Categoria',
-            status: 'Status',
-            date: 'Data'
+            tech: "Tec",
+            category: "Categoria",
+            status: "Status",
+            date: "Data"
         };
-        
-        return `${typeLabels[type]}: ${labels[type]?.[value] || value}`;
+
+        const label = labels[type]?.[value] || value;
+        return `${typeLabels[type]}: ${label}`;
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+// --- Inicialização ---
+document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
         window.filterManager = new FilterManager();
     }, 100);
 });
 
-window.addEventListener('load', () => {
-    if (!window.filterManager) {
-        window.filterManager = new FilterManager();
-    }
+window.addEventListener("load", () => {
+    if (!window.filterManager) window.filterManager = new FilterManager();
 });
