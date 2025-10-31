@@ -203,9 +203,9 @@
     .containerContact {
         display: grid;
         grid-template-columns: 1fr 1fr; 
-        gap: 4em;
+        gap: 1em;
         align-items: start;
-        margin: 4em 4em 0 2em;
+        margin: 4em 0 0 5em;
         position: relative;
         grid-auto-rows: auto; 
     }
@@ -232,7 +232,6 @@
         width: 100%;
     }
 
-
     .contactPhoto{
         margin-top: -5em;
     }
@@ -255,6 +254,7 @@
         align-items: center;
         justify-content: center;
         text-align: center;
+        width: 35em;
     }
 
     .contactForm h2 {

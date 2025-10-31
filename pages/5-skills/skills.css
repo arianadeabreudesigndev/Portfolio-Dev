@@ -10,9 +10,12 @@
   justify-items: center;
   width: max-content;
   margin: 0 auto;
-  max-height: 70vh;
-  scrollbar-width: none;
+  max-height: 55vh;
   scroll-behavior: smooth;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  padding-right: 1em;
+  scrollbar-color: var(--grey-light) transparent;
 }
 
 .skillsScroll a {
@@ -195,8 +198,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr 0.1fr;
     grid-template-areas: "skills desc title";
-    gap: 2em;
-    margin: 4em 5em 15em 5em;
+    gap: 5em;
+    margin: 4em 5em 15em 12em;
   }
 
   .skillContainer > * { 
@@ -208,7 +211,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5em;
-    overflow-y: auto;
+    overflow-y: scroll;
   }
 
   .skillsScroll a { 
@@ -229,7 +232,7 @@
     text-align: center;
     border-top: 2px solid var(--white);
     border-bottom: 2px solid var(--white);
-    display: flex !important;
+    display: flex;
     align-items: center;
     justify-content: center;
     padding: 1em;

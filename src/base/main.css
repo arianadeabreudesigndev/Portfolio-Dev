@@ -29,7 +29,7 @@ body {
     ;
     max-width: 1920px; 
     margin: 0 auto;             
-    user-select: none; */ 
+    user-select: none; 
 }
 
 header {
@@ -51,10 +51,4 @@ footer {
     grid-area: footer;
     grid-column: 2/3;
     grid-row: 3/4;
-}
-
-.centralize { /*Remover isso aqui depois*/
-    display: flex;
-    flex-direction: row;
-    place-content: center;
 }

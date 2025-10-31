@@ -206,38 +206,31 @@
         font-size: var(--pattern-a);
         padding: 0.8em;
     }
-
-    .horizontalLine {
-        display: block;
-        border-bottom: 0.2vw solid var(--white);
-        width: 4vw;
-        margin-left: -15em;
-        margin-top: -1.2em;
-    }
-
     .exploreProjects {
-        display: flex;
-        flex-direction: row;
+        position: absolute;
         margin-top: 21em;
-        width: 15em;
+        border-bottom: 0.2em solid var(--white);
+        width: 4em;
     }
 
     .exploreProjects a {
         position: absolute;
-        margin-left: 2vw;
-        margin-top: -1.3vh;
+        margin-left: 12em;
+        margin-top: 0.5em;
         font-size: var(--pattern-a);
+        padding-left: 3em;
+        width: 10em;
     }
 
     .exploreProjects img {
         position: absolute;
-        margin-left: 5em;
-        margin-top: -0.75em;
+        margin-left: 10em;
+        margin-top: -0.7em;
         height: 1em;
     }
 
     .avatarImage img {
-        width: 30em;
+        width: 27em;
         margin: -10em 15em 0 0;
     }
 

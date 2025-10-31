@@ -422,7 +422,7 @@
 
 @media (min-width: 1200px) {
     .projectsContainer {
-        margin: 7em 7em 0 5em;
+        margin: 7em 7em 0 10em;
     }
     .projectTitleContainer {
         grid-column: 1 / 2;

@@ -71,7 +71,12 @@
 
 #reserved-rights {
     color: var(--white);
-    margin: 1em 0px 2em 0px;
+    margin: 1em 0 2em 0;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media (max-width: 768px) {
