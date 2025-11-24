@@ -24,4 +24,3 @@ loadingPage('footer', '/pages/8-footer/footer.html');
 
 
 
-

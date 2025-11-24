@@ -90,7 +90,7 @@
   margin: 1rem auto;
 }
 
-@media (min-width: 768px) and (max-width: 1199px) {
+@media (768px <= width <= 1399px){
   #recomendations {
     padding: 2rem 3rem;
     gap: 3rem;
@@ -130,7 +130,7 @@
 
   .testimonial-text {
     order: 1;
-    margin: 2em 0 0 3em;
+    margin: 2em 0 0 0;
   }
 
   .testimonial-sep {
@@ -139,11 +139,10 @@
   }
 }
 
-@media (min-width: 1200px) {
+@media (width >= 1400px) {
   #recomendations {
     padding: 3em 5em;
     gap: 4rem;
-    margin-left: 3em;
   }
 
   .reference-title {
@@ -151,6 +150,7 @@
     margin-bottom: 3rem;
     grid-column: 1 / -1;
     margin-top: 7em;
+    margin-left: -4.5em;
   }
 
   .testimonial {
