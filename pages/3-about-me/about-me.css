@@ -165,7 +165,7 @@
   display: none;
 }
 
-@media (768px <= width <= 1399px) {
+@media (768px <= width <= 1199px) {
   .aboutMeContainer {
     margin: 5em 0 18em 0;
     padding: 0 5em;
