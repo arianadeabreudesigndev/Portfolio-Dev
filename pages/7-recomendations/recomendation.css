@@ -90,7 +90,7 @@
   margin: 1rem auto;
 }
 
-@media (768px <= width <= 1199px){
+@media (768px <= width <= 1399px){
   #recomendations {
     padding: 2rem 3rem;
     gap: 3rem;

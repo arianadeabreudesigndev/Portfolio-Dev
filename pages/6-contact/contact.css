@@ -131,7 +131,7 @@
     margin-top: 1em;
 }
 
-@media (768px <= width <= 1199px) {
+@media (768px <= width <= 1399px) {
     .containerContact {
         display: flex;
         flex-direction: column;
