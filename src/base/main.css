@@ -1,23 +1,23 @@
 :root {
-    --grey-light: #4B4B4B;
-    --grey: #282828;
-    --white: #ffffff;
-    --cian: #B57472;
-    --black: #000000;
+    --color-surface: #2A2939;
+    --color-background: #191724;
+    --color-text: #ffffff;
+    --color-accent: #d68584;
+    --color-shadow: #000000;
 
-    --pattern-h1: 2em;
-    --pattern-h2: 1.7em;
-    --pattern-h3: 1.5em;
-    --pattern-p: 1em;
-    --pattern-a: 1em;
+    --font-size-h1: 2em;
+    --font-size-h2: 1.7em;
+    --font-size-h3: 1.5em;
+    --font-size-p: 1em;
+    --font-size-link: 1em;
 
-    --icons-size: 2.5em;
-    --img-size: 15em;
+    --size-icon: 2.5em;
+    --size-image: 15em;
 }
 
 body {
-    background-color: var(--grey);
-    color: var(--white);
+    background-color: var(--color-background);
+    color: var(--color-text);
     font-family: 'Roboto', sans-serif;
     display: grid;
     grid-template-columns: 5% auto 5%;
