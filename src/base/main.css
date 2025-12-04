@@ -4,7 +4,6 @@
     --color-text: #ffffff;
     --color-accent: #d68584;
     --color-shadow: #000000;
-    --color-decorative-line: #ffffff;
 
     --font-size-h1: 2em;
     --font-size-h2: 1.7em;
@@ -12,7 +11,7 @@
     --font-size-p: 1em;
     --font-size-link: 1em;
 
-    --size-icon: 2em;
+    --size-icon: 2.5em;
     --size-image: 15em;
 }
 
