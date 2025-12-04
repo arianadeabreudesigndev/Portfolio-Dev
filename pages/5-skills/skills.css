@@ -163,12 +163,12 @@
   .skillsTitle h2 {
      margin: 0;
     }
-
+    
   .verticalLineTitle {
     border-left: 2px solid var(--color-text);
     border-bottom: none;
     height: 4em;
-    margin-top: 16.5em;
+    margin-top: 15em;
     margin-right: -3.3em;
     position: absolute;
   }
@@ -255,7 +255,7 @@
     border-left: 2px solid var(--color-text);
     height: 5em;
     margin-left: -0.5em;
-    margin-top: 18em;
+    margin-top: 17em;
   }
   
   .skillTextDescrip.default-text {
