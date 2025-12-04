@@ -11,13 +11,6 @@
     border-radius: 100%;
 }
 
-#anchor-footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 1em 5%;
-}
-
 .social-midias {
     display: flex;
     justify-content: flex-end;
@@ -87,13 +80,6 @@
 
     #footer-horizontal-line {
         display: none;
-    }
-
-    #anchor-footer {
-        flex-direction: column;
-        align-items: center;
-        margin: 1em 8%;
-        gap: 12px;
     }
 
     .menu-footer {
