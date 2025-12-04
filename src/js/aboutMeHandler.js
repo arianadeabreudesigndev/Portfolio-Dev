@@ -2,6 +2,10 @@ class AboutMeMenu {
     constructor() {
         this.currentOption = 'tailane';
         this.isInitialized = false;
+        this.swipeStartX = 0;
+        this.swipeEndX = 0;
+        this.swipeThreshold = 50;
+        this.options = ['tailane', 'certifications', 'experience', 'hobbies', 'blog'];
         this.init();
     }
     
@@ -10,6 +14,7 @@ class AboutMeMenu {
         
         this.setupEventDelegation();
         this.setupAccessibility();
+        this.setupSwipeEvents();
         this.setupTranslationIntegration();
         this.loadInitialContent();
         this.isInitialized = true;
@@ -23,6 +28,88 @@ class AboutMeMenu {
         });
         
         window.addEventListener('resize', this.handleResize.bind(this));
+    }
+    
+    setupSwipeEvents() {
+        const aboutMeContainer = document.querySelector('.aboutMeContainer');
+        const aboutMeImgs = document.querySelector('.aboutMeImgs');
+        const aboutMeText = document.querySelector('.aboutMeText');
+        
+        if (!aboutMeContainer || !aboutMeImgs || !aboutMeText) return;
+        
+        const isTabletMode = () => {
+            return window.innerWidth >= 768 && window.innerWidth <= 1399;
+        };
+        
+        [aboutMeContainer, aboutMeImgs, aboutMeText].forEach(element => {
+            if (!element) return;
+            
+            element.addEventListener('touchstart', (e) => {
+                if (!isTabletMode()) return;
+                this.swipeStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+            
+            element.addEventListener('touchend', (e) => {
+                if (!isTabletMode()) return;
+                this.swipeEndX = e.changedTouches[0].screenX;
+                this.handleSwipe();
+            }, { passive: true });
+            
+            element.addEventListener('mousedown', (e) => {
+                if (!isTabletMode()) return;
+                this.swipeStartX = e.screenX;
+            });
+            
+            element.addEventListener('mouseup', (e) => {
+                if (!isTabletMode()) return;
+                this.swipeEndX = e.screenX;
+                this.handleSwipe();
+            });
+        });
+        
+        const updateTabletMode = () => {
+            const isTablet = isTabletMode();
+            aboutMeContainer.classList.toggle('tablet-mode', isTablet);
+            aboutMeImgs.classList.toggle('tablet-mode', isTablet);
+            aboutMeText.classList.toggle('tablet-mode', isTablet);
+            
+            const menuList = document.getElementById('menuList');
+            if (menuList) {
+                menuList.style.display = isTablet ? 'none' : '';
+            }
+        };
+        
+        updateTabletMode();
+        window.addEventListener('resize', updateTabletMode);
+    }
+    
+    handleSwipe() {
+        const distance = this.swipeStartX - this.swipeEndX;
+        
+        if (Math.abs(distance) < this.swipeThreshold) return;
+        
+        const currentIndex = this.options.indexOf(this.currentOption);
+        
+        if (distance > 0) {
+            const nextIndex = (currentIndex + 1) % this.options.length;
+            this.changeDescription(this.options[nextIndex]);
+        } else {
+            const prevIndex = (currentIndex - 1 + this.options.length) % this.options.length;
+            this.changeDescription(this.options[prevIndex]);
+        }
+        
+        this.addSwipeFeedback(distance > 0 ? 'left' : 'right');
+    }
+    
+    addSwipeFeedback(direction) {
+        const container = document.querySelector('.aboutMeContainer');
+        if (!container) return;
+        
+        container.classList.add('swipe-feedback', `swipe-${direction}`);
+        
+        setTimeout(() => {
+            container.classList.remove('swipe-feedback', 'swipe-left', 'swipe-right');
+        }, 300);
     }
     
     setupAccessibility() {
@@ -202,7 +289,6 @@ class AboutMeMenu {
         if (isPortuguese) {
             this.applyPortugueseContent(option, descriptionElement, headingElement);
         } else {
-            // Para inglês, usa as traduções do JSON
             this.applyEnglishContent(option, descriptionElement, headingElement);
         }
         
@@ -278,12 +364,10 @@ class AboutMeMenu {
 
 function initializeAboutMe() {
     if (document.querySelector('.aboutMeContainer')) {
-        // Aguarda o languageManager estar pronto
         if (window.languageManager && window.languageManager.isInitialized) {
             window.aboutMeMenu = new AboutMeMenu();
-            console.log('AboutMeMenu inicializado com sucesso');
+            console.log('AboutMeMenu inicializado com sucesso com funcionalidade de swipe');
         } else {
-            // Tenta novamente após um delay
             setTimeout(initializeAboutMe, 100);
         }
     } else {
