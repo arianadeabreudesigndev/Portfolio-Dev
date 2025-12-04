@@ -10,6 +10,13 @@
     background-color: var(--color-text);
 }
 
+.anchor-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.8em 0;
+}
+
 .social-midias {
     display: flex;
     justify-content: flex-end;
@@ -37,8 +44,10 @@
 .menu-footer {
     display: flex;
     flex-direction: row;
-    padding: 1.8em 0px;
     text-transform: uppercase;
+    align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
 .menu-footer li {
@@ -81,6 +90,11 @@
         display: none;
     }
 
+    .anchor-footer {
+        flex-direction: column;
+        padding: 1em 0;
+    }
+
     .menu-footer {
         display: none;
     }
@@ -101,5 +115,4 @@
     .social-midias ul li {
         padding: 0;
     }
-
 }
