@@ -75,11 +75,23 @@
   align-items: center;
   justify-content: center;
   margin-top: 0.8rem;
+  transition: transform 0.3s ease;
 }
 
 .download-icon {
   width: 1.5rem;
   height: 1.5rem;
+  transition: all 0.2s ease;
+}
+
+/* Efeito hover para os ícones de download */
+.download-link:hover .download-icon {
+  filter: invert(40%) sepia(29%) saturate(664%) hue-rotate(303deg) brightness(95%) contrast(92%);
+  transform: translateY(-2px);
+}
+
+.download-link:hover {
+  transform: translateY(-2px);
 }
 
 .testimonial-sep {
@@ -215,5 +227,9 @@
 
   .download-link {
     margin-left: 1rem;
+  }
+  
+  .download-link:hover {
+    transform: translateY(-2px);
   }
 }
