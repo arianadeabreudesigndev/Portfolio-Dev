@@ -15,7 +15,7 @@
   overflow-y: scroll;
   scrollbar-width: thin;
   padding-right: 1em;
-  scrollbar-color: var(--grey-light) transparent;
+  scrollbar-color: var(--color-surface) transparent;
 }
 
 .skillsScroll a {
@@ -27,7 +27,7 @@
 }
 
 .skillsScroll img {
-  height: var(--icons-size);
+  height: var(--size-icon);
   padding: 0.5em;
 }
 
@@ -44,7 +44,7 @@
   right: -100%;
   width: 80%;
   height: 100%;
-  background-color: var(--grey-light);
+  background-color: var(--color-surface);
   box-shadow: -4px 0 15px rgba(0,0,0,0.5);
   transition: right 0.3s ease-in-out;
   z-index: 3000;
@@ -59,20 +59,20 @@
 
 .skill-side-panel h3 { 
   margin-top: 0; 
-  color: var(--cian);
+  color: var(--color-accent);
   font-weight: bold; 
 }
 
 .skill-side-panel p { 
   margin-top: 1em; 
-  color: var(--white);
+  color: var(--color-text);
 }
 
 .skill-side-panel .close-panel {
   align-self: flex-end;
   font-size: 1.5em;
   cursor: pointer;
-  color: var(--cian);
+  color: var(--color-accent);
   font-weight: bold;
 }
 
@@ -93,7 +93,7 @@
 }
 
 .skillIcon {
-  background-color: var(--grey-light);
+  background-color: var(--color-surface);
   padding: 0.8em;
   border-radius: 5px;
   text-align: center;
@@ -165,7 +165,7 @@
     }
 
   .verticalLineTitle {
-    border-left: 2px solid var(--white);
+    border-left: 2px solid var(--color-text);
     border-bottom: none;
     height: 4em;
     margin-top: 16.5em;
@@ -188,7 +188,7 @@
   }
   
   .skill-side-panel p {
-    font-size: var(--pattern-p);
+    font-size: var(--font-size-p);
     line-height: 1.5em;
   }
 }
@@ -226,12 +226,12 @@
 
   .skillTextDescrip {
     grid-area: desc;
-    font-size: var(--pattern-p);
+    font-size: var(--font-size-p);
     max-width: 25em;
     margin: 0 auto;
     text-align: center;
-    border-top: 2px solid var(--white);
-    border-bottom: 2px solid var(--white);
+    border-top: 2px solid var(--color-text);
+    border-bottom: 2px solid var(--color-text);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -252,7 +252,7 @@
   }
 
   .verticalLineTitle {
-    border-left: 2px solid var(--white);
+    border-left: 2px solid var(--color-text);
     height: 5em;
     margin-left: -0.5em;
     margin-top: 18em;

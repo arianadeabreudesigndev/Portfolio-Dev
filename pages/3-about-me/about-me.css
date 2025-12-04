@@ -15,7 +15,7 @@
 .aboutMeImgs img {
   display: none;
   border-radius: 100%;
-  height: var(--img-size);
+  height: var(--size-image);
   max-width: 100%;
   object-fit: cover;
 }
@@ -35,17 +35,17 @@
 }
 
 .aboutMeText h2 {
-  font-size: var(--pattern-h2);
+  font-size: var(--font-size-h2);
   text-transform: uppercase;
   padding-bottom: 0.5em;
-  border-bottom: 0.15em solid var(--white);
+  border-bottom: 0.15em solid var(--color-text);
   width: fit-content;
   margin-bottom: 1em;
 }
 
 .aboutMeText p {
-  font-size: var(--pattern-p);
-  color: var(--white);
+  font-size: var(--font-size-p);
+  color: var(--color-text);
   opacity: 0.8;
   padding: 1em 0 1.5em 0;
   text-transform: initial;
@@ -64,9 +64,9 @@
   display: block;
   padding: 0.5em 0;
   background-color: transparent;
-  color: var(--white);
+  color: var(--color-text);
   border: none;
-  border-bottom: 0.15em solid var(--white);
+  border-bottom: 0.15em solid var(--color-text);
   cursor: pointer;
   font-size: 1.2em;
   text-transform: uppercase;
@@ -95,7 +95,7 @@
 }
 
 .socialMediaLinks img {
-  height: var(--icons-size);
+  height: var(--size-icon);
 }
 
 .socialMediaLinks img:hover {
@@ -117,7 +117,7 @@
   flex-direction: column;
   text-align: center;
   margin: 0;
-  background-color: var(--grey);
+  background-color: var(--color-background);
   min-width: 8em;
   border-radius: 0.3em;
   position: absolute;
@@ -125,7 +125,7 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  box-shadow: 0 8px 16px var(--black);
+  box-shadow: 0 8px 16px var(--color-shadow);
 }
 
 .menuList.active {
@@ -141,14 +141,14 @@
   font-size: 1em;
   display: block;
   padding: 0.5em 0;
-  color: var(--white);
+  color: var(--color-text);
   text-decoration: none;
   text-transform: uppercase;
   transition: color 0.2s ease;
 }
 
 .menuAboutMe a:hover {
-  color: var(--cian);
+  color: var(--color-accent);
 }
 
 .menuOption{
@@ -156,7 +156,7 @@
 }
 
 .menuOption.selected {
-  color: var(--cian);
+  color: var(--color-accent);
   text-decoration: underline;
   text-underline-position: under;
 }
@@ -232,12 +232,12 @@
   }
 
   .aboutMeText h2 {
-    font-size: var(--pattern-h2);
+    font-size: var(--font-size-h2);
     justify-self: center;
   }
 
   .aboutMeText p {
-    font-size: var(--pattern-p);
+    font-size: var(--font-size-p);
   }
 }
 

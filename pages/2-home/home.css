@@ -12,21 +12,21 @@
 
 .mainContent {
     width: auto;
-    border-left: 0.2em solid var(--white);
+    border-left: 0.2em solid var(--color-text);
     margin-top: 5em;
     height: 5em;
 }
 
 .mainContent h1 {
-    font-size: var(--pattern-h1);
+    font-size: var(--font-size-h1);
     text-transform: uppercase;
     padding-bottom: 0.4em;
     padding-left: 0.5em;
 }
 
 .mainContent p {
-    font-size: var(--pattern-p);
-    color: var(--white);
+    font-size: var(--font-size-p);
+    color: var(--color-text);
     opacity: 0.8;
     padding: 0.5em 0 1em 0;
     text-transform: capitalize;
@@ -48,17 +48,17 @@
     text-decoration: none;
     text-transform: capitalize;
     width: 10em;
-    font-size: var(--pattern-a);
+    font-size: var(--font-size-link);
     padding: 0.7em;
     border-radius: 5em;
-    background-color: var(--grey-light);
-    border: 0.1em solid var(--white);
-    color: var(--white);
-    box-shadow: 0.5em 0.2em var(--cian);
+    background-color: var(--color-surface);
+    border: 0.1em solid var(--color-text);
+    color: var(--color-text);
+    box-shadow: 0.5em 0.2em var(--color-accent);
 }
 
 .resumeButton a:hover {
-    color: var(--cian);
+    color: var(--color-accent);
 }
 
 .horizontalLine {
@@ -75,7 +75,7 @@
 }
 
 .exploreProjects a {
-    color: var(--white);
+    color: var(--color-text);
     opacity: 0.8;
     text-transform: capitalize;
     text-decoration: none;
@@ -97,7 +97,7 @@
 
 .avatarImage img {
     border-radius: 100%;
-    width: var(--img-size);
+    width: var(--size-image);
 }
 
 .typingEffect {
@@ -128,16 +128,16 @@
     }
 
     .mainContent h1 {
-        font-size: var(--pattern-h1);
+        font-size: var(--font-size-h1);
     }
 
     .mainContent p {
-        font-size: var(--pattern-p);
+        font-size: var(--font-size-p);
     }
 
     .resumeButton a {
         width: 12em;
-        font-size: var(--pattern-a);
+        font-size: var(--font-size-link);
         margin: 4em 0 3em 0; 
     }
 
@@ -167,7 +167,7 @@
     }
 
     .exploreProjects:hover p {
-        color: var(--cian);
+        color: var(--color-accent);
     }
 
     .exploreProjects:hover img {
@@ -186,13 +186,13 @@
     .mainContent {
         width: 100%;
         max-height: 4em;
-        border-left: 0.3em solid var(--white);
+        border-left: 0.3em solid var(--color-text);
         padding-left: 4em;
         margin: 0;
     }
 
     .mainContent h1 {
-        font-size: var(--pattern-h1);
+        font-size: var(--font-size-h1);
         padding-bottom: 0.8em;
     }
 
@@ -203,13 +203,13 @@
 
     .resumeButton a {
         width: 10em;
-        font-size: var(--pattern-a);
+        font-size: var(--font-size-link);
         padding: 0.8em;
     }
     .exploreProjects {
         position: absolute;
         margin-top: 21em;
-        border-bottom: 0.2em solid var(--white);
+        border-bottom: 0.2em solid var(--color-text);
         width: 4em;
     }
 
@@ -217,7 +217,7 @@
         position: absolute;
         margin-left: 12em;
         margin-top: 0.5em;
-        font-size: var(--pattern-a);
+        font-size: var(--font-size-link);
         padding-left: 3em;
         width: 10em;
     }
@@ -251,7 +251,7 @@
 
     @keyframes blink {
         90% {
-            border-color: var(--cian);
+            border-color: var(--color-accent);
         }
     }
 
@@ -260,7 +260,7 @@
     }
 
     .exploreProjects:hover p {
-        color: var(--cian);
+        color: var(--color-accent);
     }
 
     .exploreProjects:hover img {
