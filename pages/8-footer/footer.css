@@ -3,12 +3,12 @@
     flex-direction: column;
 }
 
-#footer-horizontal-line {
+.footer-horizontal-line {
     display: block;
     width: 80%;
-    height: 1px;
-    background-color: var(--color-text);
-    border-radius: 100%;
+    margin: 0 auto;
+    border: 0;
+    border-top: 1px solid var(--color-decorative-line);
 }
 
 .social-midias {
@@ -78,7 +78,7 @@
         text-align: center;
     }
 
-    #footer-horizontal-line {
+    .footer-horizontal-line {
         display: none;
     }
 
@@ -89,7 +89,7 @@
     .social-midias {
         justify-content: center;
         width: 100%;
-        border-top: 1px solid var(--color-text);
+        border-top: 1px solid var(--color-decorative-line);
         padding-top: 1em;
         margin-top: 0.5em;
     }
