@@ -2,7 +2,12 @@ function loadingPage(idElemento, url) {
     fetch(url)
         .then(response => response.text())
         .then(html => {
-            document.getElementById(idElemento).innerHTML = html;
+            const elemento = idElemento === 'footer' 
+                ? document.querySelector('.footer')
+                : document.getElementById(idElemento);
+            if (elemento) {
+                elemento.innerHTML = html;
+            }
         })
         .catch(error => {
             console.error(`Loading Error ${idElemento}:`, error);
