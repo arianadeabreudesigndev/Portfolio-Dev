@@ -402,13 +402,14 @@
     display: none;
 }
 
-@media (width >= 768px) {
+@media (width >= 768px) and (width < 1024px) {
     .projects-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         overflow-x: hidden;
         overflow-y: auto;
         margin-bottom: 10em;
+        gap: 2em;
     }
 
     .filter-dropdown {
@@ -418,54 +419,171 @@
     .scroll-arrows {
         display: none;
     }
+    
+    .projectItem {
+        max-width: none;
+        width: 100%;
+    }
+}
+
+@media (width >= 1024px) and (width < 1400px) {
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        overflow-x: hidden;
+        overflow-y: auto;
+        margin-bottom: 10em;
+        gap: 2em;
+    }
+
+    .filter-dropdown {
+        width: 320px;
+    }
+
+    .scroll-arrows {
+        display: none;
+    }
+    
+    .projectItem {
+        max-width: none;
+        width: 100%;
+    }
 }
 
 @media (width >= 1400px) {
     .projectsContainer {
-        margin: 7em 7em 0 10em;
+        margin: 7em 10em 20em 10em;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 60px; 
+        grid-template-rows: auto auto 1fr;
+        grid-template-areas: 
+            "title title title title arrows"
+            "filter filter filter filter arrows"
+            "projects projects projects projects arrows";
+        gap: 2em 1.5em;
     }
+    
     .projectTitleContainer {
-        grid-column: 1 / 2;
-        grid-row: 1 / 2;
-        justify-self: start;
+        grid-area: title;
+        text-align: center;
         margin-bottom: 0;
     }
 
     .filter-icon-container {
-        grid-column: 4 / 5;
-        grid-row: 2 / 3;
+        grid-area: filter;
         justify-self: end;
+        align-self: start;
         margin-bottom: 0;
     }
 
     .active-filters {
-        grid-column: 1 / 5;
-        grid-row: 2 / 3;
-        margin: 3em;
+        grid-area: filter;
+        align-self: start;
+        justify-self: start;
+        margin: 0;
     }
 
     .projects-grid {
-        grid-column: 1 / 5;
-        grid-row: 3 / 5;
+        grid-area: projects;
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        justify-items: center;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.2em;
+        overflow-y: auto;
+        max-height: calc(740px);
+        padding-right: 10px;
+        margin-bottom: 0;
+        scroll-behavior: smooth;
+    }
+    
+    .projects-grid::-webkit-scrollbar {
+        width: 6px;
+    }
+    
+    .projects-grid::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 3px;
+    }
+    
+    .projects-grid::-webkit-scrollbar-thumb {
+        background: var(--color-accent);
+        border-radius: 3px;
+    }
+    
+    .projects-grid::-webkit-scrollbar-thumb:hover {
+        background: var(--color-accent);
+        opacity: 0.8;
     }
 
     .scroll-arrows {
-        grid-column: 5 / 6;
-        grid-row: 4 / 5;
-        align-self: end;
-        justify-self: center;
+        grid-area: arrows;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 0.5em;
+        margin-top: 0;
+        margin-bottom: 0.5em;
     }
-
-    .filter-icon-container {
-        margin-bottom: 1.5em;
+    
+    .scroll-arrows a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+    
+    .scroll-arrows img {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .scroll-arrows a:first-child img {
+        transform: rotate(0);
+    }
+        
+    .scroll-arrows a:last-child img {
+        transform: rotate(180deg);
     }
 
     .filter-dropdown {
         left: auto;
         right: 0;
+    }
+    
+    .projectItem {
+        max-width: none;
+        width: 100%;
+        padding: 0.8em;
+        height: 360px;
+    }
+    
+    .projectDescriptionContainer {
+        padding: 0.9em;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .projectDescriptionContainer h2 {
+        font-size: 1.1em;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    
+    .projectDescriptionContainer p {
+        font-size: 0.85em;
+        line-height: 1.4;
+        flex-grow: 1;
+    }
+    
+    .project-tags {
+        margin-top: 0.7em;
+        gap: 0.4em;
+    }
+    
+    .tag {
+        padding: 0.4em 0.8em;
+        font-size: 0.65em;
     }
 }
 
