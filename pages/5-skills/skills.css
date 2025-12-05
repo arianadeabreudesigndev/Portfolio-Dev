@@ -105,7 +105,7 @@
   transform: scale(0.9); 
 }
 
-.skillIcon img:hover {
+.skillIcon:hover img {
   filter: invert(10%) sepia(50%) saturate(9000%) hue-rotate(290deg) brightness(100%) contrast(90%);
 }
 
