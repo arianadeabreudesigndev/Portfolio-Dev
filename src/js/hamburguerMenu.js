@@ -15,13 +15,46 @@
       ham.setAttribute('aria-expanded', String(newState));
     };
   
-    const closeMenu = () => toggleMenuState(false);
+    const closeMenu = () => {
+      toggleMenuState(false);
+      const menuOptionLanguage = document.querySelector('.menuOptionLanguage');
+      if (menuOptionLanguage && menuOptionLanguage.classList.contains('active')) {
+        menuOptionLanguage.classList.remove('active');
+      }
+    };
   
     const ensureInitialAria = () => {
       const ham = document.querySelector('.hamburger');
       if (ham && !ham.hasAttribute('aria-expanded')) ham.setAttribute('aria-expanded', 'false');
     };
   
+    const handleLanguageToggle = (e) => {
+      const languageToggle = e.target.closest('.languageToggle');
+      if (languageToggle) {
+        e.preventDefault();
+        e.stopPropagation();
+        const menuOptionLanguage = languageToggle.closest('.menuOptionLanguage');
+        if (menuOptionLanguage) {
+          menuOptionLanguage.classList.toggle('active');
+        }
+        return;
+      }
+
+      const languageSubmenuLink = e.target.closest('.mobileLanguageSubmenu a');
+      if (languageSubmenuLink) {
+        e.preventDefault();
+        const lang = languageSubmenuLink.getAttribute('data-lang');
+        if (lang && window.languageManager) {
+          window.languageManager.setLanguage(lang);
+          const menuOptionLanguage = languageSubmenuLink.closest('.menuOptionLanguage');
+          if (menuOptionLanguage) {
+            menuOptionLanguage.classList.remove('active');
+          }
+        }
+        return;
+      }
+    };
+
     const onDocumentClick = (e) => {
       const clickedHamburger = e.target.closest('.hamburger');
       if (clickedHamburger) {
@@ -29,16 +62,33 @@
         toggleMenuState();
         return;
       }
-  
+
+      const clickedLanguageToggle = e.target.closest('.languageToggle');
+      if (clickedLanguageToggle) {
+        handleLanguageToggle(e);
+        return;
+      }
+
+      const clickedLanguageSubmenuLink = e.target.closest('.mobileLanguageSubmenu a');
+      if (clickedLanguageSubmenuLink) {
+        handleLanguageToggle(e);
+        return;
+      }
+
       const clickedMenuLink = e.target.closest('.menu a');
-      if (clickedMenuLink) {
+      if (clickedMenuLink && !clickedMenuLink.classList.contains('languageToggle')) {
         closeMenu();
         return;
       }
-  
+
       if (!e.target.closest('.menu') && !e.target.closest('.hamburger')) {
         const menu = document.querySelector('.menu');
         if (menu && menu.classList.contains('active')) closeMenu();
+        
+        const menuOptionLanguage = document.querySelector('.menuOptionLanguage');
+        if (menuOptionLanguage && menuOptionLanguage.classList.contains('active')) {
+          menuOptionLanguage.classList.remove('active');
+        }
       }
     };
   
