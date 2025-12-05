@@ -235,12 +235,13 @@
     }
 
     .typingEffect {
-        width: 9em;
-        height: 0.5em;
+        width: 9.2em;
+        height: 0.3em;
         animation: typing 2s steps(20), blink 0.5s infinite;
         white-space: nowrap;
         overflow: hidden;
         border-right: 7px solid;
+        margin-bottom: 0.1em;
     }
 
     @keyframes typing {
