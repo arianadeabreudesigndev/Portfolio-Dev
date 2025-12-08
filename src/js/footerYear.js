@@ -1,15 +1,9 @@
-
-function updateFooterYear() {
+function setFooterYear() {
     const yearElement = document.getElementById('current-year');
-    if (!yearElement) return;
-    
-    const now = new Date();
-    const year = now.getFullYear();
-    
-    yearElement.textContent = year;
-    yearElement.setAttribute('datetime', year);
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+        return true;
+    }
+    return false;
 }
-
-document.addEventListener('DOMContentLoaded', updateFooterYear);
-
-setInterval(updateFooterYear, 3600000);
+setFooterYear() || setTimeout(setFooterYear, 100);
