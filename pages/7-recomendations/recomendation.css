@@ -29,7 +29,6 @@
 .testimonial {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
   padding: 1rem 0.5rem;
   text-align: center;
 }
@@ -168,8 +167,6 @@
   .testimonial {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    align-items: start;
   }
 
   .testimonial-text {

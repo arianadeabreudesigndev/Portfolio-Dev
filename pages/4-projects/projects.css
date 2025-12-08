@@ -457,16 +457,16 @@
         grid-template-columns: 1fr 1fr 1fr 1fr 60px; 
         grid-template-rows: auto auto 1fr;
         grid-template-areas: 
-            "title title title title arrows"
+            "title . . . arrows"
             "filter filter filter filter arrows"
             "projects projects projects projects arrows";
-        gap: 2em 1.5em;
+        gap: 1em 1.5em;
     }
     
     .projectTitleContainer {
         grid-area: title;
-        text-align: center;
         margin-bottom: 0;
+        margin-left: -8em;
     }
 
     .filter-icon-container {
