@@ -188,12 +188,12 @@
         max-height: 4em;
         border-left: 0.3em solid var(--color-text);
         padding-left: 4em;
-        margin: 0;
     }
 
     .mainContent h1 {
         font-size: var(--font-size-h1);
         padding-bottom: 0.8em;
+        min-width: fit-content;
     }
 
 
@@ -231,7 +231,7 @@
 
     .avatarImage img {
         width: 27em;
-        margin: -10em 20em 0 0;
+        margin: -10em 17em 0 0;
     }
 
     .typingEffect {

@@ -83,7 +83,6 @@
   transition: all 0.2s ease;
 }
 
-/* Efeito hover para os ícones de download */
 .download-link:hover .download-icon {
   filter: invert(40%) sepia(29%) saturate(664%) hue-rotate(303deg) brightness(95%) contrast(92%);
   transform: translateY(-2px);
@@ -154,6 +153,7 @@
   #recomendations {
     padding: 3em 5em;
     gap: 4rem;
+    scroll-margin-top: -10em;
   }
 
   .reference-title {

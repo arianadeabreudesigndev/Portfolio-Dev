@@ -1,25 +1,56 @@
-#sidebar-menu{
-    background-color: var(--color-surface);
-    width: 5em;
-    height: 27em;
-    position: fixed;
-    right: 10vh;
-    top: 35vh;
-    border-radius: 3em;
+
+.sticky-bar{
+    display: none;
 }
 
-#sidebar-menu ul{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+@media (width >= 1400px) {
+    .sticky-bar{
+        display: block;
 
-#sidebar-menu ul li{
-    margin-top: 0.5em;
-    padding: 0.8em;
-}
+        position: fixed;
+        top: 26%;
+        left: calc(50% + min(50vw, 960px) + -10em);
+        background-color: var(--color-surface);
+        width: 3.5em;
+        height: 20em;
+        border-radius: 3em;
+    }
+    
 
-#sidebar-menu img:hover{
-    filter: invert(10%) sepia(50%) saturate(9000%) hue-rotate(290deg) brightness(100%) contrast(90%);
-
+    .sticky-bar ul{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: .5em 0;
+        margin: 0;
+        height: 100%;
+        justify-content: space-between;
+    }
+    
+    .sticky-bar ul li{
+        margin: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+    }
+    
+    .sticky-bar ul li a{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        margin-bottom: 1em;
+    }
+    
+    .sticky-bar ul li a:hover img{
+        filter: invert(10%) sepia(50%) saturate(9000%) hue-rotate(290deg) brightness(100%) contrast(90%);
+    }
+    
+    .svg-image{
+        height: 1.3em;
+        pointer-events: none;
+    }
 }
