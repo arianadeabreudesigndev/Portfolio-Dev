@@ -12,43 +12,8 @@
         <div class="filter-dropdown">
             <div class="filter-section">
                 <h3 data-i18n="filter-tech-title">Tecnologias</h3>
-                <div class="filter-options">
-                    <label><input type="checkbox" name="tech" value="react">React</label>
-                    <label><input type="checkbox" name="tech" value="vue">Vue.js</label>
-                    <label><input type="checkbox" name="tech" value="nextjs">Next.js</label>
-                    <label><input type="checkbox" name="tech" value="astro">Astro</label>
-                    <label><input type="checkbox" name="tech" value="reactnative">React Native</label>
-                    <label><input type="checkbox" name="tech" value="typescript">TypeScript</label>
-                    <label><input type="checkbox" name="tech" value="javascript">JavaScript</label>
-                    <label><input type="checkbox" name="tech" value="java-spring">Java Spring</label>
-                    <label><input type="checkbox" name="tech" value="htmlecss">HTML e CSS</label>
-                    <label><input type="checkbox" name="tech" value="node">Node.js</label>
-                    <label><input type="checkbox" name="tech" value="postgresql">PostgreSQL</label>
-                    <label><input type="checkbox" name="tech" value="mongo">MongoDB</label>
-                    <label><input type="checkbox" name="tech" value="sqlite">SQLite</label>
-                    <label><input type="checkbox" name="tech" value="tailwind">Tailwind</label>
-                </div>
-            </div>
-
-            <div class="filter-section">
-                <h3 data-i18n="filter-category-title">Categoria</h3>
-                <div class="filter-options">
-                    <label><input type="checkbox" name="category" value="fullstack"> <span
-                            data-i18n="filter-category-fullstack">FullStack</span></label>
-                    <label><input type="checkbox" name="category" value="frontend"> <span
-                            data-i18n="filter-category-frontend">Front-end</span></label>
-                    <label><input type="checkbox" name="category" value="backend"> <span
-                            data-i18n="filter-category-backend">Back-end</span></label>
-                </div>
-            </div>
-
-            <div class="filter-section">
-                <h3 data-i18n="filter-status-title">Status</h3>
-                <div class="filter-options">
-                    <label><input type="checkbox" name="status" value="completed"> <span
-                            data-i18n="filter-status-completed">Finalizado</span></label>
-                    <label><input type="checkbox" name="status" value="progress"> <span
-                            data-i18n="filter-status-progress">Em andamento</span></label>
+                <div class="filter-options tech-options">
+                    <!-- opções de filtro renderizadas dinamicamente -->
                 </div>
             </div>
 
@@ -59,146 +24,8 @@
         </div>
     </div>
 
-    <div class="projects-grid">
-        <div class="projectItem" data-tech="htmlecss javascript" data-category="frontend" data-status="completed"
-            data-date="2025-10">
-            <a href="#" class="project-image-link">
-                <img class="projectImage" src="/src/img/project-Images/Portfolio.svg" alt="Meu Portfólio">
-            </a>
-            <div class="projectDescriptionContainer">
-                <article>
-                    <h2 data-i18n="project1-title">Portfólio DEV</h2>
-                    <p data-i18n="project1-description">Portfólio pessoal desenvolvido com design 100% original e responsivo sobre programação e design.</p>
-                    <div class="project-tags">
-                        <span class="tag">Frontend</span>
-                        <span class="tag">HTML/CSS</span>
-                        <span class="tag">JavaScript</span>
-                    </div>
-                </article>
-            </div>
-            <div class="project-details" style="display: none;">
-                <div class="detailed-description" data-i18n="project1-description-detailed">Portfólio pessoal desenvolvido completamente do zero, desde a
-                    concepção do design até a implementação final. O projeto apresenta uma arquitetura moderna com
-                    navegação intuitiva através das seções: Header, Início, Sobre Mim, Projetos, Habilidades Técnicas,
-                    Contato e Recomendações. O site é totalmente responsivo com três breakpoints (mobile, tablet,
-                    desktop), incluindo menu hamburger para mobile e layout adaptativo em todas as seções.
-                    Melhorias Futuras Planejadas:
-                    Sistema completo de troca de idiomas (já iniciado para desktop),
-                    Seção de comentários para colegas e clientes,
-                    Expansão do multi-idioma para mobile via menu hamburger.</div>
-                <div class="github-url">https://github.com/arianadeabreudesigndev/Portfolio-Dev</div>
-                <div class="demo-url">https://portfolioariandeabreudesigndev.netlify.app</div>
-            </div>
-        </div>
-
-        <div class="projectItem" data-tech="htmlecss javascript" data-category="frontend" data-status="completed"
-            data-date="2019-01">
-            <a href="#" class="project-image-link">
-                <img class="projectImage" src="/src/img/project-Images/TabelaPeriodica.svg" alt="Tabela Periódica">
-            </a>
-            <div class="projectDescriptionContainer">
-                <article>
-                    <h2 data-i18n="project2-title">Tabela Periódica</h2>
-                    <p data-i18n="project2-description">Tabela periódica interativa com informações detalhadas de cada elemento.</p>
-                    <div class="project-tags">
-                        <span class="tag">Frontend</span>
-                        <span class="tag">HTML/CSS</span>
-                        <span class="tag">JavaScript</span>
-                    </div>
-                </article>
-            </div>
-            <div class="project-details" style="display: none;">
-                <div class="detailed-description" data-i18n="project2-description-detailed">Este projeto foi um dos primeiros que desenvolvi na faculdade e marcou
-                    meu aprendizado em HTML e CSS Grid. Criei uma tabela periódica interativa onde cada elemento
-                    funciona como um botão que, ao ser clicado, revela uma janela com a sigla, o nome, uma breve
-                    descrição e quatro imagens que mostram onde o elemento é encontrado ou como é utilizado no dia a
-                    dia. Foi um exercício divertido e desafiador que me ajudou a entender melhor a organização de
-                    layouts e a tornar o conteúdo mais interessante e acessível.</div>
-                <div class="github-url">https://github.com/arianadeabreudesigndev/Periodic-table</div>
-                <div class="demo-url">https://periodic-table-ariana.netlify.app</div>
-            </div>
-        </div>
-
-        <div class="projectItem" data-tech="vue javascript tailwind figma" data-category="frontend"
-            data-status="progress" data-date="2026">
-            <a href="#" class="project-image-link">
-                <img class="projectImage" src="/src/img/project-Images/SkyPath.svg" alt="Projeto Skypath">
-            </a>
-            <div class="projectDescriptionContainer">
-                <article>
-                    <h2 data-i18n="project3-title">Skypath</h2>
-                    <p data-i18n="project3-description">Landing page para viajantes e entusiastas do camping ao ar livre e explorar belezas naturais.</p>
-                    <div class="project-tags">
-                        <span class="tag">Frontend</span>
-                        <span class="tag">Vue.js</span>
-                        <span class="tag">Tailwind</span>
-                        <span class="tag">JavaScript</span>
-                    </div>
-                </article>
-            </div>
-            <div class="project-details" style="display: none;">
-                <div class="detailed-description" data-i18n="project3-description-detailed">Uma página web para viajantes e entusiastas do camping selvagem,
-                    focada em transmitir a beleza e a serenidade de explorar a natureza. O site oferece guias visuais
-                    sobre locais, equipamentos essenciais e dicas para enfrentar adversidades, promovendo a filosofia de
-                    viajar sozinho, mas bem equipado. O desenvolvimento priorizou um design visualmente impactante e uma
-                    navegação fluida.</div>
-                <div class="github-url">https://</div>
-                <div class="demo-url">https://</div>
-            </div>
-        </div>
-
-        <div class="projectItem" data-tech="nextjs typescript node tailwind postgresql" data-category="fullstack"
-            data-status="planning" data-date="2026">
-            <a href="#" class="project-image-link">
-                <img class="projectImage" src="/src/img/project-Images/nextLevel.svg" alt="Evento Gamer">
-            </a>
-            <div class="projectDescriptionContainer">
-                <article>
-                    <h2 data-i18n="project4-title">Next Level Tech Gamming 2025</h2>
-                    <p data-i18n="project4-description">Site para com venda de ingressos e informações sobre evento gamer.</p>
-                    <div class="project-tags">
-                        <span class="tag">FullStack</span>
-                        <span class="tag">Next.js</span>
-                        <span class="tag">TypeScript</span>
-                    </div>
-                </article>
-            </div>
-            <div class="project-details" style="display: none;">
-                <div class="detailed-description" data-i18n="project4-description-detailed">Site simples para evento de games e tecnologia com venda de ingressos,
-                    GPS do local e mini galeria de fotos do evento. Inclui página principal, informações sobre
-                    convidados, programação e sistema de checkout integrado. Desenvolvido com Next.js para melhor SEO e
-                    performance. Esse projeto foi desenvolvido para completar o desafio proposto por #CodeMeninas.</div>
-                <div class="github-url">https://</div>
-                <div class="demo-url">https://</div>
-            </div>
-        </div>
-
-        <div class="projectItem" data-tech="astro typescript tailwind" data-category="frontend" data-status="progress"
-            data-date="2026">
-            <a href="#" class="project-image-link">
-                <img class="projectImage" src="/src/img/project-Images/SelaHamalecote.svg" alt="Selá Hamalecote">
-            </a>
-            <div class="projectDescriptionContainer">
-                <article>
-                    <h2 data-i18n="project5-title">Selá Hamalecote</h2>
-                    <p data-i18n="project5-description">Site corporativo para serviços de vistoria com foco em performance e SEO.</p>
-                    <div class="project-tags">
-                        <span class="tag">Frontend</span>
-                        <span class="tag">Astro</span>
-                        <span class="tag">TypeScript</span>
-                        <span class="tag">Tailwind</span>
-                    </div>
-                </article>
-            </div>
-            <div class="project-details" style="display: none;">
-                <div class="detailed-description" data-i18n="project5-description-detailed">Site corporativo destacando serviços de vistoria, galeria de projetos
-                    e portfólio profissional. O objetivo era criar uma presença digital clean, profissional e de alto
-                    desempenho, facilitando o contato de clientes em potencial. Desenvolvimento com Astro para máxima
-                    performance e SEO, integrando um sistema de galeria visual e formulário de contato funcional.</div>
-                <div class="github-url">https://</div>
-                <div class="demo-url">https://</div>
-            </div>
-        </div>
+    <div class="projects-grid" id="projectsGrid">
+        <!-- cards de projetos gerados dinamicamente -->
     </div>
 
     <div class="scroll-arrows">
@@ -209,7 +36,6 @@
             <img src="/src/img/icons/simple-arrow-down.svg" alt="Seta para baixo" data-i18n-attr="alt:arrow-down-alt">
         </a>
     </div>
-    
 
     <div class="project-modal" id="projectModal">
         <div class="modal-content">
