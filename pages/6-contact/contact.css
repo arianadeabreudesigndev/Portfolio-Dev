@@ -61,6 +61,7 @@
 .contactMe p {
     text-transform: initial;
     font-size: var(--font-size-p);
+    padding-top: 1em;
 }
 
 .contactForm {
@@ -82,7 +83,7 @@
     font-size: var(--font-size-h2);
     text-transform: uppercase;
     margin-bottom: 1em;
-    border-bottom: 2px solid var(--color-text);
+    border-bottom: 3px solid var(--color-text);
     padding-bottom: 0.5em;
 }
 
@@ -96,13 +97,14 @@
 
 .contactForm input {
     font-family: 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    height: 5em;
+    height: 4em;
     width: 100%;
-    margin: 1.1em 0;
+    margin: 1em 0;
     border: 0;
-    border-bottom: 2px solid var(--color-text);
-    background-color: var(--color-surface);
+    border-bottom: 3px solid var(--color-text);
+    background-color: var(--color-background);
     color: var(--color-text);
+    text-transform: capitalize;
 }
 
 .btnSend {
@@ -210,10 +212,10 @@
 
     .containerContact {
         display: grid;
-        grid-template-columns: 1fr 1fr; 
+        grid-template-columns: 0.2fr 0.5fr 0.5fr;
         gap: 1em;
         align-items: end;
-        margin: 4em 5em 0 0;
+        margin: 4em 4em 0 0;
         position: relative;
         grid-auto-rows: auto; 
     }
@@ -223,21 +225,21 @@
         position: absolute;
         top: 0;
         bottom: 0;
-        left: 50%;
-        width: 3px;
-        height: 40em;
-        background-color: var(--color-text);
-        opacity: 0.3;
+        width: 2px;
+        height: 34em;
+        background-color: var(--color-accent);
+        margin-left: 52em;
     }
 
     .contactMe {
-        grid-column: 1;
+        grid-column: 2;
         grid-row: 1;
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
         width: 100%;
+        padding-right: 10em;
     }
 
     .contactPhoto{
@@ -246,16 +248,20 @@
 
     .socialIcons {
         grid-column: 1;
-        grid-row: 2;
-        justify-content: center;
-        margin-top: -3em;
+        grid-row: 1 / span 2;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-end;
+        gap: 1em;
+        padding-bottom: 1.5em;
     }
 
     .contactForm {
-        grid-column: 2;
+        grid-column: 3;
         grid-row: 1 / span 2; 
         max-width: none;
-        margin: 0;
+        margin: 0 4em 0 0;
         padding: 0 1em;
         display: flex;
         flex-direction: column;
@@ -267,10 +273,11 @@
 
     .contactForm h2 {
         align-self: center;
-        margin-bottom: 2em;
+        margin-bottom: 1.5em;
     }
 
     .btnContent {
         justify-content: center;
+        margin-bottom: 0.5em;
     }
 }

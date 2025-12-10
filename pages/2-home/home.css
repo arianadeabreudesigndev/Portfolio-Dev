@@ -209,7 +209,7 @@
     .exploreProjects {
         position: absolute;
         margin-top: 21em;
-        border-bottom: 0.2em solid var(--color-text);
+        border-bottom: 0.3em solid var(--color-text);
         width: 4em;
     }
 

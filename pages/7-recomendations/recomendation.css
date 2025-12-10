@@ -151,7 +151,7 @@
 
 @media (width >= 1400px) {
   #recomendations {
-    padding: 3em 5em;
+    padding: 3em 4em;
     gap: 4rem;
     scroll-margin-top: -10em;
   }
@@ -161,7 +161,10 @@
     margin-bottom: 3rem;
     grid-column: 1 / -1;
     margin-top: 7em;
-    margin-left: -4.5em;
+  }
+
+  .reference-title h2{
+    padding-bottom: 0.5em;
   }
 
   .testimonial {
@@ -175,7 +178,7 @@
     font-size: 1.1rem;
     line-height: 1.6;
     position: relative;
-    padding-right: 2em;
+    padding-right: 3.5em;
   }
 
   .testimonial-text::after {
@@ -189,8 +192,6 @@
 
   .testimonial-sep {
     grid-column: 1 / 2;
-    border-bottom: 0.15rem solid var(--color-text);
-    
   }
 
   .recommender {
@@ -199,7 +200,8 @@
     flex-direction: row;
     align-items: center;
     gap: 1rem;
-    padding-left: 2rem;
+    padding-left: 4rem;
+    border-left: 3px solid var(--color-text);
   }
 
   .avatar {
