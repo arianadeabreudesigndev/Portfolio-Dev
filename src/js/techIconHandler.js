@@ -8,7 +8,6 @@ function getDefaultText() {
   return "Passe o mouse ou clique em uma das habilidades para ver mais detalhes sobre minha jornada com essa tecnologia.";
 }
 
-// Mapeamento de skills para chaves de tradução
 const skillTranslationKeys = {
   "Figma": "skill-desc-figma",
   "GitHub": "skill-desc-github", 
@@ -144,7 +143,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initializeSkillsSection();
   setupEventListeners();
   
-  // Escuta mudanças de idioma para atualizar o texto padrão
   if (window.languageManager) {
     window.addEventListener('languageChanged', () => {
       resetToDefaultText();
