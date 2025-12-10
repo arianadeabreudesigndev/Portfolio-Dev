@@ -1,14 +1,3 @@
-/**
- * Script para gerar projects.json a partir dos repositórios públicos do GitHub.
- * Fluxo:
- *  1) Busca lista de repositórios do usuário.
- *  2) Para cada repositório, busca linguagens e README.md bruto.
- *  3) Lê o cabeçalho padronizado do README (title, short_description, description).
- *  4) Monta o objeto final e grava em ../projects.json.
- *
- * Use Node 18+ (fetch nativo). Opcional: definir GITHUB_TOKEN para ampliar o rate limit.
- */
-
 const fs = require('fs/promises');
 const path = require('path');
 
