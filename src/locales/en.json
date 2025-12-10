@@ -7,6 +7,8 @@
       "nav-skills": "expertise",
       "nav-contact": "contact",
       "nav-language": "language",
+      "skills-group-developer": "Developer",
+      "skills-group-design": "Design",
       "nav-theme": "theme",
       "theme-light": "light",
       "theme-dark": "dark",
@@ -87,7 +89,7 @@
       
   
       "skills-title": "expertise",
-      "skills-default-text": "Hover over or click on one of the skills to see more details about my journey with that technology.",
+      "skills-default-text": "Click on one of the skills to see more details about my journey with that technology.",
       "skill-figma": "Figma",
       "skill-github": "GitHub",
       "skill-html": "HTML",
@@ -116,7 +118,7 @@
       "skill-desc-node": "I was introduced to it during college, but only later did I start exploring it in depth. I enjoy the flexibility it offers for building agile back-ends, especially when used with Express and databases.",
       "skill-desc-typescript": "I have been delving into it more recently, mainly to improve the quality and predictability of my JavaScript code. Using static typing has helped me identify errors before runtime and keep projects better organized. I am applying it in personal projects and plan to expand its use in production in the future.",
       "skill-desc-illustrator": "My experience began in the field of graphic design. I use Illustrator to create vectors, logos, and illustrations, which I apply in personal and professional projects.",
-      "close-panel": "Close",
+      "close-panel": "x",
       
 
       "contact-title": "contact",
