@@ -14,8 +14,8 @@
   scroll-behavior: smooth;
   overflow-y: scroll;
   scrollbar-width: thin;
-  padding-right: 1em;
-  scrollbar-color: var(--color-surface) transparent;
+  padding-right:2em;
+  scrollbar-color: var(--color-accent) var(--color-surface);
 }
 
 .skillsScroll a {
@@ -29,6 +29,86 @@
 .skillsScroll img {
   height: var(--size-icon);
   padding: 0.5em;
+}
+
+.skills-group.hidden-group {
+  display: none;
+}
+
+.skillsDropdownContainer {
+  display: inline-block;
+  align-self: flex-start;
+  margin: 1em 0 0.5em;
+  position: relative;
+}
+
+.skillsDropdownToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  color: var(--color-text);
+  font-size: var(--font-size-p);
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 6px;
+  padding: 0.4em 0.75em;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+}
+
+.skillsDropdownIcon {
+  width: 1em;
+  transform: rotate(90deg);
+  transition: transform 0.2s ease;
+}
+
+.skillsDropdownToggle.open .skillsDropdownIcon {
+  transform: rotate(180deg);
+}
+
+.skillsDropdownMenu {
+  position: absolute;
+  top: 100%;
+  box-shadow: 0 8px 16px var(--color-shadow);
+  border-radius: 6px;
+  list-style: none;
+  margin: 0.4em 0 0;
+  padding: 0.2em 0;
+  min-width: 8em;
+  display: none;
+  z-index: 5;
+}
+
+.skillsDropdownMenu.show {
+  display: block;
+}
+
+.skillsDropdownMenu li a {
+  display: block;
+  padding: 0.5em 0.8em;
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: var(--font-size-p);
+}
+
+.skillsDropdownMenu li a:hover {
+  background: var(--color-accent);
+  color: var(--color-text);
+}
+
+@media (max-width: 767px) {
+  .skillsDropdownContainer {
+    align-self: center;
+    order: 3;
+    margin-top: 1em;
+  }
+
+  .skillsScroll {
+    order: 2;
+  }
 }
 
 .skillTextDescrip {
@@ -105,6 +185,11 @@
   transform: scale(0.9); 
 }
 
+.skillIcon.active {
+  transform: scale(0.8);
+}
+
+.skillIcon.active img,
 .skillIcon:hover img {
   filter: invert(10%) sepia(50%) saturate(9000%) hue-rotate(290deg) brightness(100%) contrast(90%);
 }
@@ -127,7 +212,7 @@
   .skillsScroll {
     grid-column: 1;
     grid-row: 1;
-    gap: 1em;
+    gap: 2em;
     justify-items: center;
     align-items: center;
     padding: 0 1em 0 0;
@@ -194,16 +279,22 @@
 }
 
 @media (width >= 1400px) {
+
+  .skillsDropdownContainer {
+    margin-left: 3em;
+    margin-top: -2em;
+  }
+
   .skillContainer {
     display: grid;
     grid-template-columns: 1fr 1fr 0.1fr;
-    grid-template-areas: "skills desc title";
+    grid-template-areas: "desc skills title";
     gap: 5em;
     margin: 4em 5em 15em 12em;
   }
 
   .skillContainer > * { 
-    justify-self: center; 
+    justify-self: start;
   }
 
   .skillsScroll {
@@ -215,13 +306,12 @@
   }
 
   .skillsScroll a { 
-    width: 7em; 
-    height: 7em;
+    width: 6em; 
+    height: 6em;
   }
   
   .skillsScroll img { 
     height: 5em; 
-    padding: 0.5em; 
   }
 
   .skillTextDescrip {

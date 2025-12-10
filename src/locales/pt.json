@@ -6,6 +6,8 @@
       "nav-skills": "expertise",
       "nav-contact": "contato",
       "nav-language": "idioma",
+      "skills-group-developer": "Desenvolvedor",
+      "skills-group-design": "Design",
       "nav-theme": "tema",
       "theme-light": "claro",
       "theme-dark": "escuro",
@@ -87,7 +89,7 @@
       "arrow-up-alt": "Seta para cima",
       
       "skills-title": "expertise",
-      "skills-default-text": "Passe o mouse ou clique em uma das habilidades para ver mais detalhes sobre minha jornada com essa tecnologia.",
+      "skills-default-text": "Clique em uma das habilidades para ver mais detalhes sobre minha jornada com essa tecnologia.",
       "skill-figma": "Figma",
       "skill-github": "GitHub",
       "skill-html": "HTML",
@@ -116,7 +118,7 @@
       "skill-desc-typescript": "Venho me aprofundando mais recentemente, principalmente para melhorar a qualidade e a previsibilidade do meu código JavaScript. O uso de tipagem estática tem me ajudado a identificar erros antes da execução e a manter projetos mais organizados. Estou aplicando em projetos pessoais e pretendo expandir seu uso em produção no futuro.",
       "skill-desc-illustrator": "Meu contato começou no campo do design gráfico. Uso o Illustrator para criação de vetores, logotipos e ilustrações que aplico em projetos pessoais e profissionais.",
       "skill-desc-node": "Conheci durante a faculdade, mas só mais tarde comecei a explorar de fato. Gosto da flexibilidade para criar back-ends ágeis, principalmente em conjunto com Express e bancos de dados.",
-      "close-panel": "Fechar",
+      "close-panel": "x",
       
       "contact-title": "contato",
       "contact-intro": "Vamos conversar sobre tecnologia, design e inovação? Estou sempre aberta a novos projetos e conexões!",
