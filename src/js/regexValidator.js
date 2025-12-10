@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const submitButton = form.querySelector('.btnSend');
     const originalButtonText = submitButton.innerHTML;
 
-    // Função para mostrar mensagens traduzidas
     function getTranslatedMessage(key) {
         if (window.languageManager) {
             const translation = window.languageManager.getTranslation(key);
@@ -28,8 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     form.addEventListener("submit", async (e) => {
         e.preventDefault();
-
-        // Desabilita o botão e mostra loading
         submitButton.disabled = true;
         submitButton.innerHTML = '<span>Enviando...</span>';
 
@@ -40,7 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        // Validações
         if (!name) {
             window.emailService?.showNotification(getTranslatedMessage('name-required'), 'error');
             resetButton();
@@ -66,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         try {
-            // Aguarda o EmailJS estar pronto
+
             if (!window.emailService?.isInitialized) {
                 await new Promise(resolve => setTimeout(resolve, 1000));
             }

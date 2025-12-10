@@ -21,9 +21,7 @@ class FilterManager {
         const applyBtn = document.querySelector(".apply-filters");
         const clearBtn = document.querySelector(".clear-filters");
 
-        // --- Dropdown de Filtro ---
         if (filterToggle && filterDropdown) {
-            // Clona o botão para evitar conflitos de listener duplicado
             const newToggle = filterToggle.cloneNode(true);
             filterToggle.parentNode.replaceChild(newToggle, filterToggle);
 
@@ -44,12 +42,10 @@ class FilterManager {
             filterDropdown.addEventListener("click", (e) => e.stopPropagation());
         }
 
-        // --- Botões principais ---
         applyBtn?.addEventListener("click", () => this.applyFilters());
         clearBtn?.addEventListener("click", () => this.clearFilters());
     }
 
-    // --- Ações principais ---
     applyFilters() {
         console.log("Aplicando filtros");
         this.updateActiveFilters();
@@ -75,7 +71,6 @@ class FilterManager {
         if (activeContainer) activeContainer.innerHTML = "";
     }
 
-    // --- Atualiza o estado interno dos filtros ---
     updateActiveFilters() {
         const filters = { tech: [], category: [], status: [], date: [] };
 
@@ -89,7 +84,6 @@ class FilterManager {
         console.log("Filtros ativos:", this.activeFilters);
     }
 
-    // --- Filtra os projetos visíveis ---
     filterProjects() {
         const items = document.querySelectorAll(".projectItem");
         console.log(`Filtrando ${items.length} projetos`);
@@ -112,7 +106,6 @@ class FilterManager {
         );
     }
 
-    // --- Verificações individuais ---
     checkTech(item) {
         const { tech } = this.activeFilters;
         if (!tech.length) return true;
@@ -146,7 +139,6 @@ class FilterManager {
         return visible;
     }
 
-    // --- Atualiza visual dos filtros ativos ---
     updateActiveFiltersView() {
         const container = document.querySelector(".active-filters");
         if (!container) return;
@@ -173,7 +165,6 @@ class FilterManager {
         });
     }
 
-    // --- Remove um filtro ativo ---
     removeFilter(type, value) {
         console.log(`Removendo filtro: ${type} = ${value}`);
 
@@ -188,7 +179,6 @@ class FilterManager {
         this.updateActiveFiltersView();
     }
 
-    // --- Labels amigáveis ---
     getFilterLabel(type, value) {
         const labels = {
             tech: {
@@ -225,7 +215,6 @@ class FilterManager {
     }
 }
 
-// --- Inicialização ---
 document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
         window.filterManager = new FilterManager();
