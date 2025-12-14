@@ -26,10 +26,13 @@ async function fetchJson(fetchImpl, url, headers) {
 
 async function handler() {
   const token = process.env.GITHUB_TOKEN;
+
   if (!token) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: 'GITHUB_TOKEN não configurado no Netlify.' })
+      body: JSON.stringify({
+        error: 'GITHUB_TOKEN não configurado no Netlify.'
+      })
     };
   }
 
@@ -44,7 +47,8 @@ async function handler() {
     );
 
     const portfolioRepos = (repos || []).filter(repo =>
-      Array.isArray(repo.topics) && repo.topics.map(t => t.toLowerCase()).includes('portfolio')
+      Array.isArray(repo.topics) &&
+      repo.topics.map(t => t.toLowerCase()).includes('portfolio')
     );
 
     const projects = [];
@@ -52,19 +56,26 @@ async function handler() {
     for (const repo of portfolioRepos) {
       const languages = await fetchJson(fetchImpl, repo.languages_url, headers);
       const defaultBranch = repo.default_branch || 'main';
-      const previewUrl = `https://raw.githubusercontent.com/${GH_OWNER}/${repo.name}/${defaultBranch}/preview.svg`;
 
-      // Verifica existência do preview de forma leve (HEAD) para evitar 404 na UI
+      const previewUrl = `https://raw.githubusercontent.com/${GH_OWNER}/${repo.name}/${defaultBranch}/assets/preview.svg`;
+
       let finalPreview = previewUrl;
-      const headRes = await fetchImpl(previewUrl, { method: 'HEAD', headers });
-      if (!headRes.ok) finalPreview = null;
+      const headRes = await fetchImpl(previewUrl, {
+        method: 'HEAD',
+        headers
+      });
+
+      if (!headRes.ok) {
+        finalPreview = null;
+      }
 
       projects.push({
         name: repo.name,
         html_url: repo.html_url,
         homepage: repo.homepage || null,
-        description: repo.description,
-        short_description: repo.description,
+
+        github_description: repo.description || null,
+
         created_at: repo.created_at,
         updated_at: repo.updated_at,
         topics: repo.topics || [],
@@ -85,12 +96,15 @@ async function handler() {
     };
   } catch (error) {
     console.error('Erro na função github:', error);
+
     return {
       statusCode: 502,
-      body: JSON.stringify({ error: 'Falha ao consultar GitHub', detail: error.message })
+      body: JSON.stringify({
+        error: 'Falha ao consultar GitHub',
+        detail: error.message
+      })
     };
   }
 }
 
 module.exports = { handler };
-
