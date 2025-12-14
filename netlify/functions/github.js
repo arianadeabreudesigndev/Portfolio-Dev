@@ -57,6 +57,7 @@ async function handler() {
       const languages = await fetchJson(fetchImpl, repo.languages_url, headers);
       const defaultBranch = repo.default_branch || 'main';
 
+
       const previewUrl = `https://raw.githubusercontent.com/${GH_OWNER}/${repo.name}/${defaultBranch}/assets/preview.svg`;
 
       let finalPreview = previewUrl;
