@@ -58,51 +58,58 @@ async function loadProjects() {
 
   grid.innerHTML = '<p class="loading-projects">Carregando projetos...</p>';
 
-  let data;
+  let response;
   try {
-    const response = await fetch('/projects.json');
-
-    if (!response.ok) {
-      grid.innerHTML = `<p class="loading-projects">Não foi possível carregar o arquivo projects.json.</p>`;
-      return;
-    }
-
-    data = await response.json();
-
+    response = await fetch('/.netlify/functions/github');
   } catch (error) {
-    grid.innerHTML = `<p class="loading-projects">Erro ao carregar projects.json.</p>`;
+    grid.innerHTML = '<p class="loading-projects">Falha de rede ao carregar projetos.</p>';
     return;
   }
 
-  if (!Array.isArray(data)) {
-    grid.innerHTML = `<p class="loading-projects">projects.json inválido.</p>`;
+  if (!response.ok) {
+    grid.innerHTML = `
+      <p class="loading-projects">
+        Não foi possível carregar os projetos (erro ${response.status}).<br>
+        Verifique a função Netlify e a variável GITHUB_TOKEN.
+      </p>`;
     return;
   }
 
-  const projects = data.map(repo => ({
-    name: repo.name,
-    repoUrl: repo.htmlUrl,
-    homepage: repo.homepage,
-    topics: repo.topics || [],
-    readmeTitle: repo.readmeTitle || repo.name,
-    short_description: repo.short_description || repo.description || '',
-    description: repo.description || '',
-    languageList: repo.languageList || [],
-    previewUrl: repo.preview || repo.previewUrl,
-    pushedAt: repo.pushedAt || repo.updatedAt
-  }));
+  const data = await response.json();
+  const repos = data?.projects;
+  if (!Array.isArray(repos)) {
+    grid.innerHTML = '<p class="loading-projects">Resposta inválida da função.</p>';
+    return;
+  }
+
+  const projects = repos.map(repo => {
+    const languageList = Object.keys(repo.languages || {});
+    return {
+      name: repo.name,
+      repoUrl: repo.html_url,
+      homepage: repo.homepage,
+      topics: repo.topics || [],
+      defaultBranch: repo.default_branch,
+      readmeTitle: repo.name,
+      short_description: repo.short_description || repo.description || '',
+      description: repo.description || '',
+      languages: repo.languages || {},
+      languageList,
+      previewUrl: repo.preview,
+      pushedAt: repo.updated_at
+    };
+  });
 
   projects.sort((a, b) => new Date(b.pushedAt) - new Date(a.pushedAt));
 
   renderProjects(projects);
 
   const techs = projects.flatMap(p => p.languageList);
-  const fm = window.filterManager || window.ensureFilterManager?.() || null;
+    const fm = window.filterManager || window.ensureFilterManager?.() || null;
   if (fm?.setAvailableTechs) {
     fm.setAvailableTechs(techs);
   }
 }
-
 
 function waitForProjectsSection() {
   const section = document.getElementById('projectsGrid');
