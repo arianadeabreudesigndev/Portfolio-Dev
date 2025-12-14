@@ -52,9 +52,8 @@ async function handler() {
     for (const repo of portfolioRepos) {
       const languages = await fetchJson(fetchImpl, repo.languages_url, headers);
       const defaultBranch = repo.default_branch || 'main';
-      const previewUrl = `https://raw.githubusercontent.com/${GH_OWNER}/${repo.name}/${defaultBranch}/preview.svg`;
+      const previewUrl = `https://raw.githubusercontent.com/${GH_OWNER}/${repo.name}/${defaultBranch}/assets/preview.svg`;
 
-      // Verifica existência do preview de forma leve (HEAD) para evitar 404 na UI
       let finalPreview = previewUrl;
       const headRes = await fetchImpl(previewUrl, { method: 'HEAD', headers });
       if (!headRes.ok) finalPreview = null;
@@ -64,7 +63,7 @@ async function handler() {
         html_url: repo.html_url,
         homepage: repo.homepage || null,
         description: repo.description,
-        short_description: repo.description,
+        short_description: repo.short_description,
         created_at: repo.created_at,
         updated_at: repo.updated_at,
         topics: repo.topics || [],
