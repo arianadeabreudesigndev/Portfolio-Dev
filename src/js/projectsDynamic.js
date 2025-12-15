@@ -83,16 +83,24 @@ async function loadProjects() {
   }
 
   const projects = repos.map(repo => {
-    const languageList = Object.keys(repo.languages || {});
+    const languageList =
+      (Array.isArray(repo.languageList) && repo.languageList.length)
+        ? repo.languageList
+        : Object.keys(repo.languages || {});
+
+    const longDescription = repo.description || repo.github_description || '';
+    const shortDescription = repo.short_description || repo.github_description || longDescription || '';
+    const readmeTitle = repo.readmeTitle || repo.readme_title || repo.name;
+
     return {
       name: repo.name,
       repoUrl: repo.html_url,
       homepage: repo.homepage,
       topics: repo.topics || [],
       defaultBranch: repo.default_branch,
-      readmeTitle: repo.name,
-      short_description: repo.short_description || repo.description || '',
-      description: repo.description || '',
+      readmeTitle,
+      short_description: shortDescription,
+      description: longDescription,
       languages: repo.languages || {},
       languageList,
       previewUrl: repo.preview,
