@@ -1,6 +1,6 @@
 const GH_OWNER = 'arianadeabreudesigndev';
 const API_BASE = 'https://api.github.com';
-const README_LINES_WINDOW = 60; // limite para procurar metadados no topo do README
+const README_LINES_WINDOW = 80;
 
 async function ensureFetch() {
   if (typeof fetch === 'function') return fetch;
@@ -26,18 +26,24 @@ async function fetchJson(fetchImpl, url, headers) {
 }
 
 async function fetchReadmeContent(fetchImpl, repoName, headers) {
-  const data = await fetchJson(
-    fetchImpl,
-    `${API_BASE}/repos/${GH_OWNER}/${repoName}/readme`,
-    headers
-  );
-
-  if (!data?.content) return null;
-
   try {
+    const res = await fetchImpl(
+      `${API_BASE}/repos/${GH_OWNER}/${repoName}/readme`,
+      { headers }
+    );
+
+    if (res.status === 404) return null;
+    if (!res.ok) {
+      const text = await res.text();
+      throw new Error(`Erro ${res.status} ao buscar README: ${text}`);
+    }
+
+    const data = await res.json();
+    if (!data?.content) return null;
+
     return Buffer.from(data.content, 'base64').toString('utf-8');
   } catch (error) {
-    console.warn(`Falha ao decodificar README de ${repoName}:`, error.message);
+    console.warn(`Falha ao obter README de ${repoName}:`, error.message);
     return null;
   }
 }
@@ -52,29 +58,29 @@ function parseReadmeMeta(readmeContent) {
   const title = rawTitle ? rawTitle.trim().replace(/^#+\s*/, '') : null;
 
   let shortDescription;
-  let description;
+  let fullDescription;
 
   for (const line of windowLines) {
     if (!shortDescription) {
-      const matchShort = line.match(/^>\s*['"]?short_description:\s*(.+?)\s*$/i);
+      const matchShort = line.match(/^\s*['"]?short_description:\s*(.+?)\s*;?\s*$/i);
       if (matchShort) {
         shortDescription = matchShort[1].trim().replace(/^['"]|['"]$/g, '');
       }
     }
 
-    if (!description) {
-      const matchDescription = line.match(/^>\s*['"]?description:\s*(.+?)\s*$/i);
-      if (matchDescription) {
-        description = matchDescription[1].trim().replace(/^['"]|['"]$/g, '');
+    if (!fullDescription) {
+      const matchFull = line.match(/^\s*['"]?(full_description|description):\s*(.+?)\s*;?\s*$/i);
+      if (matchFull) {
+        fullDescription = matchFull[2].trim().replace(/^['"]|['"]$/g, '');
       }
     }
 
-    if (shortDescription && description) break;
+    if (shortDescription && fullDescription) break;
   }
 
-  if (!title && !shortDescription && !description) return null;
+  if (!title && !shortDescription && !fullDescription) return null;
 
-  return { title, shortDescription, description };
+  return { title, shortDescription, fullDescription };
 }
 
 async function handler() {
@@ -126,7 +132,7 @@ async function handler() {
         html_url: repo.html_url,
         homepage: repo.homepage || null,
         github_description: repo.description,
-        description: readmeMeta?.description || repo.description || '',
+        description: readmeMeta?.fullDescription || repo.description || '',
         short_description: readmeMeta?.shortDescription || repo.short_description || repo.description || '',
         readmeTitle: readmeMeta?.title || repo.name,
         created_at: repo.created_at,

@@ -56,6 +56,9 @@ async function loadProjects() {
   const grid = document.getElementById('projectsGrid');
   if (!grid) return;
 
+  // garante que os eventos do filtro estejam prontos mesmo antes de popular as techs
+  const filterManagerInstance = (typeof window !== 'undefined' && (window.ensureFilterManager?.() || window.filterManager)) || null;
+
   grid.innerHTML = '<p class="loading-projects">Carregando projetos...</p>';
 
   let response;
@@ -113,7 +116,7 @@ async function loadProjects() {
   renderProjects(projects);
 
   const techs = projects.flatMap(p => p.languageList);
-    const fm = window.filterManager || window.ensureFilterManager?.() || null;
+  const fm = filterManagerInstance || window.filterManager || window.ensureFilterManager?.() || null;
   if (fm?.setAvailableTechs) {
     fm.setAvailableTechs(techs);
   }
