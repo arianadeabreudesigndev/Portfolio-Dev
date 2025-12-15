@@ -1,6 +1,6 @@
 const GH_OWNER = 'arianadeabreudesigndev';
 const API_BASE = 'https://api.github.com';
-const README_LINES_WINDOW = 80;
+const README_LINES_WINDOW = 12; // metadados ficam no topo do README
 
 async function ensureFetch() {
   if (typeof fetch === 'function') return fetch;
@@ -62,14 +62,14 @@ function parseReadmeMeta(readmeContent) {
 
   for (const line of windowLines) {
     if (!shortDescription) {
-      const matchShort = line.match(/^\s*['"]?short_description:\s*(.+?)\s*;?\s*$/i);
+      const matchShort = line.match(/^\s*['"]?short_description:\s*(.+?)\s*;\s*$/i);
       if (matchShort) {
         shortDescription = matchShort[1].trim().replace(/^['"]|['"]$/g, '');
       }
     }
 
     if (!fullDescription) {
-      const matchFull = line.match(/^\s*['"]?(full_description|description):\s*(.+?)\s*;?\s*$/i);
+      const matchFull = line.match(/^\s*['"]?(full_description|description):\s*(.+?)\s*;\s*$/i);
       if (matchFull) {
         fullDescription = matchFull[2].trim().replace(/^['"]|['"]$/g, '');
       }

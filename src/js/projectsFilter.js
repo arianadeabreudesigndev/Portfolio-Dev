@@ -3,6 +3,7 @@ class FilterManager {
         this.activeTechs = new Set();
         this.techOptionsContainer = null;
         this.dropdown = null;
+        this.bound = false;
         this.init();
     }
 
@@ -14,25 +15,23 @@ class FilterManager {
         const applyBtn = document.querySelector(".apply-filters");
         const clearBtn = document.querySelector(".clear-filters");
 
-        if (filterToggle && this.dropdown) {
-            const newToggle = filterToggle.cloneNode(true);
-            filterToggle.parentNode.replaceChild(newToggle, filterToggle);
+        if (!filterToggle || !this.dropdown || this.bound) return;
+        this.bound = true;
 
-            newToggle.addEventListener("click", (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                this.dropdown.classList.toggle("show");
-            });
+        filterToggle.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            this.dropdown.classList.toggle("show");
+        });
 
-            document.addEventListener("click", (e) => {
-                const clickedInside = e.target.closest(".filter-icon-container");
-                if (!clickedInside && this.dropdown.classList.contains("show")) {
-                    this.dropdown.classList.remove("show");
-                }
-            });
+        document.addEventListener("click", (e) => {
+            const clickedInside = e.target.closest(".filter-icon-container");
+            if (!clickedInside && this.dropdown.classList.contains("show")) {
+                this.dropdown.classList.remove("show");
+            }
+        });
 
-            this.dropdown.addEventListener("click", (e) => e.stopPropagation());
-        }
+        this.dropdown.addEventListener("click", (e) => e.stopPropagation());
 
         applyBtn?.addEventListener("click", () => this.applyFilters());
         clearBtn?.addEventListener("click", () => this.clearFilters());
@@ -101,7 +100,7 @@ function ensureFilterManager() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    setTimeout(ensureFilterManager, 100);
+    ensureFilterManager();
 });
 
 window.addEventListener("load", ensureFilterManager);

@@ -63,7 +63,7 @@ function parseReadme(readme) {
   if (!readme) return null;
 
   const lines = readme.split(/\r?\n/);
-  const topLines = lines.slice(0, 40); // padrão deve estar no início, mas com tolerância
+  const topLines = lines.slice(0, 12); // metadados ficam no topo
 
   const rawTitle = topLines.find(line => line.trim());
   const title = rawTitle
@@ -75,16 +75,16 @@ function parseReadme(readme) {
 
   for (const line of topLines) {
     if (!shortDescription) {
-      const matchShort = line.match(/^>\s*['"]?short_description:\s*(.+?)\s*$/i);
+      const matchShort = line.match(/^\s*['"]?short_description:\s*(.+?)\s*;\s*$/i);
       if (matchShort) {
         shortDescription = matchShort[1].trim().replace(/^['"]|['"]$/g, '');
       }
     }
 
     if (!description) {
-      const matchDescription = line.match(/^>\s*['"]?description:\s*(.+?)\s*$/i);
+      const matchDescription = line.match(/^\s*['"]?(full_description|description):\s*(.+?)\s*;\s*$/i);
       if (matchDescription) {
-        description = matchDescription[1].trim().replace(/^['"]|['"]$/g, '');
+        description = matchDescription[2].trim().replace(/^['"]|['"]$/g, '');
       }
     }
 
