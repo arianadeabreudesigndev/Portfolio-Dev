@@ -8,6 +8,10 @@ class FilterManager {
     }
 
     init() {
+        this.tryBindDom();
+    }
+
+    tryBindDom() {
         this.techOptionsContainer = document.querySelector(".filter-options.tech-options");
         this.dropdown = document.querySelector(".filter-dropdown");
 
@@ -15,7 +19,13 @@ class FilterManager {
         const applyBtn = document.querySelector(".apply-filters");
         const clearBtn = document.querySelector(".clear-filters");
 
-        if (!filterToggle || !this.dropdown || this.bound) return;
+        if (!filterToggle || !this.dropdown) {
+            // conteúdo de projetos é carregado depois, tenta novamente
+            setTimeout(() => this.tryBindDom(), 120);
+            return;
+        }
+
+        if (this.bound) return;
         this.bound = true;
 
         filterToggle.addEventListener("click", (e) => {
@@ -32,7 +42,6 @@ class FilterManager {
         });
 
         this.dropdown.addEventListener("click", (e) => e.stopPropagation());
-
         applyBtn?.addEventListener("click", () => this.applyFilters());
         clearBtn?.addEventListener("click", () => this.clearFilters());
     }
