@@ -62,33 +62,37 @@ async function fetchReadme(repo) {
 function parseReadme(readme) {
   if (!readme) return null;
 
-  const lines = readme.split(/\r?\n/);
-  const topLines = lines.slice(0, 12); // metadados ficam no topo
+  const lines = readme.split(/\r?\n/).slice(0, 20);
 
-  const rawTitle = topLines.find(line => line.trim());
-  const title = rawTitle
-    ? rawTitle.trim().replace(/^#+\s*/, '') // remove markdown heading
-    : null;
+  let title = null;
+  let shortDescription = null;
+  let description = null;
 
-  let shortDescription;
-  let description;
+  for (const raw of lines) {
+    const line = raw.trim();
 
-  for (const line of topLines) {
+    if (!title && line.startsWith('#')) {
+      title = line.replace(/^#+\s*/, '').trim();
+      continue;
+    }
+
     if (!shortDescription) {
-      const matchShort = line.match(/^\s*['"]?short_description:\s*(.+?)\s*;\s*$/i);
+      const matchShort = line.match(/^>\s*\*\*short_description:\*\*\s*(.+?)\s*;\s*$/i);
       if (matchShort) {
-        shortDescription = matchShort[1].trim().replace(/^['"]|['"]$/g, '');
+        shortDescription = matchShort[1].trim();
+        continue;
       }
     }
 
     if (!description) {
-      const matchDescription = line.match(/^\s*['"]?(full_description|description):\s*(.+?)\s*;\s*$/i);
+      const matchDescription = line.match(/^>\s*\*\*(full_description|description):\*\*\s*(.+?)\s*;\s*$/i);
       if (matchDescription) {
-        description = matchDescription[2].trim().replace(/^['"]|['"]$/g, '');
+        description = matchDescription[2].trim();
+        continue;
       }
     }
 
-    if (shortDescription && description) break;
+    if (title && shortDescription && description) break;
   }
 
   if (!title || !shortDescription || !description) return null;

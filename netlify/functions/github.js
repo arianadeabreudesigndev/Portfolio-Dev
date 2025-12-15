@@ -1,6 +1,6 @@
 const GH_OWNER = 'arianadeabreudesigndev';
 const API_BASE = 'https://api.github.com';
-const README_LINES_WINDOW = 12; // metadados ficam no topo do README
+const README_LINES_WINDOW = 20; // metadados ficam no topo do README
 
 async function ensureFetch() {
   if (typeof fetch === 'function') return fetch;
@@ -51,31 +51,41 @@ async function fetchReadmeContent(fetchImpl, repoName, headers) {
 function parseReadmeMeta(readmeContent) {
   if (!readmeContent) return null;
 
-  const lines = readmeContent.split(/\r?\n/);
-  const windowLines = lines.slice(0, README_LINES_WINDOW);
+  const lines = readmeContent.split(/\r?\n/).slice(0, README_LINES_WINDOW);
 
-  const rawTitle = windowLines.find(line => line.trim());
-  const title = rawTitle ? rawTitle.trim().replace(/^#+\s*/, '') : null;
+  // Formato esperado:
+  // # Título
+  // > **short_description:** ... ;
+  // >
+  // > **full_description:** ... ;
+  let title = null;
+  let shortDescription = null;
+  let fullDescription = null;
 
-  let shortDescription;
-  let fullDescription;
+  for (const raw of lines) {
+    const line = raw.trim();
+    if (!title && line.startsWith('#')) {
+      title = line.replace(/^#+\s*/, '').trim();
+      continue;
+    }
 
-  for (const line of windowLines) {
     if (!shortDescription) {
-      const matchShort = line.match(/^\s*['"]?short_description:\s*(.+?)\s*;\s*$/i);
-      if (matchShort) {
-        shortDescription = matchShort[1].trim().replace(/^['"]|['"]$/g, '');
+      const mShort = line.match(/^>\s*\*\*short_description:\*\*\s*(.+?)\s*;\s*$/i);
+      if (mShort) {
+        shortDescription = mShort[1].trim();
+        continue;
       }
     }
 
     if (!fullDescription) {
-      const matchFull = line.match(/^\s*['"]?(full_description|description):\s*(.+?)\s*;\s*$/i);
-      if (matchFull) {
-        fullDescription = matchFull[2].trim().replace(/^['"]|['"]$/g, '');
+      const mFull = line.match(/^>\s*\*\*(full_description|description):\*\*\s*(.+?)\s*;\s*$/i);
+      if (mFull) {
+        fullDescription = mFull[2].trim();
+        continue;
       }
     }
 
-    if (shortDescription && fullDescription) break;
+    if (title && shortDescription && fullDescription) break;
   }
 
   if (!title && !shortDescription && !fullDescription) return null;
