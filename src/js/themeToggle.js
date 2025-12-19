@@ -14,7 +14,14 @@ function updateSvgColors(theme) {
     
     svgImages.forEach(img => {
         const src = img.src || img.getAttribute('src') || '';
-        if (src.toLowerCase().includes('project-images')) {
+        const srcLower = src.toLowerCase();
+        
+        if (srcLower.includes('preview.svg')) {
+            img.style.filter = '';
+            return;
+        }
+        
+        if (srcLower.includes('project-images')) {
             return;
         }
         
