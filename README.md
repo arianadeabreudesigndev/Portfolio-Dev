@@ -203,4 +203,6 @@ Ideias futuras incluem:
 - Maior dinamicidade de conteúdo  
 - Possível integração com redes sociais ou sistema de comentários  
 
+Link do projeto online: https://portfolioariandeabreudesigndev.netlify.app/
 Sugestões, críticas construtivas e feedbacks, especialmente de profissionais de TI, são **muito bem-vindos**. Toda troca de conhecimento é valorizada e contribui diretamente para minha evolução profissional.
+
