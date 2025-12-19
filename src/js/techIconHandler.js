@@ -33,7 +33,12 @@ const skillTranslationKeys = {
   "Django": "skill-desc-django",
   "Typescript": "skill-desc-typescript",
   "Node": "skill-desc-node",
-  "Illustrator": "skill-desc-illustrator"
+  "Illustrator": "skill-desc-illustrator",
+  "Photoshop": "skill-desc-photoshop",
+  "Affinity": "skill-desc-affinity",
+  "Krita": "skill-desc-krita",
+  "Canva": "skill-desc-canva",
+  "InDesign": "skill-desc-indesign"
 };
 
 const isDesktop = () => window.innerWidth >= BREAKPOINT_DESKTOP;
