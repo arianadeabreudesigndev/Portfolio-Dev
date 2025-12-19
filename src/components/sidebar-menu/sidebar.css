@@ -1,56 +1,53 @@
-
-.sticky-bar{
-    display: none;
+.sticky-bar {
+  display: none;
 }
 
 @media (width >= 1400px) {
-    .sticky-bar{
-        display: block;
+  .sticky-bar {
+    display: block;
+    position: fixed;
+    top: 26%;
+    left: calc(50% + min(50vw, 960px) + -10em);
+    background-color: var(--color-surface);
+    width: 3.5em;
+    height: 20em;
+    border-radius: 3em;
+  }
 
-        position: fixed;
-        top: 26%;
-        left: calc(50% + min(50vw, 960px) + -10em);
-        background-color: var(--color-surface);
-        width: 3.5em;
-        height: 20em;
-        border-radius: 3em;
-    }
-    
+  .sticky-bar ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: .5em 0;
+    margin: 0;
+    height: 100%;
+    justify-content: space-between;
+  }
 
-    .sticky-bar ul{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: .5em 0;
-        margin: 0;
-        height: 100%;
-        justify-content: space-between;
-    }
-    
-    .sticky-bar ul li{
-        margin: 0;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex: 1;
-    }
-    
-    .sticky-bar ul li a{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 100%;
-        margin-bottom: 1em;
-    }
-    
-    .sticky-bar ul li a:hover img{
-        filter: invert(10%) sepia(50%) saturate(9000%) hue-rotate(290deg) brightness(100%) contrast(90%);
-    }
-    
-    .svg-image{
-        height: 1.3em;
-        pointer-events: none;
-    }
+  .sticky-bar ul li {
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+  }
+
+  .sticky-bar ul li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 1em;
+  }
+
+  .sticky-bar ul li a:hover img {
+    filter: invert(10%) sepia(50%) saturate(9000%) hue-rotate(290deg) brightness(100%) contrast(90%);
+  }
+
+  .svg-image {
+    height: 1.3em;
+    pointer-events: none;
+  }
 }

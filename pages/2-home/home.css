@@ -1,272 +1,258 @@
-#anchor-home{
-    scroll-margin-top: 12em;
+#anchor-home {
+  scroll-margin-top: 12em;
 }
 
 .homeContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    text-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: start;
 }
 
 .mainContent {
-    width: auto;
-    border-left: 0.2em solid var(--color-text);
-    margin-top: 5em;
-    height: 5em;
+  width: auto;
+  border-left: 0.2em solid var(--color-text);
+  margin-top: 5em;
+  height: 5em;
 }
 
 .mainContent h1 {
-    font-size: var(--font-size-h1);
-    text-transform: uppercase;
-    padding-bottom: 0.4em;
-    padding-left: 0.5em;
+  font-size: var(--font-size-h1);
+  text-transform: uppercase;
+  padding-bottom: 0.4em;
+  padding-left: 0.5em;
 }
 
 .mainContent p {
-    font-size: var(--font-size-p);
-    color: var(--color-text);
-    opacity: 0.8;
-    padding: 0.5em 0 1em 0;
-    text-transform: capitalize;
-    padding-left: 1em;
+  font-size: var(--font-size-p);
+  color: var(--color-text);
+  opacity: 0.8;
+  padding: 0.5em 0 1em 0;
+  text-transform: capitalize;
+  padding-left: 1em;
 }
 
-.mainContent span:last-child{
-    text-transform: uppercase;
+.mainContent span:last-child {
+  text-transform: uppercase;
 }
+
 .resumeButton {
-    display: flex;
-    justify-content: center;
-    padding-top: 1em;
+  display: flex;
+  justify-content: center;
+  padding-top: 1em;
 }
 
 .resumeButton a {
-    display: flex;
-    justify-content: center;
-    text-decoration: none;
-    text-transform: capitalize;
-    width: 10em;
-    font-size: var(--font-size-link);
-    padding: 0.7em;
-    border-radius: 5em;
-    background-color: var(--color-surface);
-    border: 0.1em solid var(--color-text);
-    color: var(--color-text);
-    box-shadow: 0.5em 0.2em var(--color-accent);
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  text-transform: capitalize;
+  width: 10em;
+  font-size: var(--font-size-link);
+  padding: 0.7em;
+  border-radius: 5em;
+  background-color: var(--color-surface);
+  border: 0.1em solid var(--color-text);
+  color: var(--color-text);
+  box-shadow: 0.5em 0.2em var(--color-accent);
 }
 
 .resumeButton a:hover {
-    color: var(--color-accent);
+  color: var(--color-accent);
 }
 
 .horizontalLine {
-    display: none;
+  display: none;
 }
 
 .exploreProjects {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin-top: 3em;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3em;
+  width: 100%;
 }
 
 .exploreProjects a {
-    color: var(--color-text);
-    opacity: 0.8;
-    text-transform: capitalize;
-    text-decoration: none;
-    animation: floatAnimation 2s ease-in-out infinite;
-    position: static;
-    margin: 0;
+  color: var(--color-text);
+  opacity: 0.8;
+  text-transform: capitalize;
+  text-decoration: none;
+  animation: floatAnimation 2s ease-in-out infinite;
+  position: static;
+  margin: 0;
 }
 
 .exploreProjects img {
-    height: 1.5em;
-    animation: floatAnimation 2s ease-in-out infinite;
-    margin: 0.4em 0 1.4vh 0.7em;
+  height: 1.5em;
+  animation: floatAnimation 2s ease-in-out infinite;
+  margin: 0.4em 0 1.4vh 0.7em;
 }
 
 .avatarImage {
-    animation: floatAnimation 5s ease-in-out infinite;
-    margin-top: 13em;
+  animation: floatAnimation 5s ease-in-out infinite;
+  margin-top: 13em;
 }
 
 .avatarImage img {
-    border-radius: 100%;
-    width: var(--size-image);
+  border-radius: 100%;
+  width: var(--size-image);
 }
 
 .typingEffect {
-    width: auto;
-    border-right: none;
-    animation: none;
+  width: auto;
+  border-right: none;
+  animation: none;
 }
 
 @keyframes floatAnimation {
-    0% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-2px);
-    }
-
-    100% {
-        transform: translateY(0);
-    }
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+  100% { transform: translateY(0); }
 }
 
 @media (768px <= width <= 1399px) {
+  .mainContent {
+    order: 1;
+    max-height: 5em;
+  }
 
-    .mainContent {
-        order: 1;
-        max-height: 5em;
-    }
+  .mainContent h1 {
+    font-size: var(--font-size-h1);
+  }
 
-    .mainContent h1 {
-        font-size: var(--font-size-h1);
-    }
+  .mainContent p {
+    font-size: var(--font-size-p);
+  }
 
-    .mainContent p {
-        font-size: var(--font-size-p);
-    }
+  .resumeButton a {
+    width: 12em;
+    font-size: var(--font-size-link);
+    margin: 4em 0 3em 0;
+  }
 
-    .resumeButton a {
-        width: 12em;
-        font-size: var(--font-size-link);
-        margin: 4em 0 3em 0; 
-    }
+  .avatarImage img {
+    width: 25em;
+  }
 
-    .avatarImage img {
-        width: 25em;
-    }
+  .homeContainer {
+    text-align: center;
+    min-height: 0;
+    margin-bottom: 30em;
+  }
 
-    .homeContainer {
-        text-align: center;
-        min-height: 0;
-        margin-bottom: 30em;
-    }
+  .avatarImage {
+    order: -1;
+    padding: 0;
+    margin-top: 5vh;
+  }
 
-    .avatarImage {
-        order: -1;
-        padding: 0;
-        margin-top: 5vh;
-    }
+  .exploreProjects img {
+    height: 2em;
+    padding-bottom: 1.9em;
+    margin-top: 1.4em;
+  }
 
-    .exploreProjects img {
-        height: 2em;
-        padding-bottom: 1.9em;
-        margin-top: 1.4em;
-    }
-    .exploreProjects {
-        cursor: pointer;
-    }
+  .exploreProjects {
+    cursor: pointer;
+  }
 
-    .exploreProjects:hover p {
-        color: var(--color-accent);
-    }
+  .exploreProjects:hover p {
+    color: var(--color-accent);
+  }
 
-    .exploreProjects:hover img {
-        filter: invert(58%) sepia(12%) saturate(1200%) hue-rotate(320deg) brightness(95%) contrast(90%);
-    }
+  .exploreProjects:hover img {
+    filter: invert(58%) sepia(12%) saturate(1200%) hue-rotate(320deg) brightness(95%) contrast(90%);
+  }
 }
 
 @media (width >= 1400px) {
+  .homeContainer {
+    flex-direction: row;
+    text-align: left;
+    margin: 5em 0 30em 10em;
+  }
 
-    .homeContainer {
-        flex-direction: row;
-        text-align: left;
-        margin: 5em 0 30em 10em;
-    }
+  .mainContent {
+    width: 100%;
+    max-height: 4em;
+    border-left: 0.3em solid var(--color-text);
+    padding-left: 4em;
+  }
 
-    .mainContent {
-        width: 100%;
-        max-height: 4em;
-        border-left: 0.3em solid var(--color-text);
-        padding-left: 4em;
-    }
+  .mainContent h1 {
+    font-size: var(--font-size-h1);
+    padding-bottom: 0.8em;
+    min-width: fit-content;
+  }
 
-    .mainContent h1 {
-        font-size: var(--font-size-h1);
-        padding-bottom: 0.8em;
-        min-width: fit-content;
-    }
+  .resumeButton {
+    justify-content: start;
+  }
 
+  .resumeButton a {
+    width: 10em;
+    font-size: var(--font-size-link);
+    padding: 0.8em;
+  }
 
-    .resumeButton {
-        justify-content: start;
-    }
+  .exploreProjects {
+    position: absolute;
+    margin-top: 21em;
+    border-bottom: 0.3em solid var(--color-text);
+    width: 4em;
+  }
 
-    .resumeButton a {
-        width: 10em;
-        font-size: var(--font-size-link);
-        padding: 0.8em;
-    }
-    .exploreProjects {
-        position: absolute;
-        margin-top: 21em;
-        border-bottom: 0.3em solid var(--color-text);
-        width: 4em;
-    }
+  .exploreProjects a {
+    position: absolute;
+    margin-left: 12em;
+    margin-top: 0.5em;
+    font-size: var(--font-size-link);
+    padding-left: 3em;
+    width: 10em;
+  }
 
-    .exploreProjects a {
-        position: absolute;
-        margin-left: 12em;
-        margin-top: 0.5em;
-        font-size: var(--font-size-link);
-        padding-left: 3em;
-        width: 10em;
-    }
+  .exploreProjects img {
+    position: absolute;
+    margin-left: 10em;
+    margin-top: -0.7em;
+    height: 1em;
+  }
 
-    .exploreProjects img {
-        position: absolute;
-        margin-left: 10em;
-        margin-top: -0.7em;
-        height: 1em;
-    }
+  .avatarImage img {
+    width: 27em;
+    margin: -10em 17em 0 0;
+  }
 
-    .avatarImage img {
-        width: 27em;
-        margin: -10em 17em 0 0;
-    }
+  .typingEffect {
+    width: 9.2em;
+    height: 0.3em;
+    animation: typing 2s steps(20), blink 0.5s infinite;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 7px solid;
+    margin-bottom: 0.1em;
+  }
 
-    .typingEffect {
-        width: 9.2em;
-        height: 0.3em;
-        animation: typing 2s steps(20), blink 0.5s infinite;
-        white-space: nowrap;
-        overflow: hidden;
-        border-right: 7px solid;
-        margin-bottom: 0.1em;
-    }
+  @keyframes typing {
+    from { width: 0; }
+  }
 
-    @keyframes typing {
-        from {
-            width: 0;
-        }
-    }
+  @keyframes blink {
+    90% { border-color: var(--color-accent); }
+  }
 
-    @keyframes blink {
-        90% {
-            border-color: var(--color-accent);
-        }
-    }
+  .exploreProjects {
+    cursor: pointer;
+  }
 
-    .exploreProjects {
-        cursor: pointer;
-    }
+  .exploreProjects:hover p {
+    color: var(--color-accent);
+  }
 
-    .exploreProjects:hover p {
-        color: var(--color-accent);
-    }
-
-    .exploreProjects:hover img {
-        filter: invert(58%) sepia(12%) saturate(1200%) hue-rotate(320deg) brightness(95%) contrast(90%);
-    }
-
-
+  .exploreProjects:hover img {
+    filter: invert(58%) sepia(12%) saturate(1200%) hue-rotate(320deg) brightness(95%) contrast(90%);
+  }
 }

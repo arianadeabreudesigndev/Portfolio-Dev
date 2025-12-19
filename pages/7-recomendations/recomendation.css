@@ -100,7 +100,7 @@
   margin: 1rem auto;
 }
 
-@media (768px <= width <= 1399px){
+@media (768px <= width <= 1399px) {
   #recomendations {
     padding: 2rem 3rem;
     gap: 3rem;
@@ -163,7 +163,7 @@
     margin-top: 7em;
   }
 
-  .reference-title h2{
+  .reference-title h2 {
     padding-bottom: 0.5em;
   }
 
@@ -227,7 +227,7 @@
   .download-link {
     margin-left: 1rem;
   }
-  
+
   .download-link:hover {
     transform: translateY(-2px);
   }
