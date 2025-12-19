@@ -1,121 +1,206 @@
-# 🚀 Portfólio Ariana de Abreu  
-**Desenvolvedora Full Stack & UI/UX Designer**
+Este repositório contém o código-fonte do meu **portfólio profissional**, desenvolvido com o objetivo de apresentar minha trajetória, habilidades técnicas e projetos de forma clara, organizada e acessível para recrutadores e profissionais das áreas de tecnologia e design.
+
+Todo o conceito visual, arquitetura do site e estrutura de navegação foram idealizados e desenhados por mim no **Figma**, passando por diversas iterações ao longo do desenvolvimento. O projeto evoluiu tanto em identidade visual quanto em decisões técnicas, sempre com foco em **experiência do usuário, performance e legibilidade**.
+
+O site foi **intencionalmente desenvolvido utilizando HTML, CSS e JavaScript puro**, priorizando controle total da estrutura, otimização de carregamento e domínio de cada camada da aplicação.
 
 ---
 
-## 📋 Sobre o Projeto
+## Estrutura do site
 
-Portfólio profissional desenvolvido com **design original** desde a concepção no Figma até a implementação final. Uma landing page moderna, totalmente responsiva e que apresenta o início da minha trajetória desde o agora até desenvolvedora Full Stack e designer UI/UX.
+O portfólio é composto pelas seguintes seções principais:
 
-## ✨ Destaques Técnicos
+- **Home**
+- **About Me**
+- **Projects**
+- **Skills (Expertise)**
+- **Contact**
+- **Recommendations**
+- **Footer**
 
-- **🎨 Design Responsivo** - Layout adaptável para mobile, tablet e desktop com breakpoints otimizados
-- **🌐 Multilíngue** - Suporte completo para Português e Inglês com sistema de internacionalização
-- **📧 Formulário de Contato** - Sistema funcional com EmailJS e validações em tempo real
-- **⚡ Performance** - Carregamento rápido e experiência fluída do usuário
-- **♿ Acessibilidade** - Navegação por teclado, ARIA labels e semântica HTML (Pretendo implementar mais futuramente)
-- **🔍 SEO** - Estrutura semântica e metatags para melhor indexação
+Além das seções, o site conta com **dois sistemas de navegação complementares**:
 
-## 🛠️ Stack Tecnológico
+- **Navbar superior**, presente em todos os dispositivos  
+- **Sidebar lateral**, exibida em telas grandes, permitindo navegação rápida por âncoras entre todas as seções
 
-| Categoria | Tecnologias |
-|-----------|-------------|
-| **Frontend** | HTML5, CSS3, JavaScript ES6+ |
-| **Design** | Figma, Illustrator |
-| **Integrações** | EmailJS, Internationalization (i18n) |
-| **Ferramentas** | Git, GitHub, Responsive Design |
-
-## 📱 Seções do Portfólio
-
-### 🏠 **Home**
-- Apresentação com efeito typing
-- Download de currículo
-- Navegação intuitiva
-
-### 👩‍💻 **Sobre Mim**
-- Menu interativo com 5 categorias
-- Trajetória profissional e pessoal
-- Certificações e formação
-- Experiência e hobbies
-
-### 💼 **Projetos**
-- Galeria com filtros avançados
-- Modal detalhado para cada projeto
-- Categorias: Full Stack, Frontend, Backend
-
-### 🎯 **Expertise**
-- 14 tecnologias principais
-- Hall de habilidades interativo
-- Descrições em PT/EN
-
-### 📞 **Contato**
-- Formulário funcional com EmailJS
-- Links para redes sociais
-- Informações diretas
-
-### 🌟 **Recomendações**
-- Depoimentos de ex-chefes e colegas
-- Download de cartas de recomendação
-
-## 🎨 Funcionalidades
-
-- ✅ **Menu Hamburguer** para mobile
-- ✅ **Sistema de Filtros** dinâmico
-- ✅ **Internacionalização** completa
-- ✅ **Formulário com Validações**
-- ✅ **Design Responsivo** (3 breakpoints)
-- ✅ **Navegação Suave**
-
-## 🚀 Upgrades Futuros
-
-- [ ] Sistema de comentários com autenticação
-- [ ] Backend proprietário
-- [ ] Otimizações de acessibilidade
-- [ ] Refatoração de código
-- [ ] Animações e microinterações
-- [ ] Sidebar fixa
-
-## 🗂️ Estrutura do Projeto
-
-- **`pages/`** → Contém cada seção do portfólio em pastas independentes.  
-- **`src/base/`** → Estilos globais (reset e base).  
-- **`src/components/`** → Componentes reutilizáveis como sidebar.  (Será implementado)
-- **`src/docs/`** → Documentos importantes (CV, cartas de recomendação, etc).  
-- **`src/img/`** → Repositório de imagens, ícones e logos.  
-- **`src/js/`** → Scripts organizados por funcionalidade.  
-- **`src/locales/`** → Arquivos de tradução (`pt` e `en`).  
-- **`index.html`** → Ponto de entrada do projeto.  
-- **`README.md`** → Este arquivo de documentação.  
-
-## 📊 Responsividade
-
-| Dispositivo | Breakpoints |
-|-------------|-------------|
-| **Mobile** |  - 767px |
-| **Tablet** | 768px - 1199px |
-| **Desktop** | 1200px+ |
-
-## 🎯 Objetivo Profissional
-
-Busco uma oportunidade como **Desenvolvedora Full Stack** onde possa contribuir com minha expertise em desenvolvimento web, design de interfaces e resolução de problemas técnicos. Comprometida com código limpo, experiências de usuário excepcionais e aprendizado contínuo. Sempre evoluindo!
+Em dispositivos móveis e tablets, a navegação se adapta automaticamente para um **menu hambúrguer**, mantendo todas as funcionalidades acessíveis.
 
 ---
 
-## 🌐 Links
+## Internacionalização, temas e responsividade
 
-- **🔗 Live Demo**: https://portfolioariandeabreudesigndev.netlify.app
-- **📂 Repositório**: [https://github.com/arianadeabreudesigndev/Portfolio-Dev](https://github.com/arianadeabreudesigndev/Portfolio-Dev)
+- Suporte completo a **Português e Inglês**, com troca dinâmica de idioma  
+- Todo o conteúdo textual e downloads se adaptam ao idioma selecionado  
+- Alternância entre **tema claro e tema escuro**, disponível em todos os dispositivos  
+- Layout **totalmente responsivo**, com versões específicas para:
+  - Desktop
+  - Tablet
+  - Mobile
 
-> *"Desenvolvido com dedicação para demonstrar minha paixão por tecnologia e design. Sempre evoluindo, sempre aprendendo."*
-
-**📧 Vamos conversar?** arianadeabreudesigndev@gmail.com
+Cada breakpoint foi tratado individualmente para garantir conforto visual, boa hierarquia da informação e navegação fluida.
 
 ---
 
-<div align="center">
+## Seção Home
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/arianadeabreudesigner-developer)
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/arianadeabreudesigndev)
+A Home apresenta uma visão direta do perfil, contendo:
 
-</div>
+- Foto de apresentação  
+- Ícones de tecnologias  
+- Botão para **download do currículo**
 
+O currículo é baixado dinamicamente de acordo com o idioma selecionado.
+
+Há também uma **âncora de acesso rápido** que leva diretamente à seção de projetos, permitindo que o visitante chegue rapidamente ao conteúdo técnico.
+
+---
+
+## About Me
+
+A seção **About Me** é estruturada em artigos independentes, especialmente pensados para diferentes tamanhos de tela.
+
+Ela inclui:
+
+- Apresentação pessoal e trajetória profissional  
+- Certificações e cursos (em constante atualização)  
+- Experiências profissionais  
+- Hobbies e interesses pessoais  
+- Apresentação de um **blog em desenvolvimento**, que aborda minha trajetória com hipotireoidismo de Hashimoto e mudanças de estilo de vida
+
+Cada artigo possui imagens próprias e layout adaptado conforme o dispositivo.
+
+---
+
+## Projects
+
+A seção de projetos é **totalmente dinâmica**, integrada à **API do GitHub**.
+
+Ao acessar o site:
+
+- É realizada uma requisição única à API  
+- Os projetos são carregados diretamente do GitHub  
+- Apenas repositórios marcados com **tag de portfólio** são exibidos  
+
+Cada projeto apresenta:
+
+- Nome  
+- Tecnologias utilizadas  
+- Descrição curta  
+- Descrição longa, personalizada  
+
+Funcionalidades adicionais:
+
+- **Filtro por tecnologia**  
+- Opção de **aplicar ou limpar filtros**  
+- Navegação por setas e rolagem interna  
+- Limitador visual de linhas para evitar excesso de conteúdo na tela  
+
+Funcionalidades futuras planejadas:
+
+- Filtro por status do projeto (finalizado ou em andamento)  
+- Filtro por data  
+
+---
+
+## Skills (Expertise)
+
+A seção **Skills** apresenta minha experiência técnica de forma interativa.
+
+O usuário pode alternar entre dois conjuntos de habilidades:
+
+- **Desenvolvedora**
+- **Design**
+
+Cada skill é representada por um **ícone clicável**, que exibe:
+
+- Tempo de experiência  
+- Forma de aprendizado  
+- Aplicações práticas  
+- Cursos e leituras  
+- Contexto de uso em projetos  
+
+Essa separação permite uma leitura clara e direcionada para diferentes perfis de recrutadores.
+
+---
+
+## Contact
+
+A seção de contato reúne:
+
+- Foto  
+- E-mail profissional  
+- Telefone  
+- Links diretos para:
+  - LinkedIn
+  - WhatsApp
+  - Instagram
+  - YouTube
+
+Além disso, há um **formulário funcional**, onde o visitante pode enviar:
+
+- Nome  
+- E-mail  
+- Assunto  
+- Mensagem  
+
+As mensagens são encaminhadas diretamente para meu e-mail profissional.
+
+---
+
+## Recommendations
+
+A seção de recomendações reúne feedbacks profissionais de pessoas com quem já trabalhei.
+
+Atualmente inclui:
+
+- **Rosana Gildo Vieira**, Diretora de Estatística e Gestão do Sistema Educacional de Saquarema  
+  - Recomendação apresentada em papel timbrado oficial da Secretaria de Educação  
+  - Com assinatura formal  
+
+- **Flávio Macedo**, ex-Assessor de Políticas Públicas da Educação de Saquarema  
+
+Essa seção reforça minha atuação profissional e a percepção externa sobre meu trabalho.
+
+---
+
+## Footer
+
+O footer contém:
+
+- Navegação rápida para o topo  
+- Links para redes sociais  
+- Informação de copyright  
+
+O ano exibido no copyright é **gerado dinamicamente via JavaScript**, sendo atualizado automaticamente a cada novo ano.
+
+---
+
+## Performance e decisões técnicas
+
+Performance foi um dos pilares do projeto.
+
+Principais decisões:
+
+- Todas as imagens do site são **SVG**  
+- Arquivos extremamente leves, mantendo boa qualidade visual  
+- Carregamento rápido, sem atrasos perceptíveis  
+
+A organização do código foi feita por **seções independentes**, facilitando manutenção, leitura e evolução futura do projeto.
+
+---
+
+## Evolução futura
+
+Este projeto está em constante evolução.
+
+Ideias futuras incluem:
+
+- Refinamento tipográfico  
+- Melhoria do modo claro  
+- Recursos de acessibilidade, como ajuste de tamanho de fonte  
+- Destaques textuais e hyperlinks  
+- Novas seções  
+- Maior dinamicidade de conteúdo  
+- Possível integração com redes sociais ou sistema de comentários  
+
+Sugestões, críticas construtivas e feedbacks, especialmente de profissionais de TI, são **muito bem-vindos**. Toda troca de conhecimento é valorizada e contribui diretamente para minha evolução profissional.
