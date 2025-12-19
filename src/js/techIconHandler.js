@@ -1,4 +1,4 @@
-const BREAKPOINT_DESKTOP = 1200;
+const BREAKPOINT_DESKTOP = 1400;
 let skillsUIInitialized = false;
 let currentSkillsGroup = 'developer';
 

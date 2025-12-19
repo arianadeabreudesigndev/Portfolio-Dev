@@ -1,9 +1,19 @@
 function setFooterYear() {
     const yearElement = document.getElementById('current-year');
-    if (yearElement) {
-        yearElement.textContent = new Date().getFullYear();
-        return true;
+    if (!yearElement) {
+        return false;
     }
-    return false;
+
+    yearElement.textContent = new Date().getFullYear();
+    return true;
 }
-setFooterYear() || setTimeout(setFooterYear, 100);
+
+(function initFooterYear() {
+    if (setFooterYear()) return;
+
+    const intervalId = setInterval(() => {
+        if (setFooterYear()) {
+            clearInterval(intervalId);
+        }
+    }, 100);
+})();

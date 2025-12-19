@@ -14,7 +14,7 @@
   scroll-behavior: smooth;
   overflow-y: scroll;
   scrollbar-width: thin;
-  padding-right:2em;
+  padding-right: 2em;
   scrollbar-color: var(--color-accent) var(--color-surface);
 }
 
@@ -99,18 +99,6 @@
   color: var(--color-text);
 }
 
-@media (max-width: 767px) {
-  .skillsDropdownContainer {
-    align-self: center;
-    order: 3;
-    margin-top: 1em;
-  }
-
-  .skillsScroll {
-    order: 2;
-  }
-}
-
 .skillTextDescrip {
   display: none;
   opacity: 0;
@@ -133,18 +121,18 @@
   padding: 1.5em;
 }
 
-.skill-side-panel.active { 
-  right: 0; 
+.skill-side-panel.active {
+  right: 0;
 }
 
-.skill-side-panel h3 { 
-  margin-top: 0; 
+.skill-side-panel h3 {
+  margin-top: 0;
   color: var(--color-accent);
-  font-weight: bold; 
+  font-weight: bold;
 }
 
-.skill-side-panel p { 
-  margin-top: 1em; 
+.skill-side-panel p {
+  margin-top: 1em;
   color: var(--color-text);
 }
 
@@ -156,7 +144,9 @@
   font-weight: bold;
 }
 
-.horizontalLineDescrip { display: none; }
+.horizontalLineDescrip {
+  display: none;
+}
 
 .skillsTitle {
   font-size: 1.5em;
@@ -181,8 +171,8 @@
   transition: transform 0.2s ease;
 }
 
-.skillIcon:hover { 
-  transform: scale(0.9); 
+.skillIcon:hover {
+  transform: scale(0.9);
 }
 
 .skillIcon.active {
@@ -194,29 +184,56 @@
   filter: invert(10%) sepia(50%) saturate(9000%) hue-rotate(290deg) brightness(100%) contrast(90%);
 }
 
-#anchor-skills{
+#anchor-skills {
   scroll-margin-top: 14em;
+}
+
+@media (max-width: 767px) {
+  .skillsDropdownContainer {
+    align-self: center;
+    order: 3;
+    margin-top: 1em;
+  }
+
+  .skillsScroll {
+    order: 2;
+  }
 }
 
 @media (768px <= width <= 1399px) {
   .skillContainer {
     display: grid;
     grid-template-columns: 1fr 0.2fr;
+    grid-template-rows: auto auto;
     gap: 2em;
-    align-items: center;
+    align-items: start;
     justify-self: center;
     width: max-content;
+    margin-left: 7em;
+    position: relative;
   }
 
-  
+  .skillsDropdownContainer {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: start;
+    margin: 1em 0 0 0;
+  }
+
   .skillsScroll {
     grid-column: 1;
     grid-row: 1;
     gap: 2em;
-    justify-items: center;
-    align-items: center;
+    justify-items: start;
+    align-items: start;
     padding: 0 1em 0 0;
     overflow: auto;
+    min-height: 18em;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: min-content;
+    width: 100%;
+    align-content: start;
   }
 
   .skillsScroll a {
@@ -234,7 +251,7 @@
 
   .skillsTitle {
     grid-column: 2;
-    grid-row: 1;
+    grid-row: 1 / 3;
     font-size: 2.2em;
     writing-mode: vertical-lr;
     text-orientation: upright;
@@ -242,13 +259,13 @@
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
-    margin-top: -5em;
+    align-self: start;
   }
 
   .skillsTitle h2 {
-     margin: 0;
-    }
-    
+    margin: 0;
+  }
+
   .verticalLineTitle {
     border-left: 2px solid var(--color-text);
     border-bottom: none;
@@ -265,13 +282,13 @@
   }
 
   .skill-side-panel .close-panel {
-     font-size: 1.8em;
-    }
-
-    .skill-side-panel h3 {
     font-size: 1.8em;
   }
-  
+
+  .skill-side-panel h3 {
+    font-size: 1.8em;
+  }
+
   .skill-side-panel p {
     font-size: var(--font-size-p);
     line-height: 1.5em;
@@ -279,7 +296,6 @@
 }
 
 @media (width >= 1400px) {
-
   .skillsDropdownContainer {
     margin-left: 3em;
     margin-top: -2em;
@@ -293,7 +309,7 @@
     margin: 4em 5em 15em 12em;
   }
 
-  .skillContainer > * { 
+  .skillContainer > * {
     justify-self: start;
   }
 
@@ -305,13 +321,13 @@
     overflow-y: scroll;
   }
 
-  .skillsScroll a { 
-    width: 6em; 
+  .skillsScroll a {
+    width: 6em;
     height: 6em;
   }
-  
-  .skillsScroll img { 
-    height: 5em; 
+
+  .skillsScroll img {
+    height: 5em;
   }
 
   .skillTextDescrip {
@@ -347,12 +363,13 @@
     margin-left: -0.5em;
     margin-top: 17em;
   }
-  
+
   .skillTextDescrip.default-text {
     opacity: 1;
   }
-  
+
   .skillTextDescrip:not(.default-text) {
     opacity: 1;
+    padding-left: 2em;
   }
 }

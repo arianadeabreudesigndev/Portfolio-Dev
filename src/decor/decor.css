@@ -1,0 +1,1344 @@
+/* Home */
+@keyframes orbit {
+  0% { transform: rotate(0deg) translateX(var(--orbit-radius)) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg); }
+}
+
+@keyframes orbit-reverse {
+  0% { transform: rotate(0deg) translateX(var(--orbit-radius)) rotate(0deg); }
+  100% { transform: rotate(-360deg) translateX(var(--orbit-radius)) rotate(360deg); }
+}
+
+@keyframes flash {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+@keyframes pulse-scale {
+  0%, 100% { transform: scale(1) rotate(60deg); }
+  50% { transform: scale(1.1) rotate(60deg); }
+}
+
+@keyframes move-horizontal {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(8px); }
+}
+
+@keyframes rock {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(3deg); }
+  75% { transform: rotate(-3deg); }
+}
+
+.decor-layer {
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.decor {
+  position: absolute;
+  transform-origin: center;
+}
+
+.plus-icon,
+.plus-icon2,
+.plus-icon3,
+.binary10-icon,
+.binary19con,
+.little-circle-icon,
+.little-circle-icon2,
+.little-circle-icon3,
+.little-circle-icon4,
+.little-circle-icon5,
+.ellipse-icon,
+.ellipse-icon2,
+.ellipse-icon3,
+.ellipse-icon4,
+.ellipse-icon5,
+.four-star-icon,
+.four-star-icon2,
+.four-star-icon3,
+.ugly-star-icon,
+.ugly-star-icon2,
+.ugly-star-icon3,
+.ugly-star-icon4,
+.ugly-star-icon5,
+.triangle-icon,
+.triangle-icon2,
+.triangle-icon3,
+.triangle-icon4,
+.triangle-icon5,
+.triangle-icon6,
+.triangle-icon7 {
+  animation: orbit linear infinite;
+}
+
+@media (width < 768px) {
+  .plus-icon {
+    height: 0.5em;
+    top: 45%;
+    right: -3;
+    --orbit-radius: 10em;
+    animation-duration: 25s;
+    animation: orbit 15s linear infinite -10s, flash 1.5s ease-in-out infinite;
+  }
+
+  .plus-icon2 {
+    height: 0.7em;
+    top: 45%;
+    right: -1%;
+    margin-top: -0.5em;
+    margin-left: -0.5em;
+    --orbit-radius: 10em;
+    animation-duration: 20s;
+    animation: orbit 15s linear infinite -50s, flash 1.5s ease-in-out infinite 0.4s;
+  }
+
+  .plus-icon3 {
+    height: 0.8em;
+    top: 42%;
+    right: -2%;
+    --orbit-radius: 10em;
+    animation-duration: 30s;
+    animation: orbit 17s linear infinite -1s, flash 1.5s ease-in-out infinite 0.8s;
+  }
+
+  .binary10-icon {
+    height: 0.9em;
+    top: 45%;
+    right: 1%;
+    --orbit-radius: 9em;
+    animation-duration: 22s;
+    animation: orbit 24s linear infinite -9s, flash 1.5s ease-in-out infinite 0.5s;
+  }
+
+  .binary19con {
+    height: 0.9em;
+    top: 44%;
+    right: 1%;
+    --orbit-radius: 9.5em;
+    animation-duration: 18s;
+    animation: orbit 24s linear infinite -21s, flash 1.5s ease-in-out infinite 0.7s;
+  }
+
+  .little-circle-icon {
+    height: 0.5em;
+    top: 55%;
+    right: 1%;
+    --orbit-radius: 9.5em;
+    animation-duration: 15s;
+    animation: orbit-reverse 15s linear infinite -15s, flash 1.5s ease-in-out infinite;
+  }
+
+  .little-circle-icon2 {
+    height: 0.5em;
+    top: 53%;
+    right: 1%;
+    --orbit-radius: 9em;
+    animation-duration: 18s;
+    animation: orbit 35s linear infinite -24s, flash 1.5s ease-in-out infinite 0.4s;
+  }
+
+  .little-circle-icon3 {
+    height: 0.2em;
+    top: 52%;
+    right: 1%;
+    --orbit-radius: 9.3em;
+    animation-duration: 35s;
+    animation: orbit-reverse 25s linear infinite -35s, flash 1.5s ease-in-out infinite 0.8s;
+  }
+
+  .little-circle-icon4 {
+    height: 0.7em;
+    top: 57%;
+    right: 1%;
+    --orbit-radius: 8em;
+    animation-duration: 28s;
+    animation: orbit 15s linear infinite -15s, flash 1.5s ease-in-out infinite 1.2s;
+  }
+
+  .little-circle-icon5 {
+    height: 0.3em;
+    top: 60%;
+    right: 2%;
+    --orbit-radius: 9em;
+    animation-duration: 12s;
+    animation: orbit-reverse 21s linear infinite -14s, flash 1.5s ease-in-out infinite 1.6s;
+  }
+
+  .cursor-mouse-icon {
+    height: 1em;
+    top: 99%;
+    right: -42%;
+    animation: 20s linear infinite, move-horizontal 1.5s ease-in-out infinite;
+  }
+
+  .cursor-mouse-icon2 {
+    height: 1em;
+    top: 38%;
+    right: 57%;
+    animation: 32s linear infinite, move-horizontal 2s ease-in-out infinite;
+  }
+
+  .ellipse-icon {
+    height: 0.2em;
+    top: 45%;
+    right: 2%;
+    --orbit-radius: 8em;
+    animation: orbit 27s linear infinite -17s;
+  }
+
+  .ellipse-icon2 {
+    height: 0.2em;
+    top: 50%;
+    right: 2%;
+    --orbit-radius: 8.5em;
+    animation: orbit-reverse 21s linear infinite -25s;
+  }
+
+  .ellipse-icon3 {
+    height: 0.1em;
+    top: 45%;
+    right: 2%;
+    --orbit-radius: 9em;
+    animation: orbit 18s linear infinite -5s;
+  }
+
+  .ellipse-icon4 {
+    height: .2em;
+    top: 55%;
+    right: 1%;
+    --orbit-radius: 9.5em;
+    animation: orbit-reverse 180s linear infinite -12s;
+  }
+
+  .ellipse-icon5 {
+    height: 0.2em;
+    top: 45%;
+    right: 1%;
+    --orbit-radius: 8.7em;
+    animation: orbit 175s linear infinite -35s;
+  }
+
+  .four-star-icon {
+    height: 1em;
+    top: 55%;
+    right: -1%;
+    --orbit-radius: 9.5em;
+    transform: rotate(90deg);
+    animation: orbit 25s linear infinite, flash 1.2s ease-in-out infinite;
+  }
+
+  .four-star-icon2 {
+    height: 1em;
+    top: 45%;
+    right: 4%;
+    --orbit-radius: 9em;
+    transform: rotate(60deg);
+    animation: orbit-reverse 28s linear infinite -35s, flash 1.2s ease-in-out infinite 0.5s;
+  }
+
+  .four-star-icon3 {
+    height: .7em;
+    top: 40%;
+    left: -2%;
+    --orbit-radius: 8em;
+    transform: rotate(90deg);
+    animation: orbit 17s linear infinite -22s, flash 1.2s ease-in-out infinite 0.5s;
+  }
+
+  .robot-icon {
+    height: 4.9em;
+    top: 5em;
+    right: -5.7em;
+    transform: rotate(1deg);
+  }
+
+  .large-circle-icon {
+    top: -0.2em;
+    right: -0.1em;
+  }
+
+  .code-screen-icon {
+    height: 1.5em;
+    top: 50%;
+    left: -57%;
+  }
+
+  .close-icon {
+    height: 1.5em;
+    top: 65%;
+    right: -53%;
+    animation: rock 4s ease-in-out infinite;
+  }
+
+  .ugly-star-icon {
+    height: 0.5em;
+    top: 40%;
+    right: 1%;
+    --orbit-radius: 10em;
+    animation: orbit-reverse 17s linear infinite, flash 1.2s ease-in-out infinite;
+  }
+
+  .ugly-star-icon2 {
+    height: 0.5em;
+    top: 38%;
+    right: 5%;
+    --orbit-radius: 9.5em;
+    transform: rotate(60deg);
+    animation: orbit 17s linear infinite -15s, flash 1.2s ease-in-out infinite 0.3s;
+  }
+
+  .ugly-star-icon3 {
+    height: 0.5em;
+    top: 42%;
+    right: -5%;
+    --orbit-radius: 9em;
+    transform: rotate(90deg);
+    animation: orbit-reverse 20s linear infinite, flash 1.2s ease-in-out infinite 0.6s;
+  }
+
+  .ugly-star-icon4 {
+    height: 0.8em;
+    top: 44%;
+    right: -5%;
+    --orbit-radius: 9.5em;
+    transform: rotate(180deg);
+    animation: orbit 21s linear infinite -22s, flash 1.2s ease-in-out infinite;
+  }
+
+  .ugly-star-icon5 {
+    height: 1em;
+    top: 43%;
+    right: -2%;
+    --orbit-radius: 10em;
+    transform: rotate(60deg);
+    animation: orbit-reverse 23s linear infinite -32s, flash 1.2s ease-in-out infinite;
+  }
+
+  .notebook-icon {
+    height: 2.5em;
+    top: 85%;
+    right: -35%;
+    animation: rock 5s ease-in-out infinite;
+  }
+
+  .notebook-icon2 {
+    height: 2.5em;
+    top: 15%;
+    right: 55%;
+    animation-delay: 0.5s;
+    animation: rock 5s ease-in-out infinite;
+  }
+
+  .planet-icon {
+    height: 1.2em;
+    top: 100%;
+    right: 10%;
+    animation: rock 6s ease-in-out infinite;
+  }
+
+  .saturn-icon {
+    height: 1em;
+    top: 45%;
+    right: -58%;
+    animation: rock 7s ease-in-out infinite;
+  }
+
+  .surprise-icon {
+    height: 1em;
+    top: 9%;
+    right: 40%;
+    transform: rotate(60deg);
+    animation: flash 1.5s ease-in-out infinite, pulse-scale 4s ease-in-out infinite;
+  }
+
+  .surprise-icon2 {
+    height: 1em;
+    top: 80%;
+    right: -48.5%;
+    transform: rotate(60deg);
+    animation: flash 1.5s ease-in-out infinite 0.5s, pulse-scale 4s ease-in-out infinite 0.5s;
+  }
+
+  .triangle-icon {
+    height: 0.5em;
+    top: 47%;
+    right: 2%;
+    --orbit-radius: 9.5em;
+    transform: rotate(180deg);
+    animation: orbit 19s linear infinite -1s;
+  }
+
+  .triangle-icon2 {
+    height: .5em;
+    top: 42%;
+    right: 2%;
+    --orbit-radius: 9.5em;
+    transform: rotate(90deg);
+    animation: orbit-reverse 19s linear infinite -30s;
+  }
+
+  .triangle-icon3 {
+    height: .5em;
+    top: 48%;
+    right: 2%;
+    --orbit-radius: 9em;
+    animation: orbit 23s linear infinite -15s;
+  }
+
+  .triangle-icon4 {
+    height: 0.5em;
+    top: 46%;
+    right: 2%;
+    --orbit-radius: 9em;
+    transform: rotate(90deg);
+    animation: orbit-reverse 25s linear infinite -5s;
+  }
+
+  .triangle-icon5 {
+    height: 1em;
+    top: 50%;
+    right: 2%;
+    --orbit-radius: 9em;
+    transform: rotate(90deg);
+    animation: orbit 27s linear infinite;
+  }
+
+  .triangle-icon6 {
+    height: 1em;
+    top: 45%;
+    right: 2%;
+    --orbit-radius: 9.2em;
+    animation: orbit-reverse 27s linear infinite -10s;
+  }
+
+  .heart-icon,
+  .heart2-icon {
+    height: 1em;
+    left: 48%;
+  }
+
+  .whirlwind {
+    height: 3em;
+    margin-left: 12%;
+    margin-top: 5em;
+  }
+
+  .ballon2questions {
+    height: 3em;
+    margin-left: 9%;
+    margin-top: 19em;
+  }
+
+  .simplesBalloon {
+    height: 3em;
+    margin-left: 10%;
+    margin-top: 27em;
+  }
+
+  .oval {
+    height: 0.6em;
+    margin-left: 14%;
+    margin-top: 22.2em;
+  }
+
+  .oval2 {
+    height: 0.5em;
+    margin-left: 15.5%;
+    margin-top: 22.9em;
+  }
+
+  .oval3 {
+    height: 0.3em;
+    margin-left: 15%;
+    margin-top: 23.5em;
+  }
+
+  .arrow1tip {
+    height: 0.5em;
+    margin-top: 31.3em;
+    margin-left: 21%;
+    transform: rotate(180deg);
+  }
+
+  .arrow1tip2 {
+    height: 0.5em;
+    margin-top: 0.1em;
+    margin-left: 21%;
+  }
+
+  .arrow1tip3 {
+    height: 0.5em;
+    margin-top: 12em;
+    margin-left: 8%;
+    transform: rotate(-90deg);
+  }
+
+  .arrow1tip4 {
+    height: 0.5em;
+    margin-top: 15em;
+    margin-left: 10%;
+    transform: rotate(-90deg);
+  }
+
+  .arrow1tip5 {
+    display: none;
+  }
+
+  .arrow2tips {
+    height: 0.7em;
+    margin-top: -0.1em;
+    margin-left: 57%;
+  }
+}
+
+@media (768px <= width <= 1399px) {
+  .robot-icon {
+    height: 7em;
+    top: 8em;
+    right: -8.6em;
+    transform: rotate(1deg);
+  }
+
+  .large-circle-icon {
+    top: -0.2em;
+    right: -0.1em;
+  }
+
+  .code-screen-icon {
+    height: 2em;
+    top: 55%;
+    left: -57%;
+  }
+
+  .close-icon {
+    height: 2.5em;
+    top: 62%;
+    right: -55%;
+    animation: rock 4s ease-in-out infinite;
+  }
+
+  .plus-icon {
+    height: 1.5em;
+    top: 40%;
+    right: 3%;
+    --orbit-radius: 15.5em;
+    animation-duration: 25s;
+    animation: orbit 17s linear infinite, flash 1.5s ease-in-out infinite;
+  }
+
+  .plus-icon2 {
+    height: 1.2em;
+    top: 45%;
+    right: -1%;
+    margin-top: -0.5em;
+    margin-left: -0.5em;
+    --orbit-radius: 15.5em;
+    animation-duration: 20s;
+    animation: orbit 21s linear infinite -35s, flash 1.5s ease-in-out infinite 0.4s;
+  }
+
+  .plus-icon3 {
+    height: 1.2em;
+    top: 45%;
+    right: -2%;
+    --orbit-radius: 15.7em;
+    animation-duration: 30s;
+    animation: orbit 17s linear infinite -8s, flash 1.5s ease-in-out infinite 0.8s;
+  }
+
+  .binary10-icon {
+    height: 0.9em;
+    top: 50%;
+    right: 1%;
+    --orbit-radius: 15em;
+    animation-duration: 22s;
+    animation: orbit 24s linear infinite -9s, flash 1.5s ease-in-out infinite 0.5s;
+  }
+
+  .binary19con {
+    height: 0.9em;
+    top: 50%;
+    right: 1%;
+    --orbit-radius: 15.2em;
+    animation-duration: 18s;
+    animation: orbit 24s linear infinite -21s, flash 1.5s ease-in-out infinite 0.7s;
+  }
+
+  .little-circle-icon {
+    height: 0.5em;
+    top: 45%;
+    left: 1%;
+    --orbit-radius: 15em;
+    animation-duration: 15s;
+    animation: orbit-reverse 30s linear infinite -15s, flash 1.5s ease-in-out infinite;
+  }
+
+  .little-circle-icon2 {
+    height: 0.5em;
+    top: 50%;
+    right: 1%;
+    --orbit-radius: 15em;
+    animation-duration: 18s;
+    animation: orbit 35s linear infinite -24s, flash 1.5s ease-in-out infinite 0.4s;
+  }
+
+  .little-circle-icon3 {
+    height: 1em;
+    top: 45%;
+    right: 1%;
+    --orbit-radius: 15.5em;
+    animation-duration: 35s;
+    animation: orbit-reverse 25s linear infinite -35s, flash 1.5s ease-in-out infinite 0.8s;
+  }
+
+  .little-circle-icon4 {
+    height: 1em;
+    top: 50%;
+    right: 1%;
+    --orbit-radius: 15em;
+    animation-duration: 28s;
+    animation: orbit 15s linear infinite -15s, flash 1.5s ease-in-out infinite 1.2s;
+  }
+
+  .little-circle-icon5 {
+    height: 0.5em;
+    top: 45%;
+    right: 2%;
+    --orbit-radius: 15.5em;
+    animation-duration: 12s;
+    animation: orbit-reverse 21s linear infinite -14s, flash 1.5s ease-in-out infinite 1.6s;
+  }
+
+  .cursor-mouse-icon {
+    height: 1.5em;
+    top: 90%;
+    right: -63%;
+    animation: 20s linear infinite, move-horizontal 1.5s ease-in-out infinite;
+  }
+
+  .cursor-mouse-icon2 {
+    height: 1.5em;
+    top: 45%;
+    left: -60%;
+    animation: 32s linear infinite, move-horizontal 2s ease-in-out infinite;
+  }
+
+  .ellipse-icon {
+    height: .21em;
+    top: 50%;
+    right: 2%;
+    --orbit-radius: 15.5em;
+    animation: orbit 27s linear infinite -17s;
+  }
+
+  .ellipse-icon2 {
+    height: 0.2em;
+    top: 45%;
+    right: 2%;
+    --orbit-radius: 15.5em;
+    animation: orbit-reverse 21s linear infinite;
+  }
+
+  .ellipse-icon3 {
+    height: 0.1em;
+    top: 40%;
+    right: 2%;
+    --orbit-radius: 16em;
+    animation: orbit 18s linear infinite;
+  }
+
+  .ellipse-icon4 {
+    height: .2em;
+    top: 50%;
+    right: 1%;
+    --orbit-radius: 15em;
+    animation: orbit-reverse 180s linear infinite -12s;
+  }
+
+  .ellipse-icon5 {
+    height: 0.2em;
+    top: 47%;
+    right: 1%;
+    --orbit-radius: 15em;
+    animation: orbit 175s linear infinite -35s;
+  }
+
+  .four-star-icon {
+    height: 1em;
+    top: 40%;
+    right: -1%;
+    --orbit-radius: 15em;
+    transform: rotate(90deg);
+    animation: orbit 25s linear infinite, flash 1.2s ease-in-out infinite;
+  }
+
+  .four-star-icon2 {
+    height: 1em;
+    top: 45%;
+    right: 4%;
+    --orbit-radius: 15.5em;
+    transform: rotate(60deg);
+    animation: orbit-reverse 28s linear infinite -15s, flash 1.2s ease-in-out infinite 0.5s;
+  }
+
+  .four-star-icon3 {
+    height: 0.7em;
+    top: 35%;
+    left: -2%;
+    --orbit-radius: 15em;
+    transform: rotate(90deg);
+    animation: orbit 17s linear infinite -22s, flash 1.2s ease-in-out infinite 0.5s;
+  }
+
+  .ugly-star-icon {
+    height: 0.5em;
+    top: 40%;
+    right: 1%;
+    --orbit-radius: 15em;
+    animation: orbit-reverse 16s linear infinite, flash 1.2s ease-in-out infinite;
+  }
+
+  .ugly-star-icon2 {
+    height: 1em;
+    top: 45%;
+    right: 5%;
+    --orbit-radius: 15.5em;
+    transform: rotate(60deg);
+    animation: orbit 18s linear infinite -15s, flash 1.2s ease-in-out infinite 0.3s;
+  }
+
+  .ugly-star-icon3 {
+    height: 1.1em;
+    top: 42%;
+    right: -5%;
+    --orbit-radius: 15.7em;
+    transform: rotate(90deg);
+    animation: orbit-reverse 20s linear infinite, flash 1.2s ease-in-out infinite 0.6s;
+  }
+
+  .ugly-star-icon4 {
+    height: 1em;
+    top: 40%;
+    right: -5%;
+    --orbit-radius: 15em;
+    transform: rotate(180deg);
+    animation: orbit 31s linear infinite -22s, flash 1.2s ease-in-out infinite;
+  }
+
+  .ugly-star-icon5 {
+    height: 1em;
+    top: 39%;
+    right: -2%;
+    --orbit-radius: 15em;
+    transform: rotate(60deg);
+    animation: orbit-reverse 27s linear infinite -32s, flash 1.2s ease-in-out infinite;
+  }
+
+  .notebook-icon {
+    height: 3.5em;
+    top: 82%;
+    right: -44%;
+    animation: rock 5s ease-in-out infinite;
+  }
+
+  .notebook-icon2 {
+    height: 3.5em;
+    top: 25%;
+    right: 62%;
+    animation-delay: 0.5s;
+    animation: rock 5s ease-in-out infinite;
+  }
+
+  .planet-icon {
+    height: 1.2em;
+    top: 101%;
+    right: 10%;
+    animation: rock 6s ease-in-out infinite;
+  }
+
+  .saturn-icon {
+    height: 1.2em;
+    top: 36%;
+    right: -58%;
+    animation: rock 7s ease-in-out infinite;
+  }
+
+  .surprise-icon {
+    height: 1.5em;
+    top: 20%;
+    left: -50%;
+    transform: rotate(60deg);
+    animation: flash 1.5s ease-in-out infinite, pulse-scale 4s ease-in-out infinite;
+  }
+
+  .surprise-icon2 {
+    height: 1.5em;
+    top: 77%;
+    right: -56%;
+    transform: rotate(60deg);
+    animation: flash 1.5s ease-in-out infinite 0.5s, pulse-scale 4s ease-in-out infinite 0.5s;
+  }
+
+  .triangle-icon {
+    height: 0.5em;
+    top: 45%;
+    right: 2%;
+    --orbit-radius: 15em;
+    transform: rotate(180deg);
+    animation: orbit 19s linear infinite -1s;
+  }
+
+  .triangle-icon2 {
+    height: .5em;
+    top: 48%;
+    right: 2%;
+    --orbit-radius: 15.5em;
+    transform: rotate(90deg);
+    animation: orbit-reverse 19s linear infinite -30s;
+  }
+
+  .triangle-icon3 {
+    height: .5em;
+    top: 46%;
+    right: 2%;
+    --orbit-radius: 15.5em;
+    animation: orbit 23s linear infinite -15s;
+  }
+
+  .triangle-icon4 {
+    height: 0.5em;
+    top: 47%;
+    right: 2%;
+    --orbit-radius: 15em;
+    transform: rotate(90deg);
+    animation: orbit-reverse 25s linear infinite -5s;
+  }
+
+  .triangle-icon5 {
+    height: 1em;
+    top: 45%;
+    right: 2%;
+    --orbit-radius: 15.5em;
+    transform: rotate(90deg);
+    animation: orbit 27s linear infinite;
+  }
+
+  .triangle-icon6 {
+    height: 1em;
+    top: 50%;
+    right: 2%;
+    --orbit-radius: 15.5em;
+    animation: orbit-reverse 27s linear infinite -10s;
+  }
+
+  .heart-icon,
+  .heart2-icon {
+    height: 1em;
+    left: 50%;
+  }
+
+  .whirlwind {
+    height: 10%;
+    margin-left: -14%;
+    margin-top: -10%;
+  }
+
+  .ballon2questions {
+    height: 10%;
+    margin-left: -18%;
+    margin-top: 20em;
+  }
+
+  .simplesBalloon {
+    height: 8%;
+    margin-left: -15%;
+    margin-top: 100%;
+  }
+
+  .oval {
+    height: 0.8em;
+    margin-left: -9.5%;
+    margin-top: 24.3em;
+  }
+
+  .oval2 {
+    height: 0.5em;
+    margin-left: -6%;
+    margin-top: 25em;
+  }
+
+  .oval3 {
+    height: 0.3em;
+    margin-left: -8%;
+    margin-top: 25.7em;
+  }
+
+  .arrow1tip {
+    height: 1em;
+    margin-top: 39.8em;
+    margin-left: 38%;
+    transform: rotate(180deg);
+  }
+
+  .arrow1tip2 {
+    height: 1em;
+    margin-top: -4em;
+    margin-left: 49.5%;
+  }
+
+  .arrow1tip3 {
+    height: 1em;
+    margin-top: 8em;
+    margin-left: -27%;
+    transform: rotate(-90deg);
+  }
+
+  .arrow1tip4 {
+    height: 1em;
+    margin-top: 13em;
+    margin-left: -22%;
+    transform: rotate(-90deg);
+  }
+
+  .arrow1tip5 {
+    height: 1.8%;
+    margin-top: 83%;
+    margin-left: -20%;
+    transform: rotate(-90deg);
+  }
+
+  .arrow2tips {
+    height: 3%;
+    margin-top: -10%;
+    margin-left: 8%;
+  }
+}
+
+@media (width >= 1400px) {
+  .plus-icon {
+    height: 0.5em;
+    top: 70%;
+    right: -3;
+    --orbit-radius: 17em;
+    animation-duration: 25s;
+    animation: orbit 70s linear infinite, flash 1.5s ease-in-out infinite;
+  }
+
+  .plus-icon2 {
+    height: 0.5em;
+    top: 70%;
+    right: -1%;
+    margin-top: -0.5em;
+    margin-left: -0.5em;
+    --orbit-radius: 15.5em;
+    animation-duration: 20s;
+    animation: orbit 100s linear infinite -50s, flash 1.5s ease-in-out infinite 0.4s;
+  }
+
+  .plus-icon3 {
+    height: 1em;
+    top: 70%;
+    right: -2%;
+    --orbit-radius: 18em;
+    animation-duration: 30s;
+    animation: orbit 15s linear infinite -8s, flash 1.5s ease-in-out infinite 0.8s;
+  }
+
+  .binary10-icon {
+    height: 0.9em;
+    top: 75%;
+    right: 1%;
+    --orbit-radius: 16em;
+    animation-duration: 22s;
+    animation: orbit 24s linear infinite -9s, flash 1.5s ease-in-out infinite 0.5s;
+  }
+
+  .binary19con {
+    height: 0.9em;
+    top: 75%;
+    right: 1%;
+    --orbit-radius: 15.5em;
+    animation-duration: 18s;
+    animation: orbit 24s linear infinite -21s, flash 1.5s ease-in-out infinite 0.7s;
+  }
+
+  .little-circle-icon {
+    height: 0.5em;
+    top: 75%;
+    left: 1%;
+    --orbit-radius: 21em;
+    animation-duration: 15s;
+    animation: orbit-reverse 30s linear infinite -15s, flash 1.5s ease-in-out infinite;
+  }
+
+  .little-circle-icon2 {
+    height: 0.5em;
+    top: 72%;
+    right: 1%;
+    --orbit-radius: 19em;
+    animation-duration: 18s;
+    animation: orbit 35s linear infinite -24s, flash 1.5s ease-in-out infinite 0.4s;
+  }
+
+  .little-circle-icon3 {
+    height: 1em;
+    top: 70%;
+    right: 1%;
+    --orbit-radius: 20em;
+    animation-duration: 35s;
+    animation: orbit-reverse 25s linear infinite -35s, flash 1.5s ease-in-out infinite 0.8s;
+  }
+
+  .little-circle-icon4 {
+    height: 1em;
+    top: 77%;
+    right: 1%;
+    --orbit-radius: 15em;
+    animation-duration: 28s;
+    animation: orbit 15s linear infinite -15s, flash 1.5s ease-in-out infinite 1.2s;
+  }
+
+  .little-circle-icon5 {
+    height: 0.5em;
+    top: 66%;
+    right: 2%;
+    --orbit-radius: 18em;
+    animation-duration: 12s;
+    animation: orbit-reverse 21s linear infinite -14s, flash 1.5s ease-in-out infinite 1.6s;
+  }
+
+  .robot-icon {
+    height: 7.5em;
+    top: 8.7em;
+    right: -9.4em;
+    transform: rotate(1deg);
+  }
+
+  .large-circle-icon {
+    top: -0.3em;
+    right: 0.02em;
+  }
+
+  .code-screen-icon {
+    height: 3em;
+    top: 80%;
+    right: 37%;
+  }
+
+  .close-icon {
+    height: 2.5em;
+    top: 95%;
+    right: -33%;
+    animation: rock 4s ease-in-out infinite;
+  }
+
+  .cursor-mouse-icon {
+    height: 1.5em;
+    top: 108%;
+    right: -38%;
+    animation: 20s linear infinite, move-horizontal 1.5s ease-in-out infinite;
+  }
+
+  .cursor-mouse-icon2 {
+    height: 1.5em;
+    top: 55%;
+    left: -35%;
+    animation: 32s linear infinite, move-horizontal 2s ease-in-out infinite;
+  }
+
+  .ellipse-icon {
+    height: .21em;
+    top: 70%;
+    right: 2%;
+    --orbit-radius: 15.5em;
+    animation: orbit 27s linear infinite -17s;
+  }
+
+  .ellipse-icon2 {
+    height: 0.2em;
+    top: 70%;
+    right: 2%;
+    --orbit-radius: 15.5em;
+    animation: orbit-reverse 21s linear infinite;
+  }
+
+  .ellipse-icon3 {
+    height: 0.1em;
+    top: 72%;
+    right: 2%;
+    --orbit-radius: 16em;
+    animation: orbit 18s linear infinite;
+  }
+
+  .ellipse-icon4 {
+    height: .2em;
+    top: 73%;
+    right: 1%;
+    --orbit-radius: 17em;
+    animation: orbit-reverse 180s linear infinite -12s;
+  }
+
+  .ellipse-icon5 {
+    height: 0.2em;
+    top: 74%;
+    right: 1%;
+    --orbit-radius: 19em;
+    animation: orbit 175s linear infinite -35s;
+  }
+
+  .four-star-icon {
+    height: 1em;
+    top: 74%;
+    right: -1%;
+    --orbit-radius: 17em;
+    transform: rotate(90deg);
+    animation: orbit 25s linear infinite, flash 1.2s ease-in-out infinite;
+  }
+
+  .four-star-icon2 {
+    height: 1em;
+    top: 74%;
+    right: 4%;
+    --orbit-radius: 17.5em;
+    transform: rotate(60deg);
+    animation: orbit-reverse 28s linear infinite -15s, flash 1.2s ease-in-out infinite 0.5s;
+  }
+
+  .four-star-icon3 {
+    height: .7em;
+    top: 80%;
+    left: -2%;
+    --orbit-radius: 21em;
+    transform: rotate(90deg);
+    animation: orbit 17s linear infinite -22s, flash 1.2s ease-in-out infinite 0.5s;
+  }
+
+  .ugly-star-icon {
+    height: 0.5em;
+    top: 70%;
+    right: 1%;
+    --orbit-radius: 16em;
+    animation: orbit-reverse 16s linear infinite, flash 1.2s ease-in-out infinite;
+  }
+
+  .ugly-star-icon2 {
+    height: 1em;
+    top: 80%;
+    right: 5%;
+    --orbit-radius: 18em;
+    transform: rotate(60deg);
+    animation: orbit 18s linear infinite -15s, flash 1.2s ease-in-out infinite 0.3s;
+  }
+
+  .ugly-star-icon3 {
+    height: 1.1em;
+    top: 80%;
+    right: -5%;
+    --orbit-radius: 17em;
+    transform: rotate(90deg);
+    animation: orbit-reverse 20s linear infinite, flash 1.2s ease-in-out infinite 0.6s;
+  }
+
+  .ugly-star-icon4 {
+    height: 1em;
+    top: 80%;
+    right: -5%;
+    --orbit-radius: 17em;
+    transform: rotate(180deg);
+    animation: orbit 31s linear infinite -22s, flash 1.2s ease-in-out infinite;
+  }
+
+  .ugly-star-icon5 {
+    height: 1em;
+    top: 76%;
+    right: -2%;
+    --orbit-radius: 17em;
+    transform: rotate(60deg);
+    animation: orbit-reverse 27s linear infinite -32s, flash 1.2s ease-in-out infinite;
+  }
+
+  .notebook-icon,
+  .notebook-icon2 {
+    animation: rock 5s ease-in-out infinite;
+  }
+
+  .notebook-icon {
+    height: 4em;
+    top: 145%;
+    right: -24%;
+  }
+
+  .notebook-icon2 {
+    height: 4.5em;
+    top: 25%;
+    right: 38%;
+    animation-delay: 0.5s;
+  }
+
+  .planet-icon {
+    height: 2em;
+    top: 157%;
+    right: 10%;
+    animation: rock 6s ease-in-out infinite;
+  }
+
+  .saturn-icon {
+    height: 1.5em;
+    top: 49%;
+    right: -34%;
+    animation: rock 7s ease-in-out infinite;
+  }
+
+  .surprise-icon {
+    height: 1.5em;
+    top: 18%;
+    left: -29.5%;
+    transform: rotate(60deg);
+    animation: flash 1.5s ease-in-out infinite, pulse-scale 4s ease-in-out infinite;
+  }
+
+  .surprise-icon2 {
+    height: 1.5em;
+    top: 138%;
+    right: -32%;
+    transform: rotate(60deg);
+    animation: flash 1.5s ease-in-out infinite 0.5s, pulse-scale 4s ease-in-out infinite 0.5s;
+  }
+
+  .triangle-icon {
+    height: 0.5em;
+    top: 70%;
+    right: 2%;
+    --orbit-radius: 18em;
+    transform: rotate(180deg);
+    animation: orbit 19s linear infinite -1s;
+  }
+
+  .triangle-icon2 {
+    height: .5em;
+    top: 70%;
+    right: 2%;
+    --orbit-radius: 16em;
+    transform: rotate(90deg);
+    animation: orbit-reverse 19s linear infinite -30s;
+  }
+
+  .triangle-icon3 {
+    height: .5em;
+    top: 70%;
+    right: 2%;
+    --orbit-radius: 16.5em;
+    animation: orbit 23s linear infinite -15s;
+  }
+
+  .triangle-icon4 {
+    height: 0.5em;
+    top: 65%;
+    right: 2%;
+    --orbit-radius: 18.5em;
+    transform: rotate(90deg);
+    animation: orbit-reverse 25s linear infinite -5s;
+  }
+
+  .triangle-icon5 {
+    height: 1em;
+    top: 72%;
+    right: 2%;
+    --orbit-radius: 15.5em;
+    transform: rotate(90deg);
+    animation: orbit 27s linear infinite;
+  }
+
+  .triangle-icon6 {
+    height: 1em;
+    top: 70%;
+    right: 2%;
+    --orbit-radius: 17.5em;
+    animation: orbit-reverse 27s linear infinite -10s;
+  }
+
+  .whirlwind {
+    height: 5.5em;
+    margin-left: -4.5em;
+    margin-top: -3em;
+  }
+
+  .ballon2questions {
+    height: 5em;
+    margin-left: -5em;
+    margin-top: 21em;
+  }
+
+  .simplesBalloon {
+    height: 5em;
+    margin-left: -5em;
+    margin-top: 36em;
+  }
+
+  .oval {
+    height: 0.8em;
+    margin-left: -1em;
+    margin-top: 26em;
+  }
+
+  .oval2 {
+    height: 0.5em;
+    margin-left: -0.2em;
+    margin-top: 26.9em;
+  }
+
+  .oval3 {
+    height: 0.3em;
+    margin-left: -0.5em;
+    margin-top: 27.5em;
+  }
+
+  .arrow1tip {
+    height: 1em;
+    margin-top: 37.5em;
+    margin-left: 15em;
+    transform: rotate(180deg);
+  }
+
+  .arrow1tip2 {
+    height: 1em;
+    margin-top: -2em;
+    margin-left: 7em;
+  }
+
+  .arrow1tip3 {
+    height: 1em;
+    margin-top: 8.5em;
+    margin-left: -5em;
+    transform: rotate(-90deg);
+  }
+
+  .arrow1tip4 {
+    height: 1em;
+    margin-top: 14em;
+    margin-left: -7em;
+    transform: rotate(-90deg);
+  }
+
+  .arrow1tip5 {
+    height: 0.4em;
+    margin-top: 31em;
+    margin-left: -2.5em;
+    transform: rotate(-90deg);
+  }
+
+  .arrow2tips {
+    height: 1em;
+    margin-top: -2em;
+    margin-left: 24em;
+  }
+
+  .heart-icon,
+  .heart2-icon {
+    height: 1em;
+    left: 30%;
+  }
+}
