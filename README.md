@@ -88,13 +88,15 @@ Cada projeto apresenta:
 - Descrição curta  
 - Descrição longa, personalizada  
 
+Além disso, quando o usuário clica em um projeto, abre-se uma janela de detalhamento do projeto, exibindo informações mais completas e dois botões: um para acessar o repositório no GitHub e outro para visualizar o projeto ao vivo, permitindo que o visitante explore o projeto em tempo real.
+
 Funcionalidades adicionais:
 
 - **Filtro por tecnologia**  
 - Opção de **aplicar ou limpar filtros**  
 - Navegação por setas e rolagem interna  
 - Limitador visual de linhas para evitar excesso de conteúdo na tela  
-
+ 
 Funcionalidades futuras planejadas:
 
 - Filtro por status do projeto (finalizado ou em andamento)  
@@ -205,4 +207,5 @@ Ideias futuras incluem:
 
 Link do projeto online: https://portfolioariandeabreudesigndev.netlify.app/
 Sugestões, críticas construtivas e feedbacks, especialmente de profissionais de TI, são **muito bem-vindos**. Toda troca de conhecimento é valorizada e contribui diretamente para minha evolução profissional.
+
 
