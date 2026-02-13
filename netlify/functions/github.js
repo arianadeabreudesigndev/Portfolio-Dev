@@ -1,6 +1,6 @@
 const GH_OWNER = 'arianadeabreudesigndev';
 const API_BASE = 'https://api.github.com';
-const README_LINES_WINDOW = 20; // metadados ficam no topo do README
+const README_LINES_WINDOW = 20;
 
 async function ensureFetch() {
   if (typeof fetch === 'function') return fetch;
@@ -53,11 +53,6 @@ function parseReadmeMeta(readmeContent) {
 
   const lines = readmeContent.split(/\r?\n/).slice(0, README_LINES_WINDOW);
 
-  // Formato esperado:
-  // # Título
-  // > **short_description:** ... ;
-  // >
-  // > **full_description:** ... ;
   let title = null;
   let shortDescription = null;
   let fullDescription = null;
