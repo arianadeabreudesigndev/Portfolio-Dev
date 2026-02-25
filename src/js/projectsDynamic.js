@@ -1,13 +1,26 @@
 function buildCard(project) {
   const card = document.createElement('div');
   card.className = 'projectItem';
-  card.dataset.tech = project.languageList.join(' ').toLowerCase();
+
+  // Determina a lista de tecnologias: prioriza o campo 'technologies' do README,
+  // se não existir, usa languageList (fallback)
+  let techList = [];
+  if (project.technologies && project.technologies.trim() !== '') {
+    // Assume que as tecnologias estão separadas por vírgula (podem ter espaços)
+    techList = project.technologies.split(',').map(s => s.trim()).filter(s => s);
+  } else {
+    techList = project.languageList || [];
+  }
+
+  // Guarda no dataset como string separada por espaços (case insensitive)
+  card.dataset.tech = techList.join(' ').toLowerCase();
   card.dataset.category = project.topics[0] || 'uncategorized';
   card.dataset.status = 'completed';
   card.dataset.date = project.pushedAt?.replace(/-/g, '').slice(0, 6) || '';
 
-  const tagsHtml = project.languageList
-    .slice(0, 4)
+  // Gera as tags (mostra até 8 tecnologias)
+  const tagsHtml = techList
+    .slice(0, 8)
     .map(tag => `<span class="tag">${tag}</span>`)
     .join('');
 
@@ -106,6 +119,7 @@ async function loadProjects() {
       description: longDescription,
       languages: repo.languages || {},
       languageList,
+      technologies: repo.technologies || '', // campo adicionado
       previewUrl: repo.preview,
       pushedAt: repo.updated_at
     };
@@ -115,10 +129,20 @@ async function loadProjects() {
 
   renderProjects(projects);
 
-  const techs = projects.flatMap(p => p.languageList);
+  // Extrai todas as tecnologias para popular o filtro (usando a mesma lógica de prioridade)
+  const allTechs = [];
+  projects.forEach(p => {
+    if (p.technologies && p.technologies.trim() !== '') {
+      const techs = p.technologies.split(',').map(s => s.trim()).filter(s => s);
+      allTechs.push(...techs);
+    } else {
+      allTechs.push(...(p.languageList || []));
+    }
+  });
+
   const fm = filterManagerInstance || window.filterManager || window.ensureFilterManager?.() || null;
   if (fm?.setAvailableTechs) {
-    fm.setAvailableTechs(techs);
+    fm.setAvailableTechs(allTechs);
   }
 }
 
@@ -145,4 +169,3 @@ if (document.readyState === 'loading') {
 } else {
   waitForProjectsSection();
 }
-

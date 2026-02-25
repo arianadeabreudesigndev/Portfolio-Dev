@@ -203,6 +203,7 @@
     opacity: 0;
     transform: translateY(-10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -399,7 +400,7 @@
   cursor: pointer;
 }
 
-@media (width >= 768px) and (width < 1024px) {
+@media (width >=768px) and (width < 1024px) {
   .projects-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -423,7 +424,7 @@
   }
 }
 
-@media (width >= 1024px) and (width < 1400px) {
+@media (width >=1024px) and (width < 1400px) {
   .projects-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -447,7 +448,7 @@
   }
 }
 
-@media (width >= 1400px) {
+@media (width >=1400px) {
   .projectsContainer {
     margin: 7em 10em 20em 10em;
     display: grid;
@@ -582,9 +583,13 @@
     padding: 0.4em 0.8em;
     font-size: 0.65em;
   }
+
+  #anchor-project {
+    min-height: 400px;
+  }
 }
 
-@media (width <= 768px) {
+@media (width <=768px) {
   .modal-image-container {
     height: 200px;
   }
