@@ -1,6 +1,6 @@
 const GH_OWNER = 'arianadeabreudesigndev';
 const API_BASE = 'https://api.github.com';
-const README_LINES_WINDOW = 20;
+const README_LINES_WINDOW = 20; // metadados ficam no topo do README
 
 async function ensureFetch() {
   if (typeof fetch === 'function') return fetch;
@@ -53,9 +53,17 @@ function parseReadmeMeta(readmeContent) {
 
   const lines = readmeContent.split(/\r?\n/).slice(0, README_LINES_WINDOW);
 
+  // Formato esperado:
+  // # Título
+  // > **short_description:** ... ;
+  // >
+  // > **full_description:** ... ;
+  // >
+  // > **technologies:** ... ;
   let title = null;
   let shortDescription = null;
   let fullDescription = null;
+  let technologies = null;
 
   for (const raw of lines) {
     const line = raw.trim();
@@ -65,12 +73,9 @@ function parseReadmeMeta(readmeContent) {
     }
 
     if (!shortDescription) {
-      // Aceita linha que comece com > **short_description:** e captura o resto
       const mShort = line.match(/^>\s*\*\*short_description:\*\*\s*(.+)$/i);
       if (mShort) {
-        shortDescription = mShort[1].trim();
-        // Remove ponto e vírgula ou ponto final do final, se houver
-        shortDescription = shortDescription.replace(/[.;]\s*$/, '');
+        shortDescription = mShort[1].trim().replace(/[.;]\s*$/, '');
         continue;
       }
     }
@@ -78,18 +83,25 @@ function parseReadmeMeta(readmeContent) {
     if (!fullDescription) {
       const mFull = line.match(/^>\s*\*\*(full_description|description):\*\*\s*(.+)$/i);
       if (mFull) {
-        fullDescription = mFull[2].trim();
-        fullDescription = fullDescription.replace(/[.;]\s*$/, '');
+        fullDescription = mFull[2].trim().replace(/[.;]\s*$/, '');
         continue;
       }
     }
 
-    if (title && shortDescription && fullDescription) break;
+    if (!technologies) {
+      const mTech = line.match(/^>\s*\*\*technologies:\*\*\s*(.+)$/i);
+      if (mTech) {
+        technologies = mTech[1].trim().replace(/[.;]\s*$/, '');
+        continue;
+      }
+    }
+
+    // Se já encontrou todos, pode parar
+    if (title && shortDescription && fullDescription && technologies) break;
   }
 
-  if (!title && !shortDescription && !fullDescription) return null;
-
-  return { title, shortDescription, fullDescription };
+  // Retorna apenas os campos encontrados (podem ser null)
+  return { title, shortDescription, fullDescription, technologies };
 }
 
 async function handler() {
@@ -144,6 +156,7 @@ async function handler() {
         description: readmeMeta?.fullDescription || repo.description || '',
         short_description: readmeMeta?.shortDescription || repo.short_description || repo.description || '',
         readmeTitle: readmeMeta?.title || repo.name,
+        technologies: readmeMeta?.technologies || '', // novo campo
         created_at: repo.created_at,
         updated_at: repo.updated_at,
         topics: repo.topics || [],
