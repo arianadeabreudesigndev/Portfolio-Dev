@@ -40,10 +40,15 @@
     width: 100%;
     height: 100%;
     margin-bottom: 1em;
+    cursor: pointer;
   }
 
   .sticky-bar ul li a:hover img {
     filter: invert(10%) sepia(50%) saturate(9000%) hue-rotate(290deg) brightness(100%) contrast(90%);
+  }
+
+  .sticky-bar ul li a.active img {
+    filter: invert(10%) sepia(50%) saturate(9000%) hue-rotate(290deg) brightness(100%) contrast(90%) !important;
   }
 
   .svg-image {
@@ -53,5 +58,10 @@
 
   html[data-theme="dark"] .sticky-bar ul li a img {
     filter: brightness(0) invert(1);
+  }
+
+  html[data-theme="dark"] .sticky-bar ul li a:hover img,
+  html[data-theme="dark"] .sticky-bar ul li a.active img {
+    filter: invert(10%) sepia(50%) saturate(9000%) hue-rotate(290deg) brightness(100%) contrast(90%);
   }
 }
