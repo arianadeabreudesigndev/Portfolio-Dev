@@ -257,17 +257,15 @@ class LanguageManager {
         }
     }
 
+    // Método atualizado para usar o seletor baseado em data-i18n-href
     updateDownloadLinks() {
         if (this.currentLanguage === 'en') {
             try {
-                // Procura por links que tenham cv-pt.pdf no href
-                const cvLinks = document.querySelectorAll('a[href*="cv-pt.pdf"]');
+                // Procura por links que tenham data-i18n-href="cv-pt"
+                const cvLinks = document.querySelectorAll('a[data-i18n-href="cv-pt"]');
                 cvLinks.forEach(cvLink => {
-                    cvLink.href = '/src/docs/cv-en.pdf';
-                    const downloadName = this.getTranslation('cv');
-                    if (downloadName) {
-                        cvLink.download = downloadName;
-                    }
+                    cvLink.href = '/src/docs/ArianaDeAbreu_CV_Dev_EN.pdf';
+                    cvLink.download = 'ArianaDeAbreu_CV_Dev_EN.pdf';
                 });
             } catch (error) {
                 console.warn('Erro ao atualizar links de download:', error);
@@ -275,16 +273,16 @@ class LanguageManager {
         }
     }
 
+    // Método restaura os links para português
     restoreDownloadLinks() {
         try {
-            // Procura por links que tenham cv-en.pdf no href
-            const cvLinks = document.querySelectorAll('a[href*="cv-en.pdf"]');
+            // Procura por links que tenham data-i18n-href="cv-pt"
+            const cvLinks = document.querySelectorAll('a[data-i18n-href="cv-pt"]');
             cvLinks.forEach(cvLink => {
-                cvLink.href = '/src/docs/cv-pt.pdf';
-                const downloadName = this.getTranslation('cv');
-                if (downloadName) {
-                    cvLink.download = downloadName;
-                }
+                // Restaura o href para o arquivo em português
+                cvLink.href = '/src/docs/ArianaDeAbreu_CV_Dev.pdf';
+                // Define o atributo download com o nome do arquivo em português
+                cvLink.download = 'ArianaDeAbreu_CV_Dev.pdf';
             });
         } catch (error) {
             console.warn('Erro ao restaurar links de download:', error);
