@@ -1,7 +1,6 @@
 function buildCard(project) {
   const card = document.createElement('div');
   card.className = 'projectItem';
-
   // Determina a lista de tecnologias: prioriza o campo 'technologies' do README,
   // se não existir, usa languageList (fallback)
   let techList = [];
@@ -12,7 +11,6 @@ function buildCard(project) {
     techList = project.languageList || [];
   }
 
-  // Guarda no dataset como string separada por espaços (case insensitive)
   card.dataset.tech = techList.join(' ').toLowerCase();
   card.dataset.category = project.topics[0] || 'uncategorized';
   card.dataset.status = 'completed';
@@ -24,7 +22,9 @@ function buildCard(project) {
     .map(tag => `<span class="tag">${tag}</span>`)
     .join('');
 
-  const imageSrc = project.previewUrl || '/src/img/project-Images/Portfolio.svg';
+  // Imagem de fallback: se não houver previewUrl, usa imagem padrão de "em construção"
+  const fallbackImage = '/src/img/project-Images/emConstrucao.svg'; // HEY!!! MUDA ISSO AQUI, CABEÇUDA!
+  const imageSrc = project.previewUrl || fallbackImage;
 
   card.innerHTML = `
     <a href="${project.repoUrl}" class="project-image-link" target="_blank" rel="noopener">

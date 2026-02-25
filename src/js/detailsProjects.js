@@ -115,8 +115,14 @@ class ProjectsModal {
             githubBtn.href = this.currentProjectData.githubUrl;
         }
 
-        if (demoBtn && this.currentProjectData.demoUrl) {
-            demoBtn.href = this.currentProjectData.demoUrl;
+        // Se não houver demoUrl, esconde o botão demo, senão mostra e define href
+        if (demoBtn) {
+            if (this.currentProjectData.demoUrl && this.currentProjectData.demoUrl.trim() !== '') {
+                demoBtn.href = this.currentProjectData.demoUrl;
+                demoBtn.style.display = 'flex'; // ou '' para restaurar o estilo padrão
+            } else {
+                demoBtn.style.display = 'none';
+            }
         }
 
         this.updateTranslatedContent();
