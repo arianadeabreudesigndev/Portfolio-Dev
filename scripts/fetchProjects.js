@@ -5,8 +5,6 @@
  *  2) Para cada repositório, busca linguagens e README.md bruto.
  *  3) Lê o cabeçalho padronizado do README (title, short_description, description).
  *  4) Monta o objeto final e grava em ../projects.json.
- *
- * Use Node 18+ (fetch nativo). Opcional: definir GITHUB_TOKEN para ampliar o rate limit.
  */
 
 const fs = require('fs/promises');
@@ -77,17 +75,17 @@ function parseReadme(readme) {
     }
 
     if (!shortDescription) {
-      const matchShort = line.match(/^>\s*\*\*short_description:\*\*\s*(.+?)\s*;\s*$/i);
+      const matchShort = line.match(/^>\s*\*\*short_description:\*\*\s*(.+)$/i);
       if (matchShort) {
-        shortDescription = matchShort[1].trim();
+        shortDescription = matchShort[1].trim().replace(/[.;]\s*$/, '');
         continue;
       }
     }
 
     if (!description) {
-      const matchDescription = line.match(/^>\s*\*\*(full_description|description):\*\*\s*(.+?)\s*;\s*$/i);
+      const matchDescription = line.match(/^>\s*\*\*(full_description|description):\*\*\s*(.+)$/i);
       if (matchDescription) {
-        description = matchDescription[2].trim();
+        description = matchDescription[2].trim().replace(/[.;]\s*$/, '');
         continue;
       }
     }
@@ -175,4 +173,3 @@ main().catch(error => {
   console.error('Erro inesperado:', error);
   process.exit(1);
 });
-

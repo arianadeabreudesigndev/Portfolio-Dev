@@ -70,17 +70,21 @@ function parseReadmeMeta(readmeContent) {
     }
 
     if (!shortDescription) {
-      const mShort = line.match(/^>\s*\*\*short_description:\*\*\s*(.+?)\s*;\s*$/i);
+      // Aceita linha que comece com > **short_description:** e captura o resto
+      const mShort = line.match(/^>\s*\*\*short_description:\*\*\s*(.+)$/i);
       if (mShort) {
         shortDescription = mShort[1].trim();
+        // Remove ponto e vírgula ou ponto final do final, se houver
+        shortDescription = shortDescription.replace(/[.;]\s*$/, '');
         continue;
       }
     }
 
     if (!fullDescription) {
-      const mFull = line.match(/^>\s*\*\*(full_description|description):\*\*\s*(.+?)\s*;\s*$/i);
+      const mFull = line.match(/^>\s*\*\*(full_description|description):\*\*\s*(.+)$/i);
       if (mFull) {
         fullDescription = mFull[2].trim();
+        fullDescription = fullDescription.replace(/[.;]\s*$/, '');
         continue;
       }
     }
@@ -174,4 +178,3 @@ async function handler() {
 }
 
 module.exports = { handler };
-
