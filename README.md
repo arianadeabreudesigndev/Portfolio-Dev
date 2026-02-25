@@ -1,3 +1,5 @@
+# Portfólio Profissional - Ariana de Abreu
+
 Este repositório contém o código-fonte do meu **portfólio profissional**, desenvolvido com o objetivo de apresentar minha trajetória, habilidades técnicas e projetos de forma clara, organizada e acessível para recrutadores e profissionais das áreas de tecnologia e design.
 
 Todo o conceito visual, arquitetura do site e estrutura de navegação foram idealizados e desenhados por mim no **Figma**, passando por diversas iterações ao longo do desenvolvimento. O projeto evoluiu tanto em identidade visual quanto em decisões técnicas, sempre com foco em **experiência do usuário, performance e legibilidade**.
@@ -6,7 +8,13 @@ O site foi **intencionalmente desenvolvido utilizando HTML, CSS e JavaScript pur
 
 ---
 
-## Estrutura do site
+## 🔗 Link do Projeto
+
+[https://portfolioariandeabreudesigndev.netlify.app/](https://portfolioariandeabreudesigndev.netlify.app/)
+
+---
+
+## 📁 Estrutura do Site
 
 O portfólio é composto pelas seguintes seções principais:
 
@@ -27,35 +35,33 @@ Em dispositivos móveis e tablets, a navegação se adapta automaticamente para 
 
 ---
 
-## Internacionalização, temas e responsividade
+## 🌐 Internacionalização, Temas e Responsividade
 
 - Suporte completo a **Português e Inglês**, com troca dinâmica de idioma  
 - Todo o conteúdo textual e downloads se adaptam ao idioma selecionado  
 - Alternância entre **tema claro e tema escuro**, disponível em todos os dispositivos  
 - Layout **totalmente responsivo**, com versões específicas para:
-  - Desktop
-  - Tablet
-  - Mobile
+  - Desktop (≥1400px)
+  - Tablet (768px a 1399px)
+  - Mobile (≤767px)
 
 Cada breakpoint foi tratado individualmente para garantir conforto visual, boa hierarquia da informação e navegação fluida.
 
 ---
 
-## Seção Home
+## 🏠 Seção Home
 
 A Home apresenta uma visão direta do perfil, contendo:
 
 - Foto de apresentação  
 - Ícones de tecnologias  
-- Botão para **download do currículo**
-
-O currículo é baixado dinamicamente de acordo com o idioma selecionado.
+- Botão para **download do currículo** (o arquivo é baixado dinamicamente de acordo com o idioma selecionado)
 
 Há também uma **âncora de acesso rápido** que leva diretamente à seção de projetos, permitindo que o visitante chegue rapidamente ao conteúdo técnico.
 
 ---
 
-## About Me
+## 👤 About Me
 
 A seção **About Me** é estruturada em artigos independentes, especialmente pensados para diferentes tamanhos de tela.
 
@@ -67,44 +73,40 @@ Ela inclui:
 - Hobbies e interesses pessoais  
 - Apresentação de um **blog em desenvolvimento**, que aborda minha trajetória com hipotireoidismo de Hashimoto e mudanças de estilo de vida
 
-Cada artigo possui imagens próprias e layout adaptado conforme o dispositivo.
+Cada artigo possui imagens próprias e layout adaptado conforme o dispositivo. Além disso, foram adicionados **hyperlinks** nos textos para referências externas (como certificações e o blog), com destaque visual e sem sublinhado.
 
 ---
 
-## Projects
+## 💻 Projects
 
 A seção de projetos é **totalmente dinâmica**, integrada à **API do GitHub**.
 
-Ao acessar o site:
-
+### Como funciona:
 - É realizada uma requisição única à API  
 - Os projetos são carregados diretamente do GitHub  
-- Apenas repositórios marcados com **tag de portfólio** são exibidos  
+- Apenas repositórios marcados com a **tag `portfolio`** são exibidos  
 
-Cada projeto apresenta:
-
+### Cada projeto apresenta:
 - Nome  
-- Tecnologias utilizadas  
+- Tecnologias utilizadas (agora personalizadas via campo `technologies:` no README)  
 - Descrição curta  
 - Descrição longa, personalizada  
 
-Além disso, quando o usuário clica em um projeto, abre-se uma janela de detalhamento do projeto, exibindo informações mais completas e dois botões: um para acessar o repositório no GitHub e outro para visualizar o projeto ao vivo, permitindo que o visitante explore o projeto em tempo real.
-
-Funcionalidades adicionais:
-
-- **Filtro por tecnologia**  
+### Funcionalidades:
+- **Filtro por tecnologia** (baseado nas tecnologias informadas no README)  
 - Opção de **aplicar ou limpar filtros**  
 - Navegação por setas e rolagem interna  
 - Limitador visual de linhas para evitar excesso de conteúdo na tela  
- 
-Funcionalidades futuras planejadas:
+- **Imagem de fallback** para projetos sem preview (exibe uma imagem personalizada indicando "em construção")  
+- **Botão "Live Demo" oculto** quando o projeto não possui link de demonstração  
 
+### Funcionalidades futuras planejadas:
 - Filtro por status do projeto (finalizado ou em andamento)  
 - Filtro por data  
 
 ---
 
-## Skills (Expertise)
+## 🛠️ Skills (Expertise)
 
 A seção **Skills** apresenta minha experiência técnica de forma interativa.
 
@@ -125,7 +127,7 @@ Essa separação permite uma leitura clara e direcionada para diferentes perfis 
 
 ---
 
-## Contact
+## 📬 Contact
 
 A seção de contato reúne:
 
@@ -133,12 +135,12 @@ A seção de contato reúne:
 - E-mail profissional  
 - Telefone  
 - Links diretos para:
-  - LinkedIn
-  - WhatsApp
-  - Instagram
-  - YouTube
+  - [LinkedIn](https://www.linkedin.com/in/arianadeabreudev)
+  - [WhatsApp](https://tinyurl.com/AriWhatssap)
+  - [Instagram](https://www.instagram.com/arianadeabreudesigner)
+  - [YouTube](https://www.youtube.com/@ArianaDeAbreuDev)
 
-Além disso, há um **formulário funcional**, onde o visitante pode enviar:
+Além disso, há um **formulário funcional** (integrado com EmailJS) onde o visitante pode enviar:
 
 - Nome  
 - E-mail  
@@ -149,15 +151,14 @@ As mensagens são encaminhadas diretamente para meu e-mail profissional.
 
 ---
 
-## Recommendations
+## 🌟 Recommendations
 
 A seção de recomendações reúne feedbacks profissionais de pessoas com quem já trabalhei.
 
 Atualmente inclui:
 
 - **Rosana Gildo Vieira**, Diretora de Estatística e Gestão do Sistema Educacional de Saquarema  
-  - Recomendação apresentada em papel timbrado oficial da Secretaria de Educação  
-  - Com assinatura formal  
+  - Recomendação apresentada em papel timbrado oficial da Secretaria de Educação, com assinatura formal  
 
 - **Flávio Macedo**, ex-Assessor de Políticas Públicas da Educação de Saquarema  
 
@@ -165,7 +166,7 @@ Essa seção reforça minha atuação profissional e a percepção externa sobre
 
 ---
 
-## Footer
+## 🦶 Footer
 
 O footer contém:
 
@@ -177,35 +178,49 @@ O ano exibido no copyright é **gerado dinamicamente via JavaScript**, sendo atu
 
 ---
 
-## Performance e decisões técnicas
+## ⚡ Performance e Decisões Técnicas
 
 Performance foi um dos pilares do projeto.
 
-Principais decisões:
-
-- Todas as imagens do site são **SVG**  
+### Principais decisões:
+- Todas as imagens do site são **SVG** (exceto fotos de perfil e recomendações, que são otimizadas)  
 - Arquivos extremamente leves, mantendo boa qualidade visual  
 - Carregamento rápido, sem atrasos perceptíveis  
+- Organização do código por **seções independentes**, facilitando manutenção, leitura e evolução futura  
 
-A organização do código foi feita por **seções independentes**, facilitando manutenção, leitura e evolução futura do projeto.
+### Tecnologias utilizadas:
+- HTML5 semântico  
+- CSS3 (Flexbox, Grid, Variáveis CSS, Animações)  
+- JavaScript (ES6+)  
+- Netlify Functions (para integração com a API do GitHub)  
+- EmailJS (para o formulário de contato)  
 
 ---
 
-## Evolução futura
+## 🚀 Evolução Futura
 
-Este projeto está em constante evolução.
-
-Ideias futuras incluem:
+Este projeto está em constante evolução. Algumas ideias para o futuro incluem:
 
 - Refinamento tipográfico  
 - Melhoria do modo claro  
 - Recursos de acessibilidade, como ajuste de tamanho de fonte  
-- Destaques textuais e hyperlinks  
-- Novas seções  
+- Destaques textuais e hyperlinks adicionais  
+- Novas seções (ex: linha do tempo profissional)  
 - Maior dinamicidade de conteúdo  
 - Possível integração com redes sociais ou sistema de comentários  
 
-Link do projeto online: https://portfolioariandeabreudesigndev.netlify.app/
+---
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+---
+
+## 📬 Contato
+
 Sugestões, críticas construtivas e feedbacks, especialmente de profissionais de TI, são **muito bem-vindos**. Toda troca de conhecimento é valorizada e contribui diretamente para minha evolução profissional.
 
-
+- **E-mail:** arianadeabreudesigndev@gmail.com  
+- **LinkedIn:** [linkedin.com/in/arianadeabreudev](https://www.linkedin.com/in/arianadeabreudev)  
+- **Portfólio online:** [https://portfolioariandeabreudesigndev.netlify.app/](https://portfolioariandeabreudesigndev.netlify.app/)
