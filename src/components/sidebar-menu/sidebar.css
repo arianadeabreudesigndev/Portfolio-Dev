@@ -10,7 +10,7 @@
     left: calc(50% + min(50vw, 960px) + -10em);
     background-color: var(--color-surface);
     width: 3.5em;
-    height: 20em;
+    height: 24em;
     border-radius: 3em;
   }
 
@@ -47,7 +47,11 @@
   }
 
   .svg-image {
-    height: 1.3em;
+    height: 1.5em; 
     pointer-events: none;
+  }
+
+  html[data-theme="dark"] .sticky-bar ul li a img {
+    filter: brightness(0) invert(1);
   }
 }
