@@ -274,66 +274,17 @@ class AboutMeMenu {
         }
         
         if (window.languageManager) {
-            this.applyContentThroughLanguageManager(option, descriptionElement, headingElement);
+            // Usa exclusivamente as traduções do languageManager
+            const translationKeys = this.getTranslationKeys(option);
+            const headingText = window.languageManager.getTranslation(translationKeys.heading) || '';
+            const descriptionText = window.languageManager.getTranslation(translationKeys.description) || '';
+            
+            headingElement.textContent = headingText;
+            descriptionElement.innerHTML = descriptionText; // innerHTML permite tags HTML (links)
         } else {
+            // Fallback caso languageManager não esteja disponível
             this.applyFallbackContent(option, descriptionElement, headingElement);
         }
-    }
-    
-    applyContentThroughLanguageManager(option, descriptionElement, headingElement) {
-        const langManager = window.languageManager;
-        const isPortuguese = langManager.getCurrentLanguage() === 'pt-BR';
-        
-        const translationKeys = this.getTranslationKeys(option);
-        
-        if (isPortuguese) {
-            this.applyPortugueseContent(option, descriptionElement, headingElement);
-        } else {
-            this.applyEnglishContent(option, descriptionElement, headingElement);
-        }
-        
-        headingElement.setAttribute('data-i18n', translationKeys.heading);
-        descriptionElement.setAttribute('data-i18n', translationKeys.description);
-    }
-    
-    applyPortugueseContent(option, descriptionElement, headingElement) {
-        const contentMap = {
-            tailane: {
-                heading: "Sobre mim",
-                description: "Desde a infância sempre fui autodidata, aprendi a explorar os diversos softwares sozinha, descobrindo minha afinidade natural com design, programação e games. A curiosidade virou prática, e a prática virou paixão por criar soluções digitais que unem estética e funcionalidade.<br><br>Minha trajetória não foi simples: cresci em uma região rural, com poucos recursos, mas isso nunca me impediu de buscar conhecimento. Conquistei uma vaga em uma universidade federal no curso de Sistemas de Informação, onde cheguei até o último ano. Pretendo retomar e concluir a graduação já no próximo ano, consolidando ainda mais minha formação, mas já possuo outras.<br><br>Sigo evoluindo com dedicação em design e tecnologia, criando experiências digitais úteis e bem construídas. Este portfólio foi desenvolvido inteiramente por mim, desde o design de cada página no Figma até a implementação final com HTML, CSS e JavaScript, sobre bases sólidas, o bem-feito arroz com feijão, reforçando meu compromisso com o desenvolvimento em bases consistentes rumo ao objetivo de me tornar desenvolvedora Full Stack sênior."
-            },
-            certifications: {
-                heading: "Certificações",
-                description: "Graduação em Sistemas de Informação (UFF, conclusão em breve)<br><br>Técnico em Administração (1200h, cursando - gestão, logística)<br><br>Técnico em Marketing (800h, concluído - comportamento do consumidor, branding, mídias digitais)<br><br>Administração de Banco de Dados (IFRS, cursando - SQL/NoSQL, performance)<br><br>Python para PLN (ICM - processamento textual, automação)<br><br>Projeto de Sistemas Web (IFRS, 30h - requisitos, UML)<br><br>Programação com Swift (Hackatruck - POO, APIs)<br><br>Automação de Sistemas (IFRS, 30h - Automação e Projeto; Robótica e Indústria; Máquinas e Redes)"
-            },
-            experience: {
-                heading: "Experiência",
-                description: "Freelancer Full Stack & Designer (2025-atual - desenvolvimento web, design para redes sociais)<br><br>Gerente de Desenvolvimento de Negócios - Desconto Urbano (2024 - estratégias de expansão, análise de mercado)<br><br>Estagiária de TI - Secretaria Municipal de Educação de Saquarema (2022-2023 - suporte em eventos, resolução de problemas de TI, manuais de sistemas, capacitação de usuários)<br><br>Analista de Banco de Dados - Hospital UNIMED (2020 - bancos Oracle, PL/SQL, otimização de queries)<br><br>Projeto \"How I Met Robin\" (em construção - colaboração com programadores e comunidades do Reddit e fãs da série How I Met Your Mother; criação de peça artística autoral, design, narrativa e desenvolvimento digital em equipe)"
-            },
-            hobbies: {
-                heading: "Hobbies", 
-                description: "Ciclismo noturno com o grupo Ciclistas Sem Fronteiras, explorando a cidade e enquanto tento não cair da bike<br><br>Clube do livro com programadores e profissionais de TI, debatendo livros técnicos e inovação<br><br>Blog Gluten No More, onde compartilho minha jornada com Hashimoto, aprendizados sobre saúde e exercícios para corpo e mente<br><br>Pintura, escultura e fotografia, além de desenho digital, já participei de competições e adoro experimentar novas técnicas para ver até onde minha criatividade vai<br><br>Jogo frequentemente e adoro desafios estratégicos ou cooperativos, se quiser jogar comigo é só chamar<br><br>Aos sábados, pedais até a praia, meu momento para recarregar energia e manter corpo e mente em equilíbrio"
-            },
-            blog: {
-                heading: "Blog",
-                description: "A Gluten No More é um blog que criei há 3 anos para compartilhar minha jornada com Hashimoto.<br><br>Convivo com essa condição autoimune desde os 12 anos, o que foi uma exceção, pois não é comum ela surgir tão cedo. Por isso, desenvolvi um foco intenso em manter saúde mental e física equilibradas, conciliando com meu interesse irrestrito em tecnologia.<br><br>A ideia de transformar meu blog pessoal em uma comunidade nasceu em 2025. Inicialmente era bem íntimo, mas agora estou reformulando completamente para lançar em breve uma plataforma comunitária sobre histórias, superação e uma vida saudável com a Hashimoto. Quero que a plataforma ajude outras pessoas a encontrar equilíbrio e inspiração, assim como me ajudou compartilhar minhas experiências.<br><br>Pretendo usar minhas habilidades em desenvolvimento Full Stack e design para criar uma experiência digital intuitiva e acolhedora, integrando conteúdo e interação de forma que a tecnologia potencialize a comunidade, sempre me desenvolvendo no caminho rumo ao meu objetivo Full Stack."
-            }
-        };
-        
-        const content = contentMap[option] || contentMap.tailane;
-        headingElement.textContent = content.heading;
-        descriptionElement.innerHTML = content.description;
-    }
-    
-    applyEnglishContent(option, descriptionElement, headingElement) {
-        const langManager = window.languageManager;
-        const translationKeys = this.getTranslationKeys(option);
-        
-        const headingText = langManager.getTranslation(translationKeys.heading) || translationKeys.heading;
-        const descriptionText = langManager.getTranslation(translationKeys.description) || translationKeys.description;
-        
-        headingElement.textContent = headingText;
-        descriptionElement.innerHTML = descriptionText;
     }
     
     applyFallbackContent(option, descriptionElement, headingElement) {
@@ -341,6 +292,22 @@ class AboutMeMenu {
             tailane: {
                 heading: "About me",
                 description: "Self-taught since childhood, I've always been the family artist who fixed computers and created solutions to problems where others saw none.<br><br>I overcame health and access limitations to transform my childhood artistic gift and logical ease into full stack development expertise.<br><br>My goal is to reach senior level and have the freedom to create whatever I want, the way it deserves to be done: the best way possible."
+            },
+            certifications: {
+                heading: "Certifications",
+                description: "Information Systems Bachelor's Degree (UFF, completion soon)<br><br>Technical in Administration (1200h, in progress - management, logistics)<br><br>Technical in Marketing (800h, completed - consumer behavior, branding, digital media)<br><br>Database Administration (IFRS, in progress - SQL/NoSQL, performance)<br><br>Python for NLP (ICM - text processing, automation)<br><br>Web Systems Project (IFRS, 30h - requirements, UML)<br><br>Swift Programming (Hackatruck - OOP, APIs)<br><br>Systems Automation (IFRS, 30h - Automation and Project; Robotics and Industry; Machines and Networks)."
+            },
+            experience: {
+                heading: "Experience",
+                description: "Freelancer Full Stack & Designer (2025-current - web development, social media design)<br><br>Business Development Manager - Desconto Urbano (2024 - expansion strategies, market analysis)<br><br>IT Intern - Municipal Education Department of Saquarema (2022-2023 - event support, IT problem resolution, system manuals, user training)<br><br>Database Analyst - UNIMED Hospital (2020 - Oracle databases, PL/SQL, query optimization)<br><br>\"How I Met Robin\" Project (under construction - collaboration with programmers and communities from Reddit and How I Met Your Mother fans; creation of original artwork, design, narrative and digital development in team."
+            },
+            hobbies: {
+                heading: "Hobbies",
+                description: "Night cycling with the Ciclistas Sem Fronteiras group, exploring the city while trying not to fall off the bike<br><br>Book club with programmers and IT professionals, discussing technical books and innovation<br><br>Blog Gluten No More, where I share my journey with Hashimoto, learnings about health and exercises for body and mind<br><br>Painting, sculpture and photography, plus digital drawing, I've participated in competitions and love experimenting with new techniques to see how far my creativity goes<br><br>I often play games and love strategic or cooperative challenges, if you want to play with me just call<br><br>On Saturdays, bike rides to the beach, my moment to recharge energy and keep body and mind in balance."
+            },
+            blog: {
+                heading: "Blog",
+                description: "Gluten No More is a blog I created 3 years ago to share my journey with Hashimoto.<br><br>I've lived with this autoimmune condition since I was 12, which was an exception, as it's not common for it to appear so early. That's why I developed an intense focus on maintaining balanced mental and physical health, reconciling with my unrestricted interest in technology.<br><br>The idea of transforming my personal blog into a community was born in 2025. Initially it was very intimate, but now I'm completely reformulating it to soon launch a community platform about stories, overcoming and healthy living with Hashimoto. I want the platform to help other people find balance and inspiration, just as it helped me share my experiences.<br><br>I intend to use my Full Stack development and design skills to create an intuitive and welcoming digital experience, integrating content and interaction in a way that technology enhances the community, always developing on the path towards my Full Stack goal."
             }
         };
         

@@ -316,3 +316,14 @@
     display: none;
   }
 }
+
+/* Estilo para hyperlinks no texto do About Me */
+.about-link {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.about-link:hover {
+  opacity: 0.8;
+}
