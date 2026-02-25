@@ -23,12 +23,3 @@ loadingPage('contact', '/pages/6-contact/contact.html');
 loadingPage('recomendations', '/pages/7-recomendations/recomendation.html');
 loadingPage('sticky-bar', '/src/components/sidebar-menu/sidebar.html');
 loadingPage('footer', '/pages/8-footer/footer.html');
-
-
-
-
-
-
-
-
-
